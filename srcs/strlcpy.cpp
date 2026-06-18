@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:41:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 16:51:54 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/18 21:40:01 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ TEST(strlcpy, basic) {
 	const char*	src = "Hello, World!";
 	int			n = 20;
 
-	size_t	c_result = strlcpy(c, src, n);
-	size_t	ft_result = ft_strlcpy(ft, src, n);
+	size_t		c_result = strlcpy(c, src, n);
+	size_t		ft_result = ft_strlcpy(ft, src, n);
 
 	EXPECT_EQ(c_result, ft_result);
 	EXPECT_STREQ(c, ft);
@@ -36,8 +36,8 @@ TEST(strlcpy, zero_size) {
 	const char*	src = "Hello, World!";
 	int			n = 0;
 
-	size_t	c_result = strlcpy(c, src, n);
-	size_t	ft_result = ft_strlcpy(ft, src, n);
+	size_t		c_result = strlcpy(c, src, n);
+	size_t		ft_result = ft_strlcpy(ft, src, n);
 
 	EXPECT_EQ(c_result, ft_result);
 	EXPECT_STREQ(c, ft);
@@ -49,8 +49,8 @@ TEST(strlcpy, smaller_size) {
 	const char*	src = "Hello, World!";
 	int			n = 5;
 
-	size_t	c_result = strlcpy(c, src, n);
-	size_t	ft_result = ft_strlcpy(ft, src, n);
+	size_t		c_result = strlcpy(c, src, n);
+	size_t		ft_result = ft_strlcpy(ft, src, n);
 
 	EXPECT_EQ(c_result, ft_result);
 	EXPECT_STREQ(c, ft);
@@ -62,8 +62,8 @@ TEST(strlcpy, empty_string) {
 	const char*	src = "";
 	int			n = 20;
 
-	size_t	c_result = strlcpy(c, src, n);
-	size_t	ft_result = ft_strlcpy(ft, src, n);
+	size_t		c_result = strlcpy(c, src, n);
+	size_t		ft_result = ft_strlcpy(ft, src, n);
 
 	EXPECT_EQ(c_result, ft_result);
 	EXPECT_STREQ(c, ft);
@@ -75,8 +75,8 @@ TEST(strlcpy, exact_size) {
 	const char*	src = "Hello, World!";
 	int			n = 14;
 
-	size_t	c_result = strlcpy(c, src, n);
-	size_t	ft_result = ft_strlcpy(ft, src, n);
+	size_t		c_result = strlcpy(c, src, n);
+	size_t		ft_result = ft_strlcpy(ft, src, n);
 
 	EXPECT_EQ(c_result, ft_result);
 	EXPECT_STREQ(c, ft);

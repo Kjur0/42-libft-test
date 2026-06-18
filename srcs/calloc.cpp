@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:51:00 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 16:45:41 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/18 21:42:28 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ extern "C" {
 TEST(calloc, basic) {
 	size_t	nmemb = 5;
 	size_t	size = sizeof(int);
+	
 	int		*c_ptr = (int *)calloc(nmemb, size);
 	int		*ft_ptr = (int *)ft_calloc(nmemb, size);
 
@@ -34,6 +35,7 @@ TEST(calloc, basic) {
 TEST(calloc, zero_nmemb) {
 	size_t	nmemb = 0;
 	size_t	size = sizeof(int);
+
 	int		*c_ptr = (int *)calloc(nmemb, size);
 	int		*ft_ptr = (int *)ft_calloc(nmemb, size);
 
@@ -48,6 +50,7 @@ TEST(calloc, zero_nmemb) {
 TEST(calloc, zero_size) {
 	size_t	nmemb = 5;
 	size_t	size = 0;
+
 	int		*c_ptr = (int *)calloc(nmemb, size);
 	int		*ft_ptr = (int *)ft_calloc(nmemb, size);
 
@@ -62,6 +65,7 @@ TEST(calloc, zero_size) {
 TEST(calloc, overflow) {
 	size_t	nmemb = __SIZE_MAX__;
 	size_t	size = 2;
+
 	int		*c_ptr = (int *)calloc(nmemb, size);
 	int		*ft_ptr = (int *)ft_calloc(nmemb, size);
 

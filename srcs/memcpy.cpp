@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 16:20:48 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 16:41:38 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/18 21:43:36 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ TEST(memcpy, basic) {
 
 	memcpy(c, str, n);
 	ft_memcpy(ft, str, n);
+	
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }
 
@@ -36,6 +37,7 @@ TEST(memcpy, zero_length) {
 
 	memcpy(c, str, n);
 	ft_memcpy(ft, str, n);
+
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }
 
@@ -47,6 +49,7 @@ TEST(memcpy, null_char) {
 
 	memcpy(c, str, n);
 	ft_memcpy(ft, str, n);
+
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }
 
@@ -58,5 +61,6 @@ TEST(memcpy, partial_length) {
 
 	memcpy(c, str, n);
 	ft_memcpy(ft, str, n);
+
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }

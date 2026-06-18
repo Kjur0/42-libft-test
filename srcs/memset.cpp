@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:35:54 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 16:44:54 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/18 21:44:23 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ TEST(memset, basic) {
 
 	ft_memset(ft, 'x', n);
 	memset(c, 'x', n);
+
 	EXPECT_EQ(memcmp(ft, c, 14), 0);
 }
 
@@ -34,6 +35,7 @@ TEST(memset, full_length) {
 
 	ft_memset(ft, 'x', n);
 	memset(c, 'x', n);
+
 	EXPECT_EQ(memcmp(ft, c, n), 0);
 }
 
@@ -44,5 +46,6 @@ TEST(memset, non_printable) {
 
 	ft_memset(ft, '\0', n);
 	memset(c, '\0', n);
+	
 	EXPECT_EQ(memcmp(ft, c, 14), 0);
 }

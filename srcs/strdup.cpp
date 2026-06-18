@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:42:14 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 16:44:15 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/18 21:39:23 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ extern "C" {
 TEST(strdup, basic) {
 	const char*	str = "Hello, World!";
 
-	char*	c = strdup(str);
-	char*	ft = ft_strdup(str);
+	char*		c = strdup(str);
+	char*		ft = ft_strdup(str);
 
 	EXPECT_STREQ(c, ft);
 
@@ -32,8 +32,8 @@ TEST(strdup, basic) {
 TEST(strdup, empty_string) {
 	const char*	str = "";
 
-	char*	c = strdup(str);
-	char*	ft = ft_strdup(str);
+	char*		c = strdup(str);
+	char*		ft = ft_strdup(str);
 
 	EXPECT_STREQ(c, ft);
 
@@ -44,8 +44,8 @@ TEST(strdup, empty_string) {
 TEST(strdup, long_string) {
 	const char*	str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-	char*	c = strdup(str);
-	char*	ft = ft_strdup(str);
+	char*		c = strdup(str);
+	char*		ft = ft_strdup(str);
 
 	EXPECT_STREQ(c, ft);
 
@@ -56,8 +56,8 @@ TEST(strdup, long_string) {
 TEST(strdup, string_with_null_char) {
 	const char	str[] = "Hello\0World";
 
-	char*	c = strdup(str);
-	char*	ft = ft_strdup(str);
+	char*		c = strdup(str);
+	char*		ft = ft_strdup(str);
 
 	EXPECT_STREQ(c, ft);
 
