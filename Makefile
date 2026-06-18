@@ -5,37 +5,54 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/06/17 10:41:30 by kjurkows          #+#    #+#              #
-#    Updated: 2026/06/17 15:35:54 by kjurkows         ###   ########.fr        #
+#    Created: 2026/06/18 12:43:32 by kjurkows          #+#    #+#              #
+#    Updated: 2026/06/18 16:57:20 by kjurkows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC			=	cc
-CFLAGS		=	-Wall -Wextra -Werror -Ilibft -g
-LDFLAGS		=	-Llibft -lft
+NAME		=	libft-test
 
-SRCDIR		=	./srcs
-OUTDIR		=	./bin
+CXX			=	g++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++17
 
- # all .c file basename in srcs
-TESTS		=	$(patsubst $(SRCDIR)/%.c, %, $(wildcard $(SRCDIR)/*.c))
+LIBFT_DIR	=	./libft
+SRCS_DIR	=	./srcs
+BIN_DIR		=	./bin
+OBJS_DIR	=	./build
 
-RM			=	rm -rf
+LIBFT		=	$(LIBFT_DIR)/libft.a
+GTEST_FLAGS	=	-lgtest -lpthread
+INCLUDES	=	-I$(LIBFT_DIR)
 
-all: libft $(TESTS)
+SRCS		=	$(wildcard $(SRCS_DIR)/*.cpp)
+OBJS		=	$(patsubst $(SRCS_DIR)/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
+MAIN_OBJ	=	$(OBJS_DIR)/_main.o
 
-%: $(SRCDIR)/%.c
-	@mkdir -p $(OUTDIR)
-	@$(CC) $(CFLAGS) -o $(OUTDIR)/$@ $< $(LDFLAGS)
+all:	$(NAME)
 
-pre:
-	@make -C libft
+$(NAME):	$(OBJS) $(LIBFT) | $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -lbsd $(GTEST_FLAGS) -o $(BIN_DIR)/$(NAME)
 
-debug: CFLAGS += -g
-debug: all
+$(OBJS_DIR)/%.o:	$(SRCS_DIR)/%.cpp | $(OBJS_DIR)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+
+%:	$(OBJS_DIR)/%.o $(MAIN_OBJ) $(LIBFT) |$(BIN_DIR)
+	$(CXX) $(CXXFLAGS) $^ -L$(LIBFT_DIR) -lft -lbsd $(GTEST_FLAGS) -o $(BIN_DIR)/$@
+
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+
+$(BIN_DIR) $(OBJS_DIR):
+	@mkdir -p $@
 
 clean:
-	@$(RM) $(OUTDIR)
-	@make -C libft clean
+	rm -rf $(OBJS_DIR)
+	@if [ -d $(LIBFT_DIR) ]; then make -C $(LIBFT_DIR) clean; fi
 
-.PHONY: pre debug clean
+fclean:	clean
+	rm -rf $(BIN_DIR)
+	@if [ -d $(LIBFT_DIR) ]; then make -C $(LIBFT_DIR) fclean; fi
+
+re:	fclean all
+
+.PHONY: all clean fclean re
