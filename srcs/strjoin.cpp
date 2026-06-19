@@ -6,15 +6,11 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 14:42:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/19 16:06:01 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:32:09 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
-
-#include <gtest/gtest.h>
+#include "main.hpp"
 
 TEST(strjoin, basic) {
 	char	s1[] = "Hello, ";

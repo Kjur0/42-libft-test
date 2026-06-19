@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:40:28 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/19 13:47:34 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:32:34 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(strmapi, index) {
 	char	str[] = "9876543210";

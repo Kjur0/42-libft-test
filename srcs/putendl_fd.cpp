@@ -6,17 +6,13 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:32:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:57:08 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:31:27 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <fcntl.h>
 #include <unistd.h>
-
-#include <gtest/gtest.h>
 
 TEST(putendl_fd, test) {
 	char	s[] = "Hello, World!";

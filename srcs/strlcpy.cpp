@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:41:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:40:01 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:32:22 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <bsd/string.h>
-
-#include <gtest/gtest.h>
 
 TEST(strlcpy, basic) {
 	char		c[20];
@@ -31,8 +27,8 @@ TEST(strlcpy, basic) {
 }
 
 TEST(strlcpy, zero_size) {
-	char		c[20] = "";
-	char		ft[20] = "";
+	char		c[20] = "t";
+	char		ft[20] = "t";
 	const char*	src = "Hello, World!";
 	int			n = 0;
 

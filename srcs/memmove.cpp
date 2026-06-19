@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:29:36 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:51:29 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 21:32:04 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(memmove, move_backwards) {
 	char	c_str[] = "hello world";
@@ -90,4 +86,12 @@ TEST(memmove, in_place) {
 	ft_memmove(ft, ft_s, n - 2);
 
 	EXPECT_EQ(memcmp(c_str, ft_str, n), 0);
+}
+
+TEST(memmove, null_pointer) {
+	const char	*str = nullptr;
+	char		*ft = nullptr;
+	const int	n = 5;
+
+	EXPECT_EQ(ft_memmove(ft, str, n), nullptr);
 }

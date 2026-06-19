@@ -6,18 +6,14 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:57:19 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:41:11 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 20:04:49 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
 
-#include <gtest/gtest.h>
-
-TEST(toupper, Basic) {
+TEST(toupper, basic) {
 	int	a = 'a';
 	int	z = 'z';
 	int	A = 'A';
@@ -71,7 +67,7 @@ TEST(toupper, null_char) {
 	EXPECT_EQ(toupper(null_char), ft_toupper(null_char));
 }
 
-TEST(toupper, all_characters) {
+TEST(toupper, all_chars) {
 	for (int i = -128; i <= 255; ++i) {
 		EXPECT_EQ(toupper(i), ft_toupper(i));
 	}
@@ -79,6 +75,6 @@ TEST(toupper, all_characters) {
 
 TEST(toupper, eof) {
 	int	eof = EOF;
-	
+
 	EXPECT_EQ(toupper(eof), ft_toupper(eof));
 }

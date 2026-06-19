@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:24:53 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 14:53:39 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 20:21:14 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(memchr, basic) {
 	const char	str[] = "Hello, world!";
@@ -62,9 +58,9 @@ TEST(memchr, null_char) {
 }
 
 TEST(memchr, non_ascii) {
-	const char	str[] = "Hello, world!";
+	const char	str[] = "Hello, \255world!";
 	int			ch = 255;
-	size_t		n = 14;
+	size_t		n = 15;
 
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
@@ -74,7 +70,7 @@ TEST(memchr, non_ascii) {
 
 TEST(memchr, multiple_occurrences) {
 	const char	str[] = "Hello, world!";
-	int			ch = 'o';
+	int			ch = 'l';
 	size_t		n = 14;
 
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));

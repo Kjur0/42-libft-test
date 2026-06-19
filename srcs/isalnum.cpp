@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:56:42 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:42:39 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:29:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <ctype.h>
-
-#include <gtest/gtest.h>
 
 TEST(isalnum, space) {
 	char	c = ' ';
@@ -61,6 +57,22 @@ TEST(isalnum, control_char) {
 
 TEST(isalnum, non_ascii) {
 	char	c = 255;
-	
+
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
+}
+
+TEST(isalnum, undefined_behavior) {
+	int	c = 256 + 'a';
+	int	d = 256 + '0';
+	int	e = 256 + '-';
+	int	f = 256 + ' ';
+	int	g = 256 + '\r';
+	int	h = -1;
+
+	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
+	EXPECT_EQ(!isalnum(d), !ft_isalnum(d));
+	EXPECT_EQ(!isalnum(e), !ft_isalnum(e));
+	EXPECT_EQ(!isalnum(f), !ft_isalnum(f));
+	EXPECT_EQ(!isalnum(g), !ft_isalnum(g));
+	EXPECT_EQ(!isalnum(h), !ft_isalnum(h));
 }

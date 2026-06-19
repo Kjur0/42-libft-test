@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:55:07 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:40:39 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:32:44 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <bsd/string.h>
-
-#include <gtest/gtest.h>
 
 TEST(strnstr, found) {
 	const char	str[] = "Hello, world!";

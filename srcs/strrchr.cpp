@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strtchr.cpp                                        :+:      :+:    :+:   */
+/*   strrchr.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:39:50 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 18:56:46 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 21:50:49 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(strrchr, basic) {
 	const char	str[] = "Hello, World!";
@@ -60,6 +56,16 @@ TEST(strrchr, empty_string) {
 TEST(strrchr, multiple_occurrences) {
 	const char	str[] = "Hello, World!";
 	char		c = 'l';
+
+	const char*	c_result = strrchr(str, c);
+	const char*	ft_result = ft_strrchr(str, c);
+
+	EXPECT_EQ(c_result, ft_result);
+}
+
+TEST(strrchr, non_ascii) {
+	const char	str[] = "abc";
+	int			c = 256 + 'a'; // 353
 
 	const char*	c_result = strrchr(str, c);
 	const char*	ft_result = ft_strrchr(str, c);

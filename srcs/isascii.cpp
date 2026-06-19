@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:02:03 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:42:58 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:30:03 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <ctype.h>
-
-#include <gtest/gtest.h>
 
 TEST(isascii, space) {
 	char	c = ' ';
@@ -63,4 +59,20 @@ TEST(isascii, non_ascii) {
 	char	c = 255;
 
 	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+}
+
+TEST(isascii, undefined_behavior) {
+	int	c = 256 + 'a';
+	int	d = 256 + 'A';
+	int	e = 256 + '-';
+	int	f = 256 + ' ';
+	int	g = 256 + '\r';
+	int	h = -1;
+
+	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	EXPECT_EQ(!isascii(d), !ft_isascii(d));
+	EXPECT_EQ(!isascii(e), !ft_isascii(e));
+	EXPECT_EQ(!isascii(f), !ft_isascii(f));
+	EXPECT_EQ(!isascii(g), !ft_isascii(g));
+	EXPECT_EQ(!isascii(h), !ft_isascii(h));
 }

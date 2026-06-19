@@ -6,21 +6,17 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:51:00 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:42:28 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:29:21 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <stdlib.h>
-
-#include <gtest/gtest.h>
 
 TEST(calloc, basic) {
 	size_t	nmemb = 5;
 	size_t	size = sizeof(int);
-	
+
 	int		*c_ptr = (int *)calloc(nmemb, size);
 	int		*ft_ptr = (int *)ft_calloc(nmemb, size);
 

@@ -6,15 +6,11 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 22:04:11 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 22:05:29 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:30:23 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
-
-#include <gtest/gtest.h>
+#include "main.hpp"
 
 TEST(itoa, 0) {
 	EXPECT_STREQ(ft_itoa(0), "0");

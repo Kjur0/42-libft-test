@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _main.cpp                                          :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 12:28:55 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/19 19:29:09 by kjurkows         ###   ########.fr       */
+/*   Created: 2026/06/19 19:28:03 by kjurkows          #+#    #+#             */
+/*   Updated: 2026/06/19 19:28:44 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#pragma once
 
-int	main(int argc, char **argv)
-{
-	::testing::InitGoogleTest(&argc, argv);
-	return (RUN_ALL_TESTS());
+#include <gtest/gtest.h>
+
+extern "C" {
+	#define new n
+	#include <libft.h>
+	#undef new
 }

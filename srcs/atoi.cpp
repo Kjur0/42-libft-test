@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 10:57:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:41:50 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 21:23:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <stdlib.h>
-
-#include <gtest/gtest.h>
 
 TEST(atoi, 0) {
 	const char	str[] = "0";
@@ -48,7 +44,7 @@ TEST(atoi, underflow) {
 }
 
 TEST(atoi, whitespace) {
-	const char	str[] = "   42";
+	const char	str[] = "\t\n\v\f\r 42";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
@@ -78,7 +74,7 @@ TEST(atoi, empty_string) {
 }
 
 TEST(atoi, only_whitespace) {
-	const char	str[] = "   ";
+	const char	str[] = "\t\n\v\f\r ";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
@@ -103,6 +99,6 @@ TEST(atoi, too_large_number) {
 
 TEST(atoi, too_small_number) {
 	const char	str[] = "-999999999999999999999999";
-	
+
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }

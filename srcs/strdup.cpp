@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:42:14 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:39:23 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:32:02 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(strdup, basic) {
 	const char*	str = "Hello, World!";

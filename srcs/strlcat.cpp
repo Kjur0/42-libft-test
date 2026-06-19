@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:44:54 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:39:47 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 21:11:21 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <bsd/string.h>
-
-#include <gtest/gtest.h>
 
 TEST(strlcat, basic) {
 	char		c[20] = "Hello, ";
@@ -171,4 +167,20 @@ TEST(strlcat, exact_size) {
 
 	EXPECT_EQ(c_result, ft_result);
 	EXPECT_STREQ(c, ft);
+}
+
+TEST(strlcat, dst_not_nul_teminated) {
+	char		c[37] = "Hello,012345678901234567890123456798";
+	char		ft[37] = "Hello,012345678901234567890123456798";
+	const char*	src = "World!";
+	int			n = 20;
+
+	c[36] = 'X';
+	ft[36] = 'X';
+
+	size_t		c_result = strlcat(c, src, n);
+	size_t		ft_result = ft_strlcat(ft, src, n);
+
+	EXPECT_EQ(c_result, ft_result);
+	EXPECT_EQ(memcmp(c, ft, 37), 0);
 }

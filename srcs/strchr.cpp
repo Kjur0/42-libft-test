@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:39:50 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 16:44:37 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 21:51:08 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(strchr, basic) {
 	const char	str[] = "Hello, World!";
@@ -60,6 +56,16 @@ TEST(strchr, empty_string) {
 TEST(strchr, multiple_occurrences) {
 	const char	str[] = "Hello, World!";
 	char		c = 'l';
+
+	const char*	c_result = strchr(str, c);
+	const char*	ft_result = ft_strchr(str, c);
+
+	EXPECT_EQ(c_result, ft_result);
+}
+
+TEST(strchr, non_ascii) {
+	const char	str[] = "abc";
+	int			c = 256 + 'a'; // 353
 
 	const char*	c_result = strchr(str, c);
 	const char*	ft_result = ft_strchr(str, c);

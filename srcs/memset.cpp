@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:35:54 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:44:23 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 19:30:58 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(memset, basic) {
 	char	ft[] = "Hello, World!";
@@ -46,6 +42,6 @@ TEST(memset, non_printable) {
 
 	ft_memset(ft, '\0', n);
 	memset(c, '\0', n);
-	
+
 	EXPECT_EQ(memcmp(ft, c, 14), 0);
 }

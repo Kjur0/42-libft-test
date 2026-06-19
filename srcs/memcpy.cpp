@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 16:20:48 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:43:36 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 21:30:41 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(memcpy, basic) {
 	const char	str[] = "Hello, world!";
@@ -25,7 +21,7 @@ TEST(memcpy, basic) {
 
 	memcpy(c, str, n);
 	ft_memcpy(ft, str, n);
-	
+
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }
 
@@ -63,4 +59,12 @@ TEST(memcpy, partial_length) {
 	ft_memcpy(ft, str, n);
 
 	EXPECT_EQ(memcmp(c, ft, n), 0);
+}
+
+TEST(memcpy, null_pointer) {
+	const char	*str = nullptr;
+	char		*ft = nullptr;
+	const int	n = 5;
+
+	EXPECT_EQ(ft_memcpy(ft, str, n), nullptr);
 }

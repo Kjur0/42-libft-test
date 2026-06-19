@@ -6,16 +6,12 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:24:53 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/18 21:38:53 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/19 20:23:03 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern "C" {
-	#include <libft.h>
-}
+#include "main.hpp"
 #include <string.h>
-
-#include <gtest/gtest.h>
 
 TEST(memcmp, equal) {
 	const char	str1[] = "Hello, world!";
@@ -73,8 +69,8 @@ TEST(memcmp, partial_length) {
 }
 
 TEST(memcmp, non_ascii) {
-	const char	str1[] = "Héllo, world!";
-	const char	str2[] = "Héllo, wörld!";
+	const char	str1[] = "Hello, \255world!";
+	const char	str2[] = "Hello, world!";
 	size_t		n = 14;
 
 	int			c_cmp = memcmp(str1, str2, n);
