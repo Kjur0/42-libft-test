@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:39:50 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <string.h>
 
-TEST(strrchr, basic) {
+TEST(strrchr, basic)
+{
 	const char	str[] = "Hello, World!";
 	char		c = 'o';
 
@@ -23,7 +24,8 @@ TEST(strrchr, basic) {
 	EXPECT_EQ(c_result, ft_result);
 }
 
-TEST(strrchr, not_found) {
+TEST(strrchr, not_found)
+{
 	const char	str[] = "Hello, World!";
 	char		c = 'x';
 
@@ -33,7 +35,8 @@ TEST(strrchr, not_found) {
 	EXPECT_EQ(c_result, ft_result);
 }
 
-TEST(strrchr, null_terminator) {
+TEST(strrchr, null_terminator)
+{
 	const char	str[] = "Hello, World!";
 	char		c = '\0';
 
@@ -43,7 +46,8 @@ TEST(strrchr, null_terminator) {
 	EXPECT_EQ(c_result, ft_result);
 }
 
-TEST(strrchr, empty_string) {
+TEST(strrchr, empty_string)
+{
 	const char	str[] = "";
 	char		c = 'a';
 
@@ -53,7 +57,8 @@ TEST(strrchr, empty_string) {
 	EXPECT_EQ(c_result, ft_result);
 }
 
-TEST(strrchr, multiple_occurrences) {
+TEST(strrchr, multiple_occurrences)
+{
 	const char	str[] = "Hello, World!";
 	char		c = 'l';
 
@@ -63,7 +68,8 @@ TEST(strrchr, multiple_occurrences) {
 	EXPECT_EQ(c_result, ft_result);
 }
 
-TEST(strrchr, non_ascii) {
+TEST(strrchr, non_ascii)
+{
 	const char	str[] = "abc";
 	int			c = 256 + 'a'; // 353
 

@@ -6,62 +6,71 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:02:03 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <ctype.h>
 
-TEST(isprint, space) {
+TEST(isprint, space)
+{
 	char	c = ' ';
 
 	EXPECT_EQ(!isprint(c), !ft_isprint(c));
 }
 
-TEST(isprint, digit) {
+TEST(isprint, digit)
+{
 	char	c = '1';
 
 	EXPECT_EQ(!isprint(c), !ft_isprint(c));
 }
 
-TEST(isprint, lowercase) {
+TEST(isprint, lowercase)
+{
 	char	c = 'a';
 
 	EXPECT_EQ(!isprint(c), !ft_isprint(c));
 }
 
-TEST(isprint, uppercase) {
+TEST(isprint, uppercase)
+{
 	char	c = 'A';
 
 	EXPECT_EQ(!isprint(c), !ft_isprint(c));
 }
 
-TEST(isprint, punctuation) {
+TEST(isprint, punctuation)
+{
 	char	c = '-';
 
 	EXPECT_EQ(!isprint(c), !ft_isprint(c));
 }
 
-TEST(isprint, null_char) {
+TEST(isprint, null_char)
+{
 	char	c = 0;
 
 	EXPECT_EQ(!isprint(c), !ft_isprint(c));
 }
 
-TEST(isprint, control_char) {
+TEST(isprint, control_char)
+{
 	char	c = '\r';
 
 	EXPECT_EQ(!isprint(c), !ft_isprint(c));
 }
 
-TEST(isprint, non_ascii) {
+TEST(isprint, non_ascii)
+{
 	char	c = 255;
 
 	EXPECT_EQ(!isprint(c), !ft_isprint(c));
 }
 
-TEST(isprint, undefined_behavior) {
+TEST(isprint, undefined_behavior)
+{
 	int	c = 256 + 'a';
 	int	d = 256 + 'A';
 	int	e = 256 + '-';

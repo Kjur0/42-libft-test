@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 16:20:48 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 19:59:30 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <string.h>
 
-TEST(memcpy, basic) {
+TEST(memcpy, basic)
+{
 	const char	str[] = "Hello, world!";
 	int			n = 14;
 	char		c[n];
@@ -25,7 +26,8 @@ TEST(memcpy, basic) {
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }
 
-TEST(memcpy, zero_length) {
+TEST(memcpy, zero_length)
+{
 	const char	str[] = "Hello, world!";
 	int			n = 0;
 	char		c[n];
@@ -37,7 +39,8 @@ TEST(memcpy, zero_length) {
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }
 
-TEST(memcpy, null_char) {
+TEST(memcpy, null_char)
+{
 	const char	str[] = "Hello\0world!";
 	int			n = 13;
 	char		c[n];
@@ -49,7 +52,8 @@ TEST(memcpy, null_char) {
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }
 
-TEST(memcpy, partial_length) {
+TEST(memcpy, partial_length)
+{
 	const char	str[] = "Hello, world!";
 	int			n = 5;
 	char		c[n];
@@ -61,8 +65,9 @@ TEST(memcpy, partial_length) {
 	EXPECT_EQ(memcmp(c, ft, n), 0);
 }
 
-TEST(memcpy, null_pointer) {
-	const char	*str = nullptr;
+TEST(memcpy, nullptr_dst)
+{
+	const char	*str = "Hello, world!";
 	char		*ft = nullptr;
 	const int	n = 5;
 

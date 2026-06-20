@@ -6,13 +6,14 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 14:42:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 
-TEST(strjoin, basic) {
+TEST(strjoin, basic)
+{
 	char	s1[] = "Hello, ";
 	char	s2[] = "World!";
 
@@ -23,7 +24,8 @@ TEST(strjoin, basic) {
 	free(result);
 }
 
-TEST(strjoin, empty_first) {
+TEST(strjoin, empty_first)
+{
 	char	s1[] = "";
 	char	s2[] = "World!";
 
@@ -34,7 +36,8 @@ TEST(strjoin, empty_first) {
 	free(result);
 }
 
-TEST(strjoin, empty_second) {
+TEST(strjoin, empty_second)
+{
 	char	s1[] = "Hello, ";
 	char	s2[] = "";
 
@@ -45,7 +48,8 @@ TEST(strjoin, empty_second) {
 	free(result);
 }
 
-TEST(strjoin, both_empty) {
+TEST(strjoin, both_empty)
+{
 	char	s1[] = "";
 	char	s2[] = "";
 

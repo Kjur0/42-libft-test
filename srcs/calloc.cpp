@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:51:00 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <stdlib.h>
 
-TEST(calloc, basic) {
+TEST(calloc, basic)
+{
 	size_t	nmemb = 5;
 	size_t	size = sizeof(int);
 
@@ -28,7 +29,8 @@ TEST(calloc, basic) {
 	free(ft_ptr);
 }
 
-TEST(calloc, zero_nmemb) {
+TEST(calloc, zero_nmemb)
+{
 	size_t	nmemb = 0;
 	size_t	size = sizeof(int);
 
@@ -43,7 +45,8 @@ TEST(calloc, zero_nmemb) {
 	free(ft_ptr);
 }
 
-TEST(calloc, zero_size) {
+TEST(calloc, zero_size)
+{
 	size_t	nmemb = 5;
 	size_t	size = 0;
 
@@ -58,7 +61,8 @@ TEST(calloc, zero_size) {
 	free(ft_ptr);
 }
 
-TEST(calloc, overflow) {
+TEST(calloc, overflow)
+{
 	size_t	nmemb = __SIZE_MAX__;
 	size_t	size = 2;
 

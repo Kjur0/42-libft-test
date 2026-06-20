@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:57:19 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <string.h>
 
-TEST(tolower, basic) {
+TEST(tolower, basic)
+{
 	int	a = 'a';
 	int	z = 'z';
 	int	A = 'A';
@@ -25,7 +26,8 @@ TEST(tolower, basic) {
 	EXPECT_EQ(tolower(Z), ft_tolower(Z));
 }
 
-TEST(tolower, number) {
+TEST(tolower, number)
+{
 	int	zero = '0';
 	int	nine = '9';
 
@@ -33,7 +35,8 @@ TEST(tolower, number) {
 	EXPECT_EQ(tolower(nine), ft_tolower(nine));
 }
 
-TEST(tolower, special) {
+TEST(tolower, special)
+{
 	int	at = '@';
 	int	slash = '/';
 	int	colon = ':';
@@ -43,37 +46,44 @@ TEST(tolower, special) {
 	EXPECT_EQ(tolower(colon), ft_tolower(colon));
 }
 
-TEST(tolower, non_ascii) {
+TEST(tolower, non_ascii)
+{
 	int	non_ascii = 128;
 
 	EXPECT_EQ(tolower(non_ascii), ft_tolower(non_ascii));
 }
 
-TEST(tolower, negative) {
+TEST(tolower, negative)
+{
 	int	negative = -12;
 
 	EXPECT_EQ(tolower(negative), ft_tolower(negative));
 }
 
-TEST(tolower, out_of_range) {
+TEST(tolower, out_of_range)
+{
 	int	out_of_range = 256;
 
 	EXPECT_EQ(tolower(out_of_range), ft_tolower(out_of_range));
 }
 
-TEST(tolower, null_char) {
+TEST(tolower, null_char)
+{
 	int	null_char = '\0';
 
 	EXPECT_EQ(tolower(null_char), ft_tolower(null_char));
 }
 
-TEST(tolower, all_chars) {
-	for (int i = -128; i <= 255; ++i) {
+TEST(tolower, all_chars)
+{
+	for (int i = -128; i <= 255; ++i)
+{
 		EXPECT_EQ(tolower(i), ft_tolower(i));
 	}
 }
 
-TEST(tolower, eof) {
+TEST(tolower, eof)
+{
 	int	eof = EOF;
 
 	EXPECT_EQ(tolower(eof), ft_tolower(eof));

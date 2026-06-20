@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:24:53 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <string.h>
 
-TEST(memchr, basic) {
+TEST(memchr, basic)
+{
 	const char	str[] = "Hello, world!";
 	int			ch = 'o';
 	size_t		n = 14;
@@ -24,7 +25,8 @@ TEST(memchr, basic) {
 	EXPECT_EQ(c, ft);
 }
 
-TEST(memchr, not_found) {
+TEST(memchr, not_found)
+{
 	const char	str[] = "Hello, world!";
 	int			ch = 'x';
 	size_t		n = 14;
@@ -35,7 +37,8 @@ TEST(memchr, not_found) {
 	EXPECT_EQ(c, ft);
 }
 
-TEST(memchr, zero_length) {
+TEST(memchr, zero_length)
+{
 	const char	str[] = "Hello, world!";
 	int			ch = 'o';
 	size_t		n = 0;
@@ -46,7 +49,8 @@ TEST(memchr, zero_length) {
 	EXPECT_EQ(c, ft);
 }
 
-TEST(memchr, null_char) {
+TEST(memchr, null_char)
+{
 	const char	str[] = "Hello\0world!";
 	int			ch = '\0';
 	size_t		n = 13;
@@ -57,7 +61,8 @@ TEST(memchr, null_char) {
 	EXPECT_EQ(c, ft);
 }
 
-TEST(memchr, non_ascii) {
+TEST(memchr, non_ascii)
+{
 	const char	str[] = "Hello, \255world!";
 	int			ch = 255;
 	size_t		n = 15;
@@ -68,7 +73,8 @@ TEST(memchr, non_ascii) {
 	EXPECT_EQ(c, ft);
 }
 
-TEST(memchr, multiple_occurrences) {
+TEST(memchr, multiple_occurrences)
+{
 	const char	str[] = "Hello, world!";
 	int			ch = 'l';
 	size_t		n = 14;

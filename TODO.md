@@ -1,4 +1,4 @@
-- [ ] `README.md` ft_42_format
+- [x] `README.md` ft_42_format
 
 # Part 1
 - [x] `isalpha`
@@ -45,5 +45,5 @@
 - [x] `lstadd_back`
 - [x] `lstdelone`
 - [x] `lstclear`
-- [ ] `lstiter`
-- [ ] `lstmap`
+- [x] `lstiter`
+- [x] `lstmap`

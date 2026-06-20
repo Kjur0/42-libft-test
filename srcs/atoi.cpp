@@ -6,80 +6,92 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 10:57:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <stdlib.h>
 
-TEST(atoi, 0) {
+TEST(atoi, 0)
+{
 	const char	str[] = "0";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, 1) {
+TEST(atoi, 1)
+{
 	const char	str[] = "1";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, 42) {
+TEST(atoi, 42)
+{
 	const char	str[] = "42";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, overflow) {
+TEST(atoi, overflow)
+{
 	const char	str[] = "2147483648";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, underflow) {
+TEST(atoi, underflow)
+{
 	const char	str[] = "-2147483649";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, whitespace) {
+TEST(atoi, whitespace)
+{
 	const char	str[] = "\t\n\v\f\r 42";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, plus_sign) {
+TEST(atoi, plus_sign)
+{
 	const char	str[] = "+42";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, minus_sign) {
+TEST(atoi, minus_sign)
+{
 	const char	str[] = "-42";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, non_numeric) {
+TEST(atoi, non_numeric)
+{
 	const char	str[] = "42abc";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, empty_string) {
+TEST(atoi, empty_string)
+{
 	const char	str[] = "";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, only_whitespace) {
+TEST(atoi, only_whitespace)
+{
 	const char	str[] = "\t\n\v\f\r ";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, multiple_signs) {
+TEST(atoi, multiple_signs)
+{
 	const char	str1[] = "--42";
 	const char	str2[] = "++42";
 	const char	str3[] = "+-42";
@@ -91,13 +103,15 @@ TEST(atoi, multiple_signs) {
 	EXPECT_EQ(atoi(str4), ft_atoi(str4));
 }
 
-TEST(atoi, too_large_number) {
+TEST(atoi, too_large_number)
+{
 	const char	str[] = "999999999999999999999999";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));
 }
 
-TEST(atoi, too_small_number) {
+TEST(atoi, too_small_number)
+{
 	const char	str[] = "-999999999999999999999999";
 
 	EXPECT_EQ(atoi(str), ft_atoi(str));

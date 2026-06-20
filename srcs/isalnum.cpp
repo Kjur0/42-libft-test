@@ -6,62 +6,71 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:56:42 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <ctype.h>
 
-TEST(isalnum, space) {
+TEST(isalnum, space)
+{
 	char	c = ' ';
 
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
 }
 
-TEST(isalnum, digit) {
+TEST(isalnum, digit)
+{
 	char	c = '5';
 
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
 }
 
-TEST(isalnum, lowercase) {
+TEST(isalnum, lowercase)
+{
 	char	c = 'a';
 
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
 }
 
-TEST(isalnum, uppercase) {
+TEST(isalnum, uppercase)
+{
 	char	c = 'A';
 
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
 }
 
-TEST(isalnum, punctuation) {
+TEST(isalnum, punctuation)
+{
 	char	c = '-';
 
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
 }
 
-TEST(isalnum, null_char) {
+TEST(isalnum, null_char)
+{
 	char	c = 0;
 
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
 }
 
-TEST(isalnum, control_char) {
+TEST(isalnum, control_char)
+{
 	char	c = '\r';
 
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
 }
 
-TEST(isalnum, non_ascii) {
+TEST(isalnum, non_ascii)
+{
 	char	c = 255;
 
 	EXPECT_EQ(!isalnum(c), !ft_isalnum(c));
 }
 
-TEST(isalnum, undefined_behavior) {
+TEST(isalnum, undefined_behavior)
+{
 	int	c = 256 + 'a';
 	int	d = 256 + '0';
 	int	e = 256 + '-';

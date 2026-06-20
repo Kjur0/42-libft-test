@@ -6,13 +6,14 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:43:28 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 14:47:24 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:27:22 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 
-TEST(lstlast, basic) {
+TEST(lstlast, basic)
+{
 	t_list	*list1 = (t_list *)malloc(sizeof(t_list));
 	t_list	*list2 = (t_list *)malloc(sizeof(t_list));
 	t_list	*list3 = (t_list *)malloc(sizeof(t_list));
@@ -27,13 +28,15 @@ TEST(lstlast, basic) {
 	free(list3);
 }
 
-TEST(lstlast, empty) {
+TEST(lstlast, empty)
+{
 	t_list	*list = nullptr;
 
 	ASSERT_EQ(ft_lstlast(list), nullptr);
 }
 
-TEST(lstlast, single_element) {
+TEST(lstlast, single)
+{
 	t_list	*list = (t_list *)malloc(sizeof(t_list));
 	list->next = nullptr;
 

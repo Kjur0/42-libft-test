@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:29:36 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <string.h>
 
-TEST(memmove, move_backwards) {
+TEST(memmove, move_backwards)
+{
 	char	c_str[] = "hello world";
 	char	ft_str[] = "hello world";
 	int		n = 12;
@@ -28,7 +29,8 @@ TEST(memmove, move_backwards) {
 	EXPECT_EQ(memcmp(c_str, ft_str, n), 0);
 }
 
-TEST(memmove, move_forwards) {
+TEST(memmove, move_forwards)
+{
 	char	c_str[] = "hello world";
 	char	ft_str[] = "hello world";
 	int		n = 12;
@@ -43,7 +45,8 @@ TEST(memmove, move_forwards) {
 	EXPECT_EQ(memcmp(c_str, ft_str, n), 0);
 }
 
-TEST(memmove, zero_length) {
+TEST(memmove, zero_length)
+{
 	char	c_str[] = "hello world";
 	char	ft_str[] = "hello world";
 	int		n = 0;
@@ -58,7 +61,8 @@ TEST(memmove, zero_length) {
 	EXPECT_EQ(memcmp(c_str, ft_str, 12), 0);
 }
 
-TEST(memmove, null_char) {
+TEST(memmove, null_char)
+{
 	char	c_str[] = "hello\0world";
 	char	ft_str[] = "hello\0world";
 	int		n = 12;
@@ -73,7 +77,8 @@ TEST(memmove, null_char) {
 	EXPECT_EQ(memcmp(c_str, ft_str, n), 0);
 }
 
-TEST(memmove, in_place) {
+TEST(memmove, in_place)
+{
 	char	c_str[] = "hello world";
 	char	ft_str[] = "hello world";
 	int		n = 12;
@@ -88,7 +93,8 @@ TEST(memmove, in_place) {
 	EXPECT_EQ(memcmp(c_str, ft_str, n), 0);
 }
 
-TEST(memmove, null_pointer) {
+TEST(memmove, null_pointer)
+{
 	const char	*str = nullptr;
 	char		*ft = nullptr;
 	const int	n = 5;

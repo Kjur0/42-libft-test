@@ -137,20 +137,20 @@ For those test `libft` is tested against `libc`
 
 #### [`strlen`](srcs/strlen.cpp)
 
-| Test                     | String tested          |
-|--------------------------|------------------------|
-| basic                    | `"Hello, World!"`      |
-| empty_string             | `""`                   |
-| long_string              | `"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."` |
-| string_with_null_char    | `"Hello\0World"`       |
+| Test                  | String tested          |
+|-----------------------|------------------------|
+| basic                 | `"Hello, World!"`      |
+| empty_string          | `""`                   |
+| long_string           | `"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."` |
+| string_with_null_char | `"Hello\0World"`       |
 
 #### [`memset`](srcs/memset.cpp)
 
-| Test          | Description                             |
-|---------------|-----------------------------------------|
-| basic         | Set 5 bytes of a buffer to `'x'`        |
-| full_length   | Set entire buffer to `'x'`              |
-| non_printable | Set 5 bytes of a buffer to `'\0'`       |
+| Test          | Description                       |
+|---------------|-----------------------------------|
+| basic         | Set 5 bytes of a buffer to `'x'`  |
+| full_length   | Set entire buffer to `'x'`        |
+| non_printable | Set 5 bytes of a buffer to `'\0'` |
 
 #### [`bzero`](srcs/bzero.cpp)
 
@@ -164,13 +164,13 @@ For those test `libft` is tested against `libc`
 
 #### [`memcpy`](srcs/memcpy.cpp)
 
-| Test           | Description                             |
-|----------------|-----------------------------------------|
-| basic          | Copy full buffer                        |
-| zero_length    | Copy 0 bytes                            |
-| null_char      | Copy string with `'\0'` in the middle   |
-| partial_length | Copy part of a buffer                   |
-| null_pointer   | Graceful `segfault` handling            |
+| Test           | Description                           |
+|----------------|---------------------------------------|
+| basic          | Copy full buffer                      |
+| zero_length    | Copy 0 bytes                          |
+| null_char      | Copy string with `'\0'` in the middle |
+| partial_length | Copy part of a buffer                 |
+| null_pointer   | Graceful `segfault` handling          |
 
 #### [`memmove`](srcs/memmove.cpp)
 
@@ -185,13 +185,13 @@ For those test `libft` is tested against `libc`
 
 #### [`strlcpy`](`srcs/strlcpy.cpp`)[^bsd]
 
-| Test           | Description                                    |
-|----------------|------------------------------------------------|
-| basic          | Copy string into a buffer with enough space    |
-| zero_size      | Copy string into a buffer of size 0            |
-| smaller_size   | Copy string into a smaller buffer              |
-| empty_string   | Copy an empty string into a buffer             |
-| exact_size     | Copy string into a buffer of exact size        |
+| Test         | Description                                 |
+|--------------|---------------------------------------------|
+| basic        | Copy string into a buffer with enough space |
+| zero_size    | Copy string into a buffer of size 0         |
+| smaller_size | Copy string into a smaller buffer           |
+| empty_string | Copy an empty string into a buffer          |
+| exact_size   | Copy string into a buffer of exact size     |
 
 #### [`strlcat`](`srcs/strlcat.cpp`)[^bsd]
 
@@ -262,36 +262,36 @@ For those test `libft` is tested against `libc`
 
 #### [`memchr`](srcs/memchr.cpp)
 
-| Test                   | Description                              |
-|------------------------|------------------------------------------|
-| basic                  | `'o'` in `"Hello, World!"`               |
-| not_found              | `'x'` in `"Hello, World!"`               |
-| zero_length            | `'o'` in `"Hello, World!"` with length 0 |
-| null_char              | `'\0'` in `"Hello, World!"`              |
-| non_ascii              | `255` in `"Hello, \255World!"`           |
-| multiple_occurrences   | `'l'` in `"Hello, World!"`                |
+| Test                 | Description                              |
+|----------------------|------------------------------------------|
+| basic                | `'o'` in `"Hello, World!"`               |
+| not_found            | `'x'` in `"Hello, World!"`               |
+| zero_length          | `'o'` in `"Hello, World!"` with length 0 |
+| null_char            | `'\0'` in `"Hello, World!"`              |
+| non_ascii            | `255` in `"Hello, \255World!"`           |
+| multiple_occurrences | `'l'` in `"Hello, World!"`               |
 
 #### [`memcmp`](srcs/memcmp.cpp)
 
-| Test                   | Description                                                   |
-|------------------------|---------------------------------------------------------------|
-| basic                  | Compare `"Hello, World!"` and `"Hello, World!"`               |
-| different              | Compare `"Hello, World!"` and `"Hello. World!"`               |
-| zero_length            | Compare `"Hello, World!"` and `"Hello, World!"` with length 0 |
-| null_char              | Compare `"Hello\0World"` and `"Hello\0World"`                 |
-| partial_length         | Compare `"Hello, World!"` and `"Hello, World!"` with length 5 |
-| non_ascii              | Compare `"Hello, \255World!"` and `"Hello, World!"`           |
+| Test           | Description                                                   |
+|----------------|---------------------------------------------------------------|
+| basic          | Compare `"Hello, World!"` and `"Hello, World!"`               |
+| different      | Compare `"Hello, World!"` and `"Hello. World!"`               |
+| zero_length    | Compare `"Hello, World!"` and `"Hello, World!"` with length 0 |
+| null_char      | Compare `"Hello\0World"` and `"Hello\0World"`                 |
+| partial_length | Compare `"Hello, World!"` and `"Hello, World!"` with length 5 |
+| non_ascii      | Compare `"Hello, \255World!"` and `"Hello, World!"`           |
 
 #### [`strnstr`](srcs/strnstr.cpp)[^bsd]
 
-| Test                     | Description                                               |
-|--------------------------|-----------------------------------------------------------|
-| basic                    | Find `"world"` in `"Hello, world!"` with length 13        |
-| not_found                | Find `"42"` in `"Hello, world!"` with length 13           |
-| empty_to_find            | Find `""` in `"Hello, world!"` with length 13             |
-| length_limit             | Find `"world"` in `"Hello, world!"` with length 5         |
-| null_char                | Find `"world"` in `"Hello\0world!"` with length 13        |
-| to_find_longer_than_str  | Find `"Hello, world!"` in `"Hello"` with length 13        |
+| Test                    | Description                                        |
+|-------------------------|----------------------------------------------------|
+| basic                   | Find `"world"` in `"Hello, world!"` with length 13 |
+| not_found               | Find `"42"` in `"Hello, world!"` with length 13    |
+| empty_to_find           | Find `""` in `"Hello, world!"` with length 13      |
+| length_limit            | Find `"world"` in `"Hello, world!"` with length 5  |
+| null_char               | Find `"world"` in `"Hello\0world!"` with length 13 |
+| to_find_longer_than_str | Find `"Hello, world!"` in `"Hello"` with length 13 |
 
 #### [`atoi`](srcs/atoi.cpp)
 
@@ -314,12 +314,12 @@ For those test `libft` is tested against `libc`
 
 #### [`calloc`](srcs/calloc.cpp)
 
-| Test       | `nmemb`              | `size`                 |
-|------------|----------------------|------------------------|
-| basic      | `5`                  | `sizeof(int)`          |
-| zero_nmemb | `0`                  | `sizeof(int)`          |
-| zero_size  | `5`                  | `0`                    |
-| overflow   | `__SIZE_MAX__`       | `2`                    |
+| Test       | `nmemb`        | `size`        |
+|------------|----------------|---------------|
+| basic      | `5`            | `sizeof(int)` |
+| zero_nmemb | `0`            | `sizeof(int)` |
+| zero_size  | `5`            | `0`           |
+| overflow   | `__SIZE_MAX__` | `2`           |
 
 #### [`strdup`](srcs/strdup.cpp)
 
@@ -336,21 +336,21 @@ These are tested agains expected output, not `libc`
 
 #### [`substr`](srcs/substr.cpp)
 
-| Test                      | Description                              | Expected           |
-|---------------------------|------------------------------------------|--------------------|
-| basic                     | Extract `"World"` from `"Hello, World!"` | `"World"`          |
-| start_beyond_length       | Index is greater than string length      | `""`               |
-| length_exceeds            | Length extends beyond string end         | `"ello"`           |
-| zero_length               | Length is 0                              | `""`               |
+| Test                | Description                              | Expected  |
+|---------------------|------------------------------------------|-----------|
+| basic               | Extract `"World"` from `"Hello, World!"` | `"World"` |
+| start_beyond_length | Index is greater than string length      | `""`      |
+| length_exceeds      | Length extends beyond string end         | `"ello"`  |
+| zero_length         | Length is 0                              | `""`      |
 
 #### [`strjoin`](srcs/strjoin.cpp)
 
-| Test           | Description                             | Expected           |
-|----------------|-----------------------------------------|--------------------|
-| basic          | Join `"Hello, "` and `"World!"`         | `"Hello, World!"`  |
-| empty_first    | Join `""` and `"World!"`                | `"World!"`         |
-| empty_second   | Join `"Hello, "` and `""`               | `"Hello, "`        |
-| both_empty     | Join `""` and `""`                      | `""`               |
+| Test         | Description                     | Expected          |
+|--------------|---------------------------------|-------------------|
+| basic        | Join `"Hello, "` and `"World!"` | `"Hello, World!"` |
+| empty_first  | Join `""` and `"World!"`        | `"World!"`        |
+| empty_second | Join `"Hello, "` and `""`       | `"Hello, "`       |
+| both_empty   | Join `""` and `""`              | `""`              |
 
 #### [`strtrim`](srcs/strtrim.cpp)
 
@@ -363,26 +363,26 @@ These are tested agains expected output, not `libc`
 
 #### [`split`](srcs/split.cpp)
 
-| Test                 | Description                       | Expected                   |
-|----------------------|-----------------------------------|----------------------------|
-| basic                | Split `"Hello, World!"` by space  | `["Hello,", "World!"]`     |
-| empty_string         | Split `""` by space               | `[]`                       |
-| only_delimiters      | Split `"   "` by space            | `[]`                       |
-| no_delimiters        | Split `"HelloWorld!"` by space    | `["HelloWorld!"]`          |
-| null_delimiter       | Split `"Hello, World!"` by `'\0'` | `["Hello, World!"]`        |
-| consecutive          | Split `"Hello,,World!"` by `','`  | `["Hello", "World!"]`      |
-| edges                | Split `",Hello,World!,"` by `','` | `["Hello", "World!"]`      |
+| Test            | Description                       | Expected               |
+|-----------------|-----------------------------------|------------------------|
+| basic           | Split `"Hello, World!"` by space  | `["Hello,", "World!"]` |
+| empty_string    | Split `""` by space               | `[]`                   |
+| only_delimiters | Split `"   "` by space            | `[]`                   |
+| no_delimiters   | Split `"HelloWorld!"` by space    | `["HelloWorld!"]`      |
+| null_delimiter  | Split `"Hello, World!"` by `'\0'` | `["Hello, World!"]`    |
+| consecutive     | Split `"Hello,,World!"` by `','`  | `["Hello", "World!"]`  |
+| edges           | Split `",Hello,World!,"` by `','` | `["Hello", "World!"]`  |
 
 #### [`itoa`](srcs/itoa.cpp)
 
-| Test             | Number tested                    | Expected           |
-|------------------|----------------------------------|--------------------|
-| 0                | `0`                              | `"0"`              |
-| 42               | `42`                             | `"42"`             |
-| 123              | `123`                            | `"123"`            |
-| neg42            | `-42`                            | `"-42"`            |
-| int_min          | `-2147483648`                    | `"-2147483648"`    |
-| int_max          | `2147483647`                     | `"2147483647"`     |
+| Test    | Number tested | Expected        |
+|---------|---------------|-----------------|
+| 0       | `0`           | `"0"`           |
+| 42      | `42`          | `"42"`          |
+| 123     | `123`         | `"123"`         |
+| neg42   | `-42`         | `"-42"`         |
+| int_min | `-2147483648` | `"-2147483648"` |
+| int_max | `2147483647`  | `"2147483647"`  |
 
 #### [`strmapi`](srcs/strmapi.cpp)
 
@@ -400,35 +400,33 @@ These are tested agains expected output, not `libc`
 |--------|--------------------------------------------------------------|
 | basic  | Ensure each character is `'0' + i` and function run 10 times |
 | empty  | Ensure function does not run on an empty string              |
-| null   | Ensure function does not run on a null string                |
-| null_f | Ensure function does not run with a null function pointer    |
 
 #### [`putchar_fd`](srcs/putchar_fd.cpp)
 
-| Test   | Description                                                  |
-|--------|--------------------------------------------------------------|
-| test   | Ensure that `'A'` is written to `/tmp/tests/putchar_fd.txt`  |
+| Test | Description                                                 |
+|------|-------------------------------------------------------------|
+| test | Ensure that `'A'` is written to `/tmp/tests/putchar_fd.txt` |
 
 #### [`putstr_fd`](srcs/putstr_fd.cpp)
 
-| Test   | Description                                                             |
-|--------|-------------------------------------------------------------------------|
-| test   | Ensure that `"Hello, World!"` is written to `/tmp/tests/putstr_fd.txt`  |
+| Test | Description                                                            |
+|------|------------------------------------------------------------------------|
+| test | Ensure that `"Hello, World!"` is written to `/tmp/tests/putstr_fd.txt` |
 
 #### [`putendl_fd`](srcs/putendl_fd.cpp)
 
-| Test   | Description                                                                |
-|--------|----------------------------------------------------------------------------|
-| test   | Ensure that `"Hello, World!\n"` is written to `/tmp/tests/putendl_fd.txt`  |
+| Test | Description                                                               |
+|------|---------------------------------------------------------------------------|
+| test | Ensure that `"Hello, World!\n"` is written to `/tmp/tests/putendl_fd.txt` |
 
 #### [`putnbr_fd`](srcs/putnbr_fd.cpp)
 
-| Test    | Description                                                                 |
-|---------|-----------------------------------------------------------------------------|
-| 42      | Ensure that `42` is written to `/tmp/tests/putnbr_fd_42.txt`                |
-| 0       | Ensure that `0` is written to `/tmp/tests/putnbr_fd_0.txt`                  |
-| neg1    | Ensure that `-1` is written to `/tmp/tests/putnbr_fd_neg1.txt`              |
-| neg42   | Ensure that `-42` is written to `/tmp/tests/putnbr_fd_neg42.txt`            |
+| Test    | Description                                                                |
+|---------|----------------------------------------------------------------------------|
+| 42      | Ensure that `42` is written to `/tmp/tests/putnbr_fd_42.txt`               |
+| 0       | Ensure that `0` is written to `/tmp/tests/putnbr_fd_0.txt`                 |
+| neg1    | Ensure that `-1` is written to `/tmp/tests/putnbr_fd_neg1.txt`             |
+| neg42   | Ensure that `-42` is written to `/tmp/tests/putnbr_fd_neg42.txt`           |
 | int_min | Ensure that `-2147483648` is written to `/tmp/tests/putnbr_fd_int_min.txt` |
 | int_max | Ensure that `2147483647` is written to `/tmp/tests/putnbr_fd_int_max.txt`  |
 
@@ -442,12 +440,10 @@ These are tested agains expected output, not `libc`
 
 #### [`lstadd_front`](srcs/lstadd_front.cpp)
 
-| Test      | Description                                                   |
-|-----------|---------------------------------------------------------------|
-| basic     | Ensure that a new node is added to the front of the list      |
-| null_list | Ensure that a new node is added to the front of a null list   |
-| null_node | Ensure that adding a null node does not change the list       |
-| nullptr   | Ensure that adding a node to `nullptr` does not cause a crash |
+| Test      | Description                                                 |
+|-----------|-------------------------------------------------------------|
+| basic     | Ensure that a new node is added to the front of the list    |
+| null_list | Ensure that a new node is added to the front of a null list |
 
 #### [`lstsize`](srcs/lstsize.cpp)
 
@@ -471,38 +467,31 @@ These are tested agains expected output, not `libc`
 |-----------|----------------------------------------------------------------|
 | basic     | Ensure that a new node is added to the back of the list        |
 | null_list | Ensure that a new node is set as the first node of a null list |
-| null_node | Ensure that adding a null node does not change the list        |
-| nullptr   | Ensure that adding a node to `nullptr` does not cause a crash  |
 
 #### [`lstdelone`](srcs/lstdelone.cpp)
 
-| Test         | Description                                                     |
-|--------------|-----------------------------------------------------------------|
-| basic        | Ensure that a node is deleted and its content freed             |
-| null_node    | Ensure that deleting a null node does not cause a crash         |
-| no_del       | Ensure that a node is deleted without freeing its content       |
-| null_content | Ensure that a node with null content is deleted without a crash |
+| Test      | Description                                             |
+|-----------|---------------------------------------------------------|
+| basic     | Ensure that a node is deleted and its content freed     |
+| null_node | Ensure that deleting a null node does not cause a crash |
 
 #### [`lstclear`](srcs/lstclear.cpp)
 
-| Test         | Description                                                          |
-|--------------|----------------------------------------------------------------------|
-| basic        | Ensure that all nodes in a list are deleted and their content freed  |
-| null_list    | Ensure that clearing an empty list does not cause a crash            |
-| null_del     | Ensure that clearing a list without function does not cause a crash  |
-| null_content | Ensure that clearing a list with null content does not cause a crash |
-| nullptr      | Ensure that clearing a `nullptr` does not cause a crash              |
+| Test      | Description                                                         |
+|-----------|---------------------------------------------------------------------|
+| basic     | Ensure that all nodes in a list are deleted and their content freed |
+| null_list | Ensure that clearing an empty list does not cause a crash           |
 
 #### [`lstiter`](srcs/lstiter.cpp)
 
-| Test      | Description                                                       |
-|-----------|-------------------------------------------------------------------|
-| basic     | Ensure that a function is applied to each node's content          |
-| null_list | Ensure that iterating over a null list does not cause a crash     |
-| null_func | Ensure that iterating with a null function does not cause a crash |
+| Test      | Description                                                   |
+|-----------|---------------------------------------------------------------|
+| basic     | Ensure that a function is applied to each node's content      |
+| null_list | Ensure that iterating over a null list does not cause a crash |
 
 #### [`lstmap`](srcs/lstmap.cpp)
 
-| Test     | Description                                              |
-|----------|----------------------------------------------------------|
-| basic    | Ensure that a function is applied to each node's content |
+| Test      | Description                                              |
+|-----------|----------------------------------------------------------|
+| basic     | Ensure that a function is applied to each node's content |
+| null_list | Ensure that mapping over a null list returns a null list |

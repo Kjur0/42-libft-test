@@ -6,62 +6,71 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:02:03 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <ctype.h>
 
-TEST(isdigit, space) {
+TEST(isdigit, space)
+{
 	char	c = ' ';
 
 	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
 }
 
-TEST(isdigit, digit) {
+TEST(isdigit, digit)
+{
 	char	c = '1';
 
 	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
 }
 
-TEST(isdigit, lowercase) {
+TEST(isdigit, lowercase)
+{
 	char	c = 'a';
 
 	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
 }
 
-TEST(isdigit, uppercase) {
+TEST(isdigit, uppercase)
+{
 	char	c = 'A';
 
 	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
 }
 
-TEST(isdigit, punctuation) {
+TEST(isdigit, punctuation)
+{
 	char	c = '-';
 
 	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
 }
 
-TEST(isdigit, null_char) {
+TEST(isdigit, null_char)
+{
 	char	c = 0;
 
 	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
 }
 
-TEST(isdigit, control_char) {
+TEST(isdigit, control_char)
+{
 	char	c = '\r';
 
 	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
 }
 
-TEST(isdigit, non_ascii) {
+TEST(isdigit, non_ascii)
+{
 	char	c = 255;
 
 	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
 }
 
-TEST(isdigit, undefined_behavior) {
+TEST(isdigit, undefined_behavior)
+{
 	int	c = 256 + 'a';
 	int	d = 256 + 'A';
 	int	e = 256 + '-';

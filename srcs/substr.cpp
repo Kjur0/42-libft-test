@@ -6,13 +6,14 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 14:32:30 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 
-TEST(substr, basic) {
+TEST(substr, basic)
+{
 	char	*str = ft_substr("Hello, World!", 7, 5);
 
 	ASSERT_STREQ(str, "World");
@@ -20,7 +21,8 @@ TEST(substr, basic) {
 	free(str);
 }
 
-TEST(substr, start_beyond_length) {
+TEST(substr, start_beyond_length)
+{
 	char	*str = ft_substr("Hello", 10, 5);
 
 	ASSERT_STREQ(str, "");
@@ -28,7 +30,8 @@ TEST(substr, start_beyond_length) {
 	free(str);
 }
 
-TEST(substr, length_exceeds) {
+TEST(substr, length_exceeds)
+{
 	char	*str = ft_substr("Hello", 1, 10);
 
 	ASSERT_STREQ(str, "ello");
@@ -36,7 +39,8 @@ TEST(substr, length_exceeds) {
 	free(str);
 }
 
-TEST(substr, zero_length) {
+TEST(substr, zero_length)
+{
 	char	*str = ft_substr("Hello", 1, 0);
 
 	ASSERT_STREQ(str, "");

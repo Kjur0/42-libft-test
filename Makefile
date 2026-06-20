@@ -6,7 +6,7 @@
 #    By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/18 12:43:32 by kjurkows          #+#    #+#              #
-#    Updated: 2026/06/18 16:57:20 by kjurkows         ###   ########.fr        #
+#    Updated: 2026/06/20 18:04:22 by kjurkows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ $(NAME):	$(OBJS) $(LIBFT) | $(BIN_DIR)
 $(OBJS_DIR)/%.o:	$(SRCS_DIR)/%.cpp | $(OBJS_DIR)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
-%:	$(OBJS_DIR)/%.o $(MAIN_OBJ) $(LIBFT) |$(BIN_DIR)
+%:	$(OBJS_DIR)/%.o $(MAIN_OBJ) $(LIBFT) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $^ -L$(LIBFT_DIR) -lft -lbsd $(GTEST_FLAGS) -o $(BIN_DIR)/$@
 
 $(LIBFT):

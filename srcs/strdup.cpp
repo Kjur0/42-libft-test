@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:42:14 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <string.h>
 
-TEST(strdup, basic) {
+TEST(strdup, basic)
+{
 	const char*	str = "Hello, World!";
 
 	char*		c = strdup(str);
@@ -25,7 +26,8 @@ TEST(strdup, basic) {
 	free(ft);
 }
 
-TEST(strdup, empty_string) {
+TEST(strdup, empty_string)
+{
 	const char*	str = "";
 
 	char*		c = strdup(str);
@@ -37,7 +39,8 @@ TEST(strdup, empty_string) {
 	free(ft);
 }
 
-TEST(strdup, long_string) {
+TEST(strdup, long_string)
+{
 	const char*	str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
 	char*		c = strdup(str);
@@ -49,7 +52,8 @@ TEST(strdup, long_string) {
 	free(ft);
 }
 
-TEST(strdup, string_with_null_char) {
+TEST(strdup, string_with_null_char)
+{
 	const char	str[] = "Hello\0World";
 
 	char*		c = strdup(str);

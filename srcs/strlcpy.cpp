@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:41:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <bsd/string.h>
 
-TEST(strlcpy, basic) {
+TEST(strlcpy, basic)
+{
 	char		c[20];
 	char		ft[20];
 	const char*	src = "Hello, World!";
@@ -26,7 +27,8 @@ TEST(strlcpy, basic) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcpy, zero_size) {
+TEST(strlcpy, zero_size)
+{
 	char		c[20] = "t";
 	char		ft[20] = "t";
 	const char*	src = "Hello, World!";
@@ -39,7 +41,8 @@ TEST(strlcpy, zero_size) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcpy, smaller_size) {
+TEST(strlcpy, smaller_size)
+{
 	char		c[20];
 	char		ft[20];
 	const char*	src = "Hello, World!";
@@ -52,7 +55,8 @@ TEST(strlcpy, smaller_size) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcpy, empty_string) {
+TEST(strlcpy, empty_string)
+{
 	char		c[20];
 	char		ft[20];
 	const char*	src = "";
@@ -65,7 +69,8 @@ TEST(strlcpy, empty_string) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcpy, exact_size) {
+TEST(strlcpy, exact_size)
+{
 	char		c[20];
 	char		ft[20];
 	const char*	src = "Hello, World!";

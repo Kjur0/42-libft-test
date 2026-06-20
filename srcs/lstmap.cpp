@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:30:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 15:34:36 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:33:52 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <stdlib.h>
 
-TEST(lstmap, basic) {
+TEST(lstmap, basic)
+{
 	t_list		*list1 = (t_list *)malloc(sizeof(t_list));
 	t_list		*list2 = (t_list *)malloc(sizeof(t_list));
 	t_list		*list3 = (t_list *)malloc(sizeof(t_list));
@@ -27,23 +28,42 @@ TEST(lstmap, basic) {
 	list3->content = &i3;
 	list3->next = nullptr;
 
-	t_list		*new_list = ft_lstmap(list1, [](void *content) -> void * {
+	t_list		*new_list = ft_lstmap(list1, [](void *content) -> void *
+{
 		int	*i = (int *)content;
 		int	*new_i = (int *)malloc(sizeof(int));
 		*new_i = *i + 10;
 		return new_i;
 	}, free);
-
 	t_list	*current_new = new_list;
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 3; i++)
+	{
 		int *value = (int *)current_new->content;
 		EXPECT_EQ(*value, i + 10);
 		current_new = current_new->next;
 	}
 	EXPECT_EQ(current_new, nullptr);
 
-	ft_lstclear(&new_list, free);
+	free(new_list->next->next->content);
+	free(new_list->next->next);
+	free(new_list->next->content);
+	free(new_list->next);
+	free(new_list->content);
+	free(new_list);
 	free(list1);
 	free(list2);
 	free(list3);
+}
+
+TEST(lstmap, null_list)
+{
+	t_list	*new_list = ft_lstmap(nullptr, [](void *content) -> void *
+	{
+		int	*i = (int *)content;
+		int	*new_i = (int *)malloc(sizeof(int));
+		*new_i = *i + 10;
+		return new_i;
+	}, free);
+
+	EXPECT_EQ(new_list, nullptr);
 }

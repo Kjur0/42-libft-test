@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:35:54 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <string.h>
 
-TEST(memset, basic) {
+TEST(memset, basic)
+{
 	char	ft[] = "Hello, World!";
 	char	c[] = "Hello, World!";
 	int		n = 5;
@@ -24,7 +25,8 @@ TEST(memset, basic) {
 	EXPECT_EQ(memcmp(ft, c, 14), 0);
 }
 
-TEST(memset, full_length) {
+TEST(memset, full_length)
+{
 	char	ft[] = "Hello, World!";
 	char	c[] = "Hello, World!";
 	int		n = 14;
@@ -35,7 +37,8 @@ TEST(memset, full_length) {
 	EXPECT_EQ(memcmp(ft, c, n), 0);
 }
 
-TEST(memset, non_printable) {
+TEST(memset, non_printable)
+{
 	char	ft[] = "Hello, World!";
 	char	c[] = "Hello, World!";
 	int		n = 5;

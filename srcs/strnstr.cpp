@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:55:07 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <bsd/string.h>
 
-TEST(strnstr, found) {
+TEST(strnstr, found)
+{
 	const char	str[] = "Hello, world!";
 	const char	to_find[] = "world";
 	size_t		n = 13;
@@ -24,7 +25,8 @@ TEST(strnstr, found) {
 	EXPECT_EQ(c_res, ft_res);
 }
 
-TEST(strnstr, not_found) {
+TEST(strnstr, not_found)
+{
 	const char	str[] = "Hello, world!";
 	const char	to_find[] = "42";
 	size_t		n = 13;
@@ -35,7 +37,8 @@ TEST(strnstr, not_found) {
 	EXPECT_EQ(c_res, ft_res);
 }
 
-TEST(strnstr, empty_to_find) {
+TEST(strnstr, empty_to_find)
+{
 	const char	str[] = "Hello, world!";
 	const char	to_find[] = "";
 	size_t		n = 13;
@@ -46,7 +49,8 @@ TEST(strnstr, empty_to_find) {
 	EXPECT_EQ(c_res, ft_res);
 }
 
-TEST(strnstr, length_limit) {
+TEST(strnstr, length_limit)
+{
 	const char	str[] = "Hello, world!";
 	const char	to_find[] = "world";
 	size_t		n = 5;
@@ -57,7 +61,8 @@ TEST(strnstr, length_limit) {
 	EXPECT_EQ(c_res, ft_res);
 }
 
-TEST(strnstr, null_char) {
+TEST(strnstr, null_char)
+{
 	const char	str[] = "Hello\0world!";
 	const char	to_find[] = "world";
 	size_t		n = 13;
@@ -68,7 +73,8 @@ TEST(strnstr, null_char) {
 	EXPECT_EQ(c_res, ft_res);
 }
 
-TEST(strnstr, to_find_longer_than_str) {
+TEST(strnstr, to_find_longer_than_str)
+{
 	const char	str[] = "Hello";
 	const char	to_find[] = "Hello, world!";
 	size_t		n = 13;

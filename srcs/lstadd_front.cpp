@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 12:09:20 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 15:23:29 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:26:53 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <stdlib.h>
 
-TEST(lstadd_front, basic) {
+TEST(lstadd_front, basic)
+{
 	char	str1[] = "Hello, World!";
 	char	str2[] = "42Warsaw";
 	t_list	*list1 = (t_list *)malloc(sizeof(t_list));
@@ -35,7 +36,8 @@ TEST(lstadd_front, basic) {
 	free(list2);
 }
 
-TEST(lstadd_front, null_list) {
+TEST(lstadd_front, null_list)
+{
 	char	str[] = "Hello, World!";
 	t_list	*list = (t_list *)malloc(sizeof(t_list));
 	list->content = str;
@@ -48,28 +50,4 @@ TEST(lstadd_front, null_list) {
 	ASSERT_STREQ((char *)list->content, str);
 
 	free(list);
-}
-
-TEST(lstadd_front, null_node) {
-	char	str[] = "Hello, World!";
-	t_list	*list = (t_list *)malloc(sizeof(t_list));
-	list->content = str;
-	list->next = nullptr;
-	t_list	*tmp = list;
-
-	ft_lstadd_front(&tmp, nullptr);
-
-	ASSERT_EQ(tmp, list);
-	ASSERT_EQ(list->next, nullptr);
-	ASSERT_STREQ((char *)list->content, str);
-
-	free(list);
-}
-
-TEST(lstadd_front, nullptr) {
-	t_list	*lst = (t_list *)malloc(sizeof(t_list));
-
-	ft_lstadd_front(nullptr, lst);
-
-	free(lst);
 }

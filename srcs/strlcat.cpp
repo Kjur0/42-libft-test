@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:44:54 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <bsd/string.h>
 
-TEST(strlcat, basic) {
+TEST(strlcat, basic)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -26,7 +27,8 @@ TEST(strlcat, basic) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, zero_size) {
+TEST(strlcat, zero_size)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -39,7 +41,8 @@ TEST(strlcat, zero_size) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, size_smaller_than_dst) {
+TEST(strlcat, size_smaller_than_dst)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -52,7 +55,8 @@ TEST(strlcat, size_smaller_than_dst) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, size_smaller_than_src) {
+TEST(strlcat, size_smaller_than_src)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -65,7 +69,8 @@ TEST(strlcat, size_smaller_than_src) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, empty_src) {
+TEST(strlcat, empty_src)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "";
@@ -78,7 +83,8 @@ TEST(strlcat, empty_src) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, empty_dst) {
+TEST(strlcat, empty_dst)
+{
 	char		c[20] = "";
 	char		ft[20] = "";
 	const char*	src = "Hello, World!";
@@ -91,7 +97,8 @@ TEST(strlcat, empty_dst) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, size_equal_to_dst) {
+TEST(strlcat, size_equal_to_dst)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -104,7 +111,8 @@ TEST(strlcat, size_equal_to_dst) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, size_equal_to_dst_plus_one) {
+TEST(strlcat, size_equal_to_dst_plus_one)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -117,7 +125,8 @@ TEST(strlcat, size_equal_to_dst_plus_one) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, size_equal_to_src) {
+TEST(strlcat, size_equal_to_src)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -130,7 +139,8 @@ TEST(strlcat, size_equal_to_src) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, size_equal_to_src_plus_one) {
+TEST(strlcat, size_equal_to_src_plus_one)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -143,7 +153,8 @@ TEST(strlcat, size_equal_to_src_plus_one) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, size_one) {
+TEST(strlcat, size_one)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -156,7 +167,8 @@ TEST(strlcat, size_one) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, exact_size) {
+TEST(strlcat, exact_size)
+{
 	char		c[20] = "Hello, ";
 	char		ft[20] = "Hello, ";
 	const char*	src = "World!";
@@ -169,7 +181,8 @@ TEST(strlcat, exact_size) {
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, dst_not_nul_teminated) {
+TEST(strlcat, dst_not_nul_teminated)
+{
 	char		c[37] = "Hello,012345678901234567890123456798";
 	char		ft[37] = "Hello,012345678901234567890123456798";
 	const char*	src = "World!";

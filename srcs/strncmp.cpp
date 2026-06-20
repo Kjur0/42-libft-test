@@ -6,14 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:55:22 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
 #include <string.h>
 
-TEST(strncmp, equal) {
+TEST(strncmp, equal)
+{
 	const char	str1[] = "Hello, world!";
 	const char	str2[] = "Hello, world!";
 	size_t		n = 14;
@@ -24,7 +25,8 @@ TEST(strncmp, equal) {
 	EXPECT_EQ(c_cmp, ft_cmp);
 }
 
-TEST(strncmp, different) {
+TEST(strncmp, different)
+{
 	const char	str1[] = "Hello, world!";
 	const char	str2[] = "Hello. World!";
 	size_t		n = 14;
@@ -35,7 +37,8 @@ TEST(strncmp, different) {
 	EXPECT_EQ(c_cmp, ft_cmp);
 }
 
-TEST(strncmp, zero_length) {
+TEST(strncmp, zero_length)
+{
 	const char	str1[] = "Hello, world!";
 	const char	str2[] = "Hello, World!";
 	size_t		n = 0;
@@ -46,7 +49,8 @@ TEST(strncmp, zero_length) {
 	EXPECT_EQ(c_cmp, ft_cmp);
 }
 
-TEST(strncmp, null_char) {
+TEST(strncmp, null_char)
+{
 	const char	str1[] = "Hello\0world!";
 	const char	str2[] = "Hello\0World!";
 	size_t		n = 13;
@@ -57,7 +61,8 @@ TEST(strncmp, null_char) {
 	EXPECT_EQ(c_cmp, ft_cmp);
 }
 
-TEST(strncmp, n_less_than_length) {
+TEST(strncmp, n_less_than_length)
+{
 	const char	str1[] = "Hello, world!";
 	const char	str2[] = "Hello. World!";
 	size_t		n = 5;
@@ -68,7 +73,8 @@ TEST(strncmp, n_less_than_length) {
 	EXPECT_EQ(c_cmp, ft_cmp);
 }
 
-TEST(strncmp, n_greater_than_length) {
+TEST(strncmp, n_greater_than_length)
+{
 	const char	str1[] = "Hello, world!";
 	const char	str2[] = "Hello. World!";
 	size_t		n = 20;
@@ -79,7 +85,8 @@ TEST(strncmp, n_greater_than_length) {
 	EXPECT_EQ(c_cmp, ft_cmp);
 }
 
-TEST(strncmp, non_ascii) {
+TEST(strncmp, non_ascii)
+{
 	const char	str1[] = "Héllo, wörld!";
 	const char	str2[] = "Héllo, wörld!";
 	size_t		n = 14;
@@ -90,7 +97,8 @@ TEST(strncmp, non_ascii) {
 	EXPECT_EQ(c_cmp, ft_cmp);
 }
 
-TEST(strncmp, non_ascii_different) {
+TEST(strncmp, non_ascii_different)
+{
 	const char	str1[] = "Héllo, wörld!";
 	const char	str2[] = "Héllo, world?";
 	size_t		n = 14;
