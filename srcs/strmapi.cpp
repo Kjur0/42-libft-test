@@ -6,11 +6,11 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:40:28 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/19 19:32:34 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "_main.hpp"
 #include <string.h>
 
 TEST(strmapi, index) {

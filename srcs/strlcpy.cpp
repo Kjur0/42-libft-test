@@ -6,11 +6,11 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:41:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/19 19:32:22 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "_main.hpp"
 #include <bsd/string.h>
 
 TEST(strlcpy, basic) {

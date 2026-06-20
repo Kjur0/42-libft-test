@@ -6,11 +6,11 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:36:29 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/19 20:45:21 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 15:36:41 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "_main.hpp"
 
 TEST(striteri, basic) {
 	char		str[] = "0123456789";
@@ -21,4 +21,33 @@ TEST(striteri, basic) {
 		i_r++;
 	});
 	EXPECT_EQ(i_r, 10);
+}
+
+TEST(striteri, empty) {
+	char		str[] = "";
+	static int	i_r = 0;
+
+	ft_striteri(str, [](unsigned int i, char c) {
+		(void)i;
+		(void)c;
+		i_r++;
+	});
+	EXPECT_EQ(i_r, 0);
+}
+
+TEST(striteri, null) {
+	static int	i_r = 0;
+
+	ft_striteri(nullptr, [](unsigned int i, char c) {
+		(void)i;
+		(void)c;
+		i_r++;
+	});
+	EXPECT_EQ(i_r, 0);
+}
+
+TEST(striteri, null_f) {
+	char		str[] = "0123456789";
+
+	ft_striteri(str, nullptr);
 }

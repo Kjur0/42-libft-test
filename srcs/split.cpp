@@ -6,15 +6,15 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 16:11:47 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/19 21:14:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "_main.hpp"
 
 TEST(split, basic) {
 	char	**result = ft_split("Hello World!", ' ');
-	
+
 	EXPECT_STREQ(result[0], "Hello");
 	EXPECT_STREQ(result[1], "World!");
 	EXPECT_EQ(result[2], nullptr);

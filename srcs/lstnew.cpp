@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putchar_fd.cpp                                     :+:      :+:    :+:   */
+/*   lstnew.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 21:32:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 11:48:35 by kjurkows         ###   ########.fr       */
+/*   Created: 2026/06/20 11:48:06 by kjurkows          #+#    #+#             */
+/*   Updated: 2026/06/20 11:54:35 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "_main.hpp"
-#include <fcntl.h>
-#include <unistd.h>
 
-TEST(putchar_fd, test) {
-	char	c = 'A';
-	int		fd = open("/tmp/tests/putchar_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+TEST(lstnew, basic) {
+	char	str[] = "Hello, World!";
+	t_list	*list = ft_lstnew(str);
 
-	ft_putchar_fd(c, fd);
-	char	out[1];
-	close(fd);
-	fd = open("/tmp/tests/putchar_fd.txt", O_RDONLY);
-	read(fd, out, 1);
-
-	EXPECT_EQ(out[0], c);
-
-	close(fd);
+	ASSERT_NE(list, nullptr);
+	ASSERT_STREQ((char *)list->content, str);
+	ASSERT_EQ(list->next, nullptr);
+	
+	free(list);
 }

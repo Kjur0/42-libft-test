@@ -38,13 +38,12 @@
 - [x] `putnbr_fd`
 
 # Part 3
-- [ ] `list`
-- [ ] `lstnew`
-- [ ] `lstadd_front`
-- [ ] `lstsize`
-- [ ] `lstlast`
-- [ ] `lstadd_back`
-- [ ] `lstdelone`
-- [ ] `lstclear`
+- [x] `lstnew`
+- [x] `lstadd_front`
+- [x] `lstsize`
+- [x] `lstlast`
+- [x] `lstadd_back`
+- [x] `lstdelone`
+- [x] `lstclear`
 - [ ] `lstiter`
 - [ ] `lstmap`

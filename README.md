@@ -170,7 +170,7 @@ For those test `libft` is tested against `libc`
 | zero_length    | Copy 0 bytes                            |
 | null_char      | Copy string with `'\0'` in the middle   |
 | partial_length | Copy part of a buffer                   |
-| null_pointer   | Graceful `segfaul` handling             |
+| null_pointer   | Graceful `segfault` handling            |
 
 #### [`memmove`](srcs/memmove.cpp)
 
@@ -181,7 +181,7 @@ For those test `libft` is tested against `libc`
 | zero_length    | Move 0 bytes                                    |
 | null_char      | Move string with `'\0'` in the middle           |
 | in_place       | Move bytes to the same position in the buffer   |
-| null_pointer   | Graceful `segfaul` handling                     |
+| null_pointer   | Graceful `segfault` handling                    |
 
 #### [`strlcpy`](`srcs/strlcpy.cpp`)[^bsd]
 
@@ -195,20 +195,20 @@ For those test `libft` is tested against `libc`
 
 #### [`strlcat`](`srcs/strlcat.cpp`)[^bsd]
 
-| Test                     | Description                                               |
-|--------------------------|-----------------------------------------------------------|
-| basic                    | Concatenate string into a buffer with enough space        |
-| zero_size                | Concatenate string into a buffer of size 0                |
-| size_smaller_than_dst    | Concatenate string into a buffer smaller than dst         |
-| size_smaller_than_src    | Concatenate string into a buffer smaller than needed      |
-| empty_src                | Concatenate an empty string into a buffer                 |
-| empty_dst                | Concatenate string into an empty buffer                   |
-| size_equal_to_dst        | Concatenate string into a buffer of size equal to dst     |
-| size_equal_to_dst_plus_1 | Concatenate string into a buffer of size equal to dst + 1 |
-| size_equal_to_src        | Concatenate string into a buffer of size equal to src     |
-| size_one                 | Concatenate string into a buffer of size 1                |
-| exact_size               | Concatenate string into a buffer of exact size            |
-| dst_not_nul_teminated    | Concatenate string into a non null-terminated buffer      |
+| Test                     | Description                                                |
+|--------------------------|------------------------------------------------------------|
+| basic                    | Concatenate string into a buffer with enough space         |
+| zero_size                | Concatenate string into a buffer of size 0                 |
+| size_smaller_than_dst    | Concatenate string into a buffer smaller than `dst`        |
+| size_smaller_than_src    | Concatenate string into a buffer smaller than needed       |
+| empty_src                | Concatenate an empty string into a buffer                  |
+| empty_dst                | Concatenate string into an empty buffer                    |
+| size_equal_to_dst        | Concatenate string into a buffer of size equal to `dst`    |
+| size_equal_to_dst_plus_1 | Concatenate string into a buffer of size equal to `dst + 1`|
+| size_equal_to_src        | Concatenate string into a buffer of size equal to `src`    |
+| size_one                 | Concatenate string into a buffer of size 1                 |
+| exact_size               | Concatenate string into a buffer of exact size             |
+| dst_not_nul_teminated    | Concatenate string into a non `NUL`-terminated buffer      |
 
 #### [`toupper`](srcs/toupper.cpp)
 
@@ -386,18 +386,22 @@ These are tested agains expected output, not `libc`
 
 #### [`strmapi`](srcs/strmapi.cpp)
 
-| Test    | Description                                                      | Expected          |
-|---------|------------------------------------------------------------------|-------------------|
-| index   | Create new string where each char is modified based on its index | `"0123456798"`    |
-| toupper | Convert string to uppercase                                      | `"HELLO, WORLD!"` |
-| tolower | Convert string to lowercase                                      | `"hello, world!"` |
-| empty   | Apply function to an empty string                                | `""`              |
+| Test    | Description                                                        | Expected          |
+|---------|--------------------------------------------------------------------|-------------------|
+| index   | Create new string where each `char` is modified based on its index | `"0123456798"`    |
+| toupper | Convert string to uppercase                                        | `"HELLO, WORLD!"` |
+| tolower | Convert string to lowercase                                        | `"hello, world!"` |
+| empty   | Apply function to an empty string                                  | `""`              |
 
 
 #### [`striteri`](srcs/striteri.cpp)
 
 | Test   | Description                                                  |
+|--------|--------------------------------------------------------------|
 | basic  | Ensure each character is `'0' + i` and function run 10 times |
+| empty  | Ensure function does not run on an empty string              |
+| null   | Ensure function does not run on a null string                |
+| null_f | Ensure function does not run with a null function pointer    |
 
 #### [`putchar_fd`](srcs/putchar_fd.cpp)
 
@@ -427,3 +431,78 @@ These are tested agains expected output, not `libc`
 | neg42   | Ensure that `-42` is written to `/tmp/tests/putnbr_fd_neg42.txt`            |
 | int_min | Ensure that `-2147483648` is written to `/tmp/tests/putnbr_fd_int_min.txt` |
 | int_max | Ensure that `2147483647` is written to `/tmp/tests/putnbr_fd_int_max.txt`  |
+
+### Part 3 - linked list
+
+#### [`lstnew`](srcs/lstnew.cpp)
+
+| Test  | Description                                                   |
+|-------|---------------------------------------------------------------|
+| basic | Ensure that a new list node is created with the given content |
+
+#### [`lstadd_front`](srcs/lstadd_front.cpp)
+
+| Test      | Description                                                   |
+|-----------|---------------------------------------------------------------|
+| basic     | Ensure that a new node is added to the front of the list      |
+| null_list | Ensure that a new node is added to the front of a null list   |
+| null_node | Ensure that adding a null node does not change the list       |
+| nullptr   | Ensure that adding a node to `nullptr` does not cause a crash |
+
+#### [`lstsize`](srcs/lstsize.cpp)
+
+| Test   | Description                                                   |
+|--------|---------------------------------------------------------------|
+| basic  | Ensure that the size of a list with multiple nodes is correct |
+| empty  | Ensure that the size of an empty list is 0                    |
+| single | Ensure that the size of a list with one node is 1             |
+
+#### [`lstlast`](srcs/lstlast.cpp)
+
+| Test   | Description                                                        |
+|--------|--------------------------------------------------------------------|
+| basic  | Ensure that the last node of a list with multiple nodes is correct |
+| empty  | Ensure that `nullptr` is returned for an empty list                |
+| single | Ensure that the last node of a list with one node is that node     |
+
+#### [`lstadd_back`](srcs/lstadd_back.cpp)
+
+| Test      | Description                                                    |
+|-----------|----------------------------------------------------------------|
+| basic     | Ensure that a new node is added to the back of the list        |
+| null_list | Ensure that a new node is set as the first node of a null list |
+| null_node | Ensure that adding a null node does not change the list        |
+| nullptr   | Ensure that adding a node to `nullptr` does not cause a crash  |
+
+#### [`lstdelone`](srcs/lstdelone.cpp)
+
+| Test         | Description                                                     |
+|--------------|-----------------------------------------------------------------|
+| basic        | Ensure that a node is deleted and its content freed             |
+| null_node    | Ensure that deleting a null node does not cause a crash         |
+| no_del       | Ensure that a node is deleted without freeing its content       |
+| null_content | Ensure that a node with null content is deleted without a crash |
+
+#### [`lstclear`](srcs/lstclear.cpp)
+
+| Test         | Description                                                          |
+|--------------|----------------------------------------------------------------------|
+| basic        | Ensure that all nodes in a list are deleted and their content freed  |
+| null_list    | Ensure that clearing an empty list does not cause a crash            |
+| null_del     | Ensure that clearing a list without function does not cause a crash  |
+| null_content | Ensure that clearing a list with null content does not cause a crash |
+| nullptr      | Ensure that clearing a `nullptr` does not cause a crash              |
+
+#### [`lstiter`](srcs/lstiter.cpp)
+
+| Test      | Description                                                       |
+|-----------|-------------------------------------------------------------------|
+| basic     | Ensure that a function is applied to each node's content          |
+| null_list | Ensure that iterating over a null list does not cause a crash     |
+| null_func | Ensure that iterating with a null function does not cause a crash |
+
+#### [`lstmap`](srcs/lstmap.cpp)
+
+| Test     | Description                                              |
+|----------|----------------------------------------------------------|
+| basic    | Ensure that a function is applied to each node's content |
