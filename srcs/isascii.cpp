@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 14:02:03 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Created: 2026/06/17 13:56:42 by kjurkows          #+#    #+#             */
+/*   Updated: 2026/06/21 15:15:51 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,73 +15,110 @@
 
 TEST(isascii, space)
 {
-	char	c = ' ';
+	const char	ch = ' ';
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	const int	c = !!isascii(ch);
+	const int	ft = !!ft_isascii(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isascii, digit)
 {
-	char	c = '1';
+	const char	ch = '5';
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	const int	c = !!isascii(ch);
+	const int	ft = !!ft_isascii(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isascii, lowercase)
 {
-	char	c = 'a';
+	const char	ch = 'a';
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	const int	c = !!isascii(ch);
+	const int	ft = !!ft_isascii(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isascii, uppercase)
 {
-	char	c = 'A';
+	const char	ch = 'A';
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	const int	c = !!isascii(ch);
+	const int	ft = !!ft_isascii(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isascii, punctuation)
 {
-	char	c = '-';
+	const char	ch = '-';
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	const int	c = !!isascii(ch);
+	const int	ft = !!ft_isascii(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isascii, null_char)
 {
-	char	c = 0;
+	const char	ch = 0;
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	const int	c = !!isascii(ch);
+	const int	ft = !!ft_isascii(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isascii, control_char)
 {
-	char	c = '\r';
+	const char	ch = '\r';
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	const int	c = !!isascii(ch);
+	const int	ft = !!ft_isascii(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isascii, non_ascii)
 {
-	char	c = 255;
+	const char	ch = 255;
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
+	const int	c = !!isascii(ch);
+	const int	ft = !!ft_isascii(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isascii, undefined_behavior)
 {
-	int	c = 256 + 'a';
-	int	d = 256 + 'A';
+	int	ch = 256 + 'a';
+	int	d = 256 + '0';
 	int	e = 256 + '-';
 	int	f = 256 + ' ';
 	int	g = 256 + '\r';
 	int	h = -1;
 
-	EXPECT_EQ(!isascii(c), !ft_isascii(c));
-	EXPECT_EQ(!isascii(d), !ft_isascii(d));
-	EXPECT_EQ(!isascii(e), !ft_isascii(e));
-	EXPECT_EQ(!isascii(f), !ft_isascii(f));
-	EXPECT_EQ(!isascii(g), !ft_isascii(g));
-	EXPECT_EQ(!isascii(h), !ft_isascii(h));
+	const int	c_ch = !!isascii(ch);
+	const int	ft_ch = !!ft_isascii(ch);
+	const int	c_d = !!isascii(d);
+	const int	ft_d = !!ft_isascii(d);
+	const int	c_e = !!isascii(e);
+	const int	ft_e = !!ft_isascii(e);
+	const int	c_f = !!isascii(f);
+	const int	ft_f = !!ft_isascii(f);
+	const int	c_g = !!isascii(g);
+	const int	ft_g = !!ft_isascii(g);
+	const int	c_h = !!isascii(h);
+	const int	ft_h = !!ft_isascii(h);
+
+	EXPECT_EQ(c_ch, ft_ch);
+	EXPECT_EQ(c_d, ft_d);
+	EXPECT_EQ(c_e, ft_e);
+	EXPECT_EQ(c_f, ft_f);
+	EXPECT_EQ(c_g, ft_g);
+	EXPECT_EQ(c_h, ft_h);
 }

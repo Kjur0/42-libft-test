@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 14:02:03 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Created: 2026/06/17 13:56:42 by kjurkows          #+#    #+#             */
+/*   Updated: 2026/06/21 15:16:04 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,73 +15,110 @@
 
 TEST(isdigit, space)
 {
-	char	c = ' ';
+	const char	ch = ' ';
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
+	const int	c = !!isdigit(ch);
+	const int	ft = !!ft_isdigit(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isdigit, digit)
 {
-	char	c = '1';
+	const char	ch = '5';
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
+	const int	c = !!isdigit(ch);
+	const int	ft = !!ft_isdigit(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isdigit, lowercase)
 {
-	char	c = 'a';
+	const char	ch = 'a';
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
+	const int	c = !!isdigit(ch);
+	const int	ft = !!ft_isdigit(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isdigit, uppercase)
 {
-	char	c = 'A';
+	const char	ch = 'A';
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
+	const int	c = !!isdigit(ch);
+	const int	ft = !!ft_isdigit(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isdigit, punctuation)
 {
-	char	c = '-';
+	const char	ch = '-';
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
+	const int	c = !!isdigit(ch);
+	const int	ft = !!ft_isdigit(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isdigit, null_char)
 {
-	char	c = 0;
+	const char	ch = 0;
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
+	const int	c = !!isdigit(ch);
+	const int	ft = !!ft_isdigit(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isdigit, control_char)
 {
-	char	c = '\r';
+	const char	ch = '\r';
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
+	const int	c = !!isdigit(ch);
+	const int	ft = !!ft_isdigit(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isdigit, non_ascii)
 {
-	char	c = 255;
+	const char	ch = 255;
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
+	const int	c = !!isdigit(ch);
+	const int	ft = !!ft_isdigit(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isdigit, undefined_behavior)
 {
-	int	c = 256 + 'a';
-	int	d = 256 + 'A';
+	int	ch = 256 + 'a';
+	int	d = 256 + '0';
 	int	e = 256 + '-';
 	int	f = 256 + ' ';
 	int	g = 256 + '\r';
 	int	h = -1;
 
-	EXPECT_EQ(!isdigit(c), !ft_isdigit(c));
-	EXPECT_EQ(!isdigit(d), !ft_isdigit(d));
-	EXPECT_EQ(!isdigit(e), !ft_isdigit(e));
-	EXPECT_EQ(!isdigit(f), !ft_isdigit(f));
-	EXPECT_EQ(!isdigit(g), !ft_isdigit(g));
-	EXPECT_EQ(!isdigit(h), !ft_isdigit(h));
+	const int	c_ch = !!isdigit(ch);
+	const int	ft_ch = !!ft_isdigit(ch);
+	const int	c_d = !!isdigit(d);
+	const int	ft_d = !!ft_isdigit(d);
+	const int	c_e = !!isdigit(e);
+	const int	ft_e = !!ft_isdigit(e);
+	const int	c_f = !!isdigit(f);
+	const int	ft_f = !!ft_isdigit(f);
+	const int	c_g = !!isdigit(g);
+	const int	ft_g = !!ft_isdigit(g);
+	const int	c_h = !!isdigit(h);
+	const int	ft_h = !!ft_isdigit(h);
+
+	EXPECT_EQ(c_ch, ft_ch);
+	EXPECT_EQ(c_d, ft_d);
+	EXPECT_EQ(c_e, ft_e);
+	EXPECT_EQ(c_f, ft_f);
+	EXPECT_EQ(c_g, ft_g);
+	EXPECT_EQ(c_h, ft_h);
 }

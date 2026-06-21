@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 10:57:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:04:45 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,77 +17,110 @@ TEST(atoi, 0)
 {
 	const char	str[] = "0";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, 1)
 {
 	const char	str[] = "1";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, 42)
 {
 	const char	str[] = "42";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, overflow)
 {
 	const char	str[] = "2147483648";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, underflow)
 {
 	const char	str[] = "-2147483649";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, whitespace)
 {
 	const char	str[] = "\t\n\v\f\r 42";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, plus_sign)
 {
 	const char	str[] = "+42";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, minus_sign)
 {
 	const char	str[] = "-42";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, non_numeric)
 {
 	const char	str[] = "42abc";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, empty_string)
 {
 	const char	str[] = "";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, only_whitespace)
 {
 	const char	str[] = "\t\n\v\f\r ";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, multiple_signs)
@@ -97,22 +130,37 @@ TEST(atoi, multiple_signs)
 	const char	str3[] = "+-42";
 	const char	str4[] = "-+42";
 
-	EXPECT_EQ(atoi(str1), ft_atoi(str1));
-	EXPECT_EQ(atoi(str2), ft_atoi(str2));
-	EXPECT_EQ(atoi(str3), ft_atoi(str3));
-	EXPECT_EQ(atoi(str4), ft_atoi(str4));
+	const int	c1 = atoi(str1);
+	const int	ft1 = ft_atoi(str1);
+	const int	c2 = atoi(str2);
+	const int	ft2 = ft_atoi(str2);
+	const int	c3 = atoi(str3);
+	const int	ft3 = ft_atoi(str3);
+	const int	c4 = atoi(str4);
+	const int	ft4 = ft_atoi(str4);
+
+	EXPECT_EQ(c1, ft1);
+	EXPECT_EQ(c2, ft2);
+	EXPECT_EQ(c3, ft3);
+	EXPECT_EQ(c4, ft4);
 }
 
 TEST(atoi, too_large_number)
 {
 	const char	str[] = "999999999999999999999999";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(atoi, too_small_number)
 {
 	const char	str[] = "-999999999999999999999999";
 
-	EXPECT_EQ(atoi(str), ft_atoi(str));
+	const int	c = atoi(str);
+	const int	ft = ft_atoi(str);
+
+	EXPECT_EQ(c, ft);
 }

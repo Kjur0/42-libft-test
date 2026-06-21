@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 11:48:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:11:36 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 TEST(lstnew, basic)
 {
 	char	str[] = "Hello, World!";
+	
 	t_list	*list = ft_lstnew(str);
 
 	ASSERT_NE(list, nullptr);

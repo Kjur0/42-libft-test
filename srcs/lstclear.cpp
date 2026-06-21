@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:06:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:29:11 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:09:40 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ TEST(lstclear, basic)
 
 TEST(lstclear, null_list)
 {
-	t_list	*list = nullptr;
+	EXPECT_EXIT({
+		t_list	*list = nullptr;
 
-	ft_lstclear(&list, free);
+		ft_lstclear(&list, free);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
 }

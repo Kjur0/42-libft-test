@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 16:20:48 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 19:59:30 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:23:03 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,61 +15,73 @@
 
 TEST(memcpy, basic)
 {
-	const char	str[] = "Hello, world!";
-	int			n = 14;
-	char		c[n];
-	char		ft[n];
+	EXPECT_EXIT({
+		const char	str[] = "Hello, world!";
+		int			n = 14;
+		char		c[n];
+		char		ft[n];
 
-	memcpy(c, str, n);
-	ft_memcpy(ft, str, n);
+		memcpy(c, str, n);
+		ft_memcpy(ft, str, n);
 
-	EXPECT_EQ(memcmp(c, ft, n), 0);
+		exit(memcmp(c, ft, n));
+	}, ::testing::ExitedWithCode(0), "");
 }
 
 TEST(memcpy, zero_length)
 {
-	const char	str[] = "Hello, world!";
-	int			n = 0;
-	char		c[n];
-	char		ft[n];
+	EXPECT_EXIT({
+		const char	str[] = "Hello, world!";
+		int			n = 0;
+		char		c[n];
+		char		ft[n];
 
-	memcpy(c, str, n);
-	ft_memcpy(ft, str, n);
+		memcpy(c, str, n);
+		ft_memcpy(ft, str, n);
 
-	EXPECT_EQ(memcmp(c, ft, n), 0);
+		exit(memcmp(c, ft, n));
+	}, ::testing::ExitedWithCode(0), "");
 }
 
 TEST(memcpy, null_char)
 {
-	const char	str[] = "Hello\0world!";
-	int			n = 13;
-	char		c[n];
-	char		ft[n];
+	EXPECT_EXIT({
+		const char	str[] = "Hello\0world!";
+		int			n = 13;
+		char		c[n];
+		char		ft[n];
 
-	memcpy(c, str, n);
-	ft_memcpy(ft, str, n);
+		memcpy(c, str, n);
+		ft_memcpy(ft, str, n);
 
-	EXPECT_EQ(memcmp(c, ft, n), 0);
+		exit(memcmp(c, ft, n));
+	}, ::testing::ExitedWithCode(0), "");
 }
 
 TEST(memcpy, partial_length)
 {
-	const char	str[] = "Hello, world!";
-	int			n = 5;
-	char		c[n];
-	char		ft[n];
+	EXPECT_EXIT({
+		const char	str[] = "Hello, world!";
+		int			n = 5;
+		char		c[n];
+		char		ft[n];
 
-	memcpy(c, str, n);
-	ft_memcpy(ft, str, n);
+		memcpy(c, str, n);
+		ft_memcpy(ft, str, n);
 
-	EXPECT_EQ(memcmp(c, ft, n), 0);
+		exit(memcmp(c, ft, n));
+	}, ::testing::ExitedWithCode(0), "");
 }
 
 TEST(memcpy, nullptr_dst)
 {
-	const char	*str = "Hello, world!";
-	char		*ft = nullptr;
-	const int	n = 5;
+	EXPECT_EXIT({
+		const char	*str = "Hello, world!";
+		char		*ft = nullptr;
+		const int	n = 5;
 
-	EXPECT_EQ(ft_memcpy(ft, str, n), nullptr);
+		ft_memcpy(ft, str, n);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
 }

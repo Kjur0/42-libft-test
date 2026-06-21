@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:30:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 14:18:11 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:11:18 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ TEST(lstmap, basic)
 		*new_i = *i + 10;
 		return new_i;
 	}, free);
+	
 	t_list	*current_new = new_list;
 	for (int i = 0; i < 3; i++)
 	{

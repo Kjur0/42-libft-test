@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:52:22 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 14:16:47 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:16:38 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ TEST(lstadd_back, basic)
 	t_list	*list1 = (t_list *)malloc(sizeof(t_list));
 	t_list	*list2 = (t_list *)malloc(sizeof(t_list));
 	t_list	*list3 = (t_list *)malloc(sizeof(t_list));
-	t_list	*tmp = list1;
 	list1->content = str1;
 	list1->next = list2;
 	list2->content = str2;
@@ -29,6 +28,7 @@ TEST(lstadd_back, basic)
 	list3->content = str3;
 	list3->next = nullptr;
 
+	t_list	*tmp = list1;
 	ft_lstadd_back(&tmp, list3);
 
 	ASSERT_STREQ((char *)tmp->content, str1);
@@ -48,10 +48,10 @@ TEST(lstadd_back, null_list)
 {
 	char	str[] = "Hello, World!";
 	t_list	*list = (t_list *)malloc(sizeof(t_list));
-	t_list	*tmp = nullptr;
 	list->content = str;
 	list->next = nullptr;
 
+	t_list	*tmp = nullptr;
 	ft_lstadd_back(&tmp, list);
 
 	ASSERT_STREQ((char *)tmp->content, str);

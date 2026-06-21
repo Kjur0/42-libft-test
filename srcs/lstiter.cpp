@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:26:48 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:30:23 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:17:51 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ TEST(lstiter, basic)
 	int			i1 = 0;
 	int			i2 = 1;
 	int			i3 = 2;
-	static int	i_r = 0;
 	list1->content = &i1;
 	list1->next = list2;
 	list2->content = &i2;
@@ -29,11 +28,11 @@ TEST(lstiter, basic)
 	list3->content = &i3;
 	list3->next = nullptr;
 
+	static int	i_r = 0;
 	ft_lstiter(list1, [](void *content)
 	{
 		int	*i = (int *)content;
-		EXPECT_EQ(*i, i_r);
-		i_r++;
+		EXPECT_EQ(*i, i_r++);
 	});
 	EXPECT_EQ(i_r, 3);
 
@@ -45,11 +44,11 @@ TEST(lstiter, basic)
 TEST(lstiter, null_list)
 {
 	static int	i_r = 0;
-
 	ft_lstiter(nullptr, [](void *content)
 	{
 		(void)content;
 		i_r++;
 	});
+
 	EXPECT_EQ(i_r, 0);
 }

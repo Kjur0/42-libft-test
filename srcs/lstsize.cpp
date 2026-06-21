@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:39:24 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:20:27 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ TEST(lstsize, basic)
 	list2->next = list3;
 	list3->next = nullptr;
 
-	ASSERT_EQ(ft_lstsize(list1), 3);
+	int		size = ft_lstsize(list1);
+	
+	ASSERT_EQ(size, 3);
 
 	free(list1);
 	free(list2);
@@ -32,7 +34,9 @@ TEST(lstsize, empty)
 {
 	t_list	*list = nullptr;
 
-	ASSERT_EQ(ft_lstsize(list), 0);
+	int		size = ft_lstsize(list);
+
+	ASSERT_EQ(size, 0);
 }
 
 TEST(lstsize, single)
@@ -40,7 +44,9 @@ TEST(lstsize, single)
 	t_list	*list = (t_list *)malloc(sizeof(t_list));
 	list->next = nullptr;
 
-	ASSERT_EQ(ft_lstsize(list), 1);
+	int		size = ft_lstsize(list);
+
+	ASSERT_EQ(size, 1);
 
 	free(list);
 }

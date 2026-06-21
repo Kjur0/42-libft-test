@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 14:02:03 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Created: 2026/06/17 13:56:42 by kjurkows          #+#    #+#             */
+/*   Updated: 2026/06/21 15:16:10 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,73 +15,110 @@
 
 TEST(isprint, space)
 {
-	char	c = ' ';
+	const char	ch = ' ';
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
+	const int	c = !!isprint(ch);
+	const int	ft = !!ft_isprint(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isprint, digit)
 {
-	char	c = '1';
+	const char	ch = '5';
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
+	const int	c = !!isprint(ch);
+	const int	ft = !!ft_isprint(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isprint, lowercase)
 {
-	char	c = 'a';
+	const char	ch = 'a';
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
+	const int	c = !!isprint(ch);
+	const int	ft = !!ft_isprint(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isprint, uppercase)
 {
-	char	c = 'A';
+	const char	ch = 'A';
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
+	const int	c = !!isprint(ch);
+	const int	ft = !!ft_isprint(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isprint, punctuation)
 {
-	char	c = '-';
+	const char	ch = '-';
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
+	const int	c = !!isprint(ch);
+	const int	ft = !!ft_isprint(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isprint, null_char)
 {
-	char	c = 0;
+	const char	ch = 0;
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
+	const int	c = !!isprint(ch);
+	const int	ft = !!ft_isprint(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isprint, control_char)
 {
-	char	c = '\r';
+	const char	ch = '\r';
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
+	const int	c = !!isprint(ch);
+	const int	ft = !!ft_isprint(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isprint, non_ascii)
 {
-	char	c = 255;
+	const char	ch = 255;
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
+	const int	c = !!isprint(ch);
+	const int	ft = !!ft_isprint(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isprint, undefined_behavior)
 {
-	int	c = 256 + 'a';
-	int	d = 256 + 'A';
+	int	ch = 256 + 'a';
+	int	d = 256 + '0';
 	int	e = 256 + '-';
 	int	f = 256 + ' ';
 	int	g = 256 + '\r';
 	int	h = -1;
 
-	EXPECT_EQ(!isprint(c), !ft_isprint(c));
-	EXPECT_EQ(!isprint(d), !ft_isprint(d));
-	EXPECT_EQ(!isprint(e), !ft_isprint(e));
-	EXPECT_EQ(!isprint(f), !ft_isprint(f));
-	EXPECT_EQ(!isprint(g), !ft_isprint(g));
-	EXPECT_EQ(!isprint(h), !ft_isprint(h));
+	const int	c_ch = !!isprint(ch);
+	const int	ft_ch = !!ft_isprint(ch);
+	const int	c_d = !!isprint(d);
+	const int	ft_d = !!ft_isprint(d);
+	const int	c_e = !!isprint(e);
+	const int	ft_e = !!ft_isprint(e);
+	const int	c_f = !!isprint(f);
+	const int	ft_f = !!ft_isprint(f);
+	const int	c_g = !!isprint(g);
+	const int	ft_g = !!ft_isprint(g);
+	const int	c_h = !!isprint(h);
+	const int	ft_h = !!ft_isprint(h);
+
+	EXPECT_EQ(c_ch, ft_ch);
+	EXPECT_EQ(c_d, ft_d);
+	EXPECT_EQ(c_e, ft_e);
+	EXPECT_EQ(c_f, ft_f);
+	EXPECT_EQ(c_g, ft_g);
+	EXPECT_EQ(c_h, ft_h);
 }

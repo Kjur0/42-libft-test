@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:32:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:25:28 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ TEST(putchar_fd, test)
 	int		fd = open("/tmp/tests/putchar_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
 
 	ft_putchar_fd(c, fd);
-	char	out[1];
+
 	close(fd);
+	char	out[1];
 	fd = open("/tmp/tests/putchar_fd.txt", O_RDONLY);
 	read(fd, out, 1);
-
-	EXPECT_EQ(out[0], c);
-
 	close(fd);
+	EXPECT_EQ(out[0], c);
 }

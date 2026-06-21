@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 14:02:03 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Created: 2026/06/17 13:56:42 by kjurkows          #+#    #+#             */
+/*   Updated: 2026/06/21 15:15:43 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,73 +15,110 @@
 
 TEST(isalpha, space)
 {
-	char	c = ' ';
+	const char	ch = ' ';
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
+	const int	c = !!isalpha(ch);
+	const int	ft = !!ft_isalpha(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isalpha, digit)
 {
-	char	c = '1';
+	const char	ch = '5';
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
+	const int	c = !!isalpha(ch);
+	const int	ft = !!ft_isalpha(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isalpha, lowercase)
 {
-	char	c = 'a';
+	const char	ch = 'a';
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
+	const int	c = !!isalpha(ch);
+	const int	ft = !!ft_isalpha(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isalpha, uppercase)
 {
-	char	c = 'A';
+	const char	ch = 'A';
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
+	const int	c = !!isalpha(ch);
+	const int	ft = !!ft_isalpha(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isalpha, punctuation)
 {
-	char	c = '-';
+	const char	ch = '-';
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
+	const int	c = !!isalpha(ch);
+	const int	ft = !!ft_isalpha(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isalpha, null_char)
 {
-	char	c = 0;
+	const char	ch = 0;
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
+	const int	c = !!isalpha(ch);
+	const int	ft = !!ft_isalpha(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isalpha, control_char)
 {
-	char	c = '\r';
+	const char	ch = '\r';
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
+	const int	c = !!isalpha(ch);
+	const int	ft = !!ft_isalpha(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isalpha, non_ascii)
 {
-	char	c = 255;
+	const char	ch = 255;
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
+	const int	c = !!isalpha(ch);
+	const int	ft = !!ft_isalpha(ch);
+
+	EXPECT_EQ(c, ft);
 }
 
 TEST(isalpha, undefined_behavior)
 {
-	int	c = 256 + 'a';
-	int	d = 256 + 'A';
+	int	ch = 256 + 'a';
+	int	d = 256 + '0';
 	int	e = 256 + '-';
 	int	f = 256 + ' ';
 	int	g = 256 + '\r';
 	int	h = -1;
 
-	EXPECT_EQ(!isalpha(c), !ft_isalpha(c));
-	EXPECT_EQ(!isalpha(d), !ft_isalpha(d));
-	EXPECT_EQ(!isalpha(e), !ft_isalpha(e));
-	EXPECT_EQ(!isalpha(f), !ft_isalpha(f));
-	EXPECT_EQ(!isalpha(g), !ft_isalpha(g));
-	EXPECT_EQ(!isalpha(h), !ft_isalpha(h));
+	const int	c_ch = !!isalpha(ch);
+	const int	ft_ch = !!ft_isalpha(ch);
+	const int	c_d = !!isalpha(d);
+	const int	ft_d = !!ft_isalpha(d);
+	const int	c_e = !!isalpha(e);
+	const int	ft_e = !!ft_isalpha(e);
+	const int	c_f = !!isalpha(f);
+	const int	ft_f = !!ft_isalpha(f);
+	const int	c_g = !!isalpha(g);
+	const int	ft_g = !!ft_isalpha(g);
+	const int	c_h = !!isalpha(h);
+	const int	ft_h = !!ft_isalpha(h);
+
+	EXPECT_EQ(c_ch, ft_ch);
+	EXPECT_EQ(c_d, ft_d);
+	EXPECT_EQ(c_e, ft_e);
+	EXPECT_EQ(c_f, ft_f);
+	EXPECT_EQ(c_g, ft_g);
+	EXPECT_EQ(c_h, ft_h);
 }

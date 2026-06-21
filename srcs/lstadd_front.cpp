@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 12:09:20 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:26:53 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/21 15:16:50 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ TEST(lstadd_front, basic)
 	char	str2[] = "42Warsaw";
 	t_list	*list1 = (t_list *)malloc(sizeof(t_list));
 	t_list	*list2 = (t_list *)malloc(sizeof(t_list));
-	t_list	*tmp = list1;
 	list1->content = str1;
 	list1->next = nullptr;
 	list2->content = str2;
 	list2->next = nullptr;
 
+	t_list	*tmp = list1;
 	ft_lstadd_front(&tmp, list2);
 
 	ASSERT_EQ(tmp, list2);
@@ -42,8 +42,8 @@ TEST(lstadd_front, null_list)
 	t_list	*list = (t_list *)malloc(sizeof(t_list));
 	list->content = str;
 	list->next = nullptr;
-	t_list	*tmp = nullptr;
 
+	t_list	*tmp = nullptr;
 	ft_lstadd_front(&tmp, list);
 
 	ASSERT_EQ(list->next, nullptr);
