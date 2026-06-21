@@ -1,6 +1,6 @@
-# `libft-test`
-
 *This project has been created as part of the 42 curriculum by **kjurkows***
+
+# `libft-test`
 
 **IT IS NOT NORM COMPLIANT**
 

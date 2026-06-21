@@ -1,4 +1,5 @@
 - [x] `README.md` ft_42_format
+- [x] `Makefile` BEATIFUL
 
 # Part 1
 - [x] `isalpha`
