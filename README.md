@@ -260,6 +260,19 @@ For those test `libft` is tested against `libc`
 | multiple_occurrences | `'l'` in `"Hello, World!"`           |
 | non_ascii            | `256 + 'a'` in `"Hello, \255World!"` |
 
+#### [`strncmp`](srcs/strncmp.cpp)
+
+| Test                  | Description                                                    |
+|-----------------------|----------------------------------------------------------------|
+| equal                 | Compare `"Hello, World!"` and `"Hello, World!"`                |
+| different             | Compare `"Hello, World!"` and `"Hello. World!"`                |
+| zero_length           | Compare `"Hello, World!"` and `"Hello. World!"` with length 0  |
+| null_char             | Compare `"Hello\0World"` and `"Hello\0World"`                  |
+| n_less_than_length    | Compare `"Hello, World!"` and `"Hello, world!"` with length 5  |
+| n_greater_than_length | Compare `"Hello, World!"` and `"Hello, world!"` with length 20 |
+| non_ascii             | Compare `"Héllo, wörld!"` and `"Héllo, wörld!"`                |
+| non_ascii_different   | Compare `"Héllo, wörld!"` and `"Héllo, world?"`                |
+
 #### [`memchr`](srcs/memchr.cpp)
 
 | Test                 | Description                              |
@@ -400,6 +413,7 @@ These are tested agains expected output, not `libc`
 |--------|--------------------------------------------------------------|
 | basic  | Ensure each character is `'0' + i` and function run 10 times |
 | empty  | Ensure function does not run on an empty string              |
+| change | Ensure function can modify the string in place               |
 
 #### [`putchar_fd`](srcs/putchar_fd.cpp)
 

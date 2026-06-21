@@ -18,6 +18,7 @@
 - [x] `tolower`
 - [x] `strchr`
 - [x] `strrchr`
+- [x] `strncmp`
 - [x] `memchr`
 - [x] `memcmp`
 - [x] `strnstr`
