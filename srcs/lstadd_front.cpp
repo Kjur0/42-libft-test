@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 12:09:20 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:16:50 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/23 22:16:16 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,30 @@ TEST(lstadd_front, basic)
 {
 	char	str1[] = "Hello, World!";
 	char	str2[] = "42Warsaw";
+	char	str3[] = "FT_LIST";
 	t_list	*list1 = (t_list *)malloc(sizeof(t_list));
 	t_list	*list2 = (t_list *)malloc(sizeof(t_list));
+	t_list	*list3 = (t_list *)malloc(sizeof(t_list));
 	list1->content = str1;
-	list1->next = nullptr;
+	list1->next = list2;
 	list2->content = str2;
 	list2->next = nullptr;
+	list3->content = str3;
+	list3->next = nullptr;
 
 	t_list	*tmp = list1;
-	ft_lstadd_front(&tmp, list2);
+	ft_lstadd_front(&tmp, list3);
 
-	ASSERT_EQ(tmp, list2);
-	ASSERT_EQ(list2->next, list1);
+	ASSERT_EQ(tmp, list3);
+	ASSERT_EQ(list3->next, list1);
+	ASSERT_EQ(list1->next, list2);
+	ASSERT_STREQ((char *)tmp->content, str3);
 	ASSERT_STREQ((char *)tmp->next->content, str1);
-	ASSERT_STREQ((char *)tmp->content, str2);
+	ASSERT_STREQ((char *)tmp->next->next->content, str2);
 
 	free(list1);
 	free(list2);
+	free(list3);
 }
 
 TEST(lstadd_front, null_list)

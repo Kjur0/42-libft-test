@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 16:20:48 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:23:03 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/23 22:46:10 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 TEST(memcpy, basic)
 {
 	EXPECT_EXIT({
-		const char	str[] = "Hello, world!";
-		int			n = 14;
-		char		c[n];
-		char		ft[n];
+		const char		str[] = "Hello, world!";
+		const size_t	n = 14;
+		char			c[n];
+		char			ft[n];
 
 		memcpy(c, str, n);
 		ft_memcpy(ft, str, n);
@@ -31,10 +31,10 @@ TEST(memcpy, basic)
 TEST(memcpy, zero_length)
 {
 	EXPECT_EXIT({
-		const char	str[] = "Hello, world!";
-		int			n = 0;
-		char		c[n];
-		char		ft[n];
+		const char		str[] = "Hello, world!";
+		const size_t	n = 0;
+		char			c[n];
+		char			ft[n];
 
 		memcpy(c, str, n);
 		ft_memcpy(ft, str, n);
@@ -46,10 +46,10 @@ TEST(memcpy, zero_length)
 TEST(memcpy, null_char)
 {
 	EXPECT_EXIT({
-		const char	str[] = "Hello\0world!";
-		int			n = 13;
-		char		c[n];
-		char		ft[n];
+		const char		str[] = "Hello\0world!";
+		const size_t	n = 13;
+		char			c[n];
+		char			ft[n];
 
 		memcpy(c, str, n);
 		ft_memcpy(ft, str, n);
@@ -61,10 +61,10 @@ TEST(memcpy, null_char)
 TEST(memcpy, partial_length)
 {
 	EXPECT_EXIT({
-		const char	str[] = "Hello, world!";
-		int			n = 5;
-		char		c[n];
-		char		ft[n];
+		const char		str[] = "Hello, world!";
+		const size_t	n = 5;
+		char			c[n];
+		char			ft[n];
 
 		memcpy(c, str, n);
 		ft_memcpy(ft, str, n);
@@ -73,12 +73,25 @@ TEST(memcpy, partial_length)
 	}, ::testing::ExitedWithCode(0), "");
 }
 
-TEST(memcpy, nullptr_dst)
+TEST(memcpyDeathTest, nullptr_dst)
 {
 	EXPECT_EXIT({
-		const char	*str = "Hello, world!";
-		char		*ft = nullptr;
-		const int	n = 5;
+		const char		*str = "Hello, world!";
+		const size_t	n = 5;
+		char			*ft = nullptr;
+
+		ft_memcpy(ft, str, n);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(memcpyDeathTest, nullptr_src)
+{
+	EXPECT_EXIT({
+		const char		*str = nullptr;
+		const size_t	n = 5;
+		char			ft[6];
 
 		ft_memcpy(ft, str, n);
 

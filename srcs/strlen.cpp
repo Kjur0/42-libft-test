@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:54:17 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/23 23:22:34 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,51 @@
 
 TEST(strlen, basic)
 {
-	const char*	str = "Hello, World!";
+	const char		*str = "Hello, World!";
 
-	size_t		c_len = strlen(str);
-	size_t		ft_len = ft_strlen(str);
+	const size_t	c_len = strlen(str);
+	const size_t	ft_len = ft_strlen(str);
 
 	EXPECT_EQ(c_len, ft_len);
 }
 
 TEST(strlen, empty_string)
 {
-	const char*	str = "";
+	const char		*str = "";
 
-	size_t		c_len = strlen(str);
-	size_t		ft_len = ft_strlen(str);
+	const size_t	c_len = strlen(str);
+	const size_t	ft_len = ft_strlen(str);
 
 	EXPECT_EQ(c_len, ft_len);
 }
 
 TEST(strlen, long_string)
 {
-	const char*	str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+	const char		*str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
-	size_t		c_len = strlen(str);
-	size_t		ft_len = ft_strlen(str);
+	const size_t	c_len = strlen(str);
+	const size_t	ft_len = ft_strlen(str);
 
 	EXPECT_EQ(c_len, ft_len);
 }
 
 TEST(strlen, string_with_null_char)
 {
-	const char	str[] = "Hello\0World";
+	const char		*str = "Hello\0World";
 
-	size_t		c_len = strlen(str);
-	size_t		ft_len = ft_strlen(str);
+	const size_t	c_len = strlen(str);
+	const size_t	ft_len = ft_strlen(str);
 
 	EXPECT_EQ(c_len, ft_len);
+}
+
+TEST(strlenDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		const char	*str = nullptr;
+
+		ft_strlen(str);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
 }

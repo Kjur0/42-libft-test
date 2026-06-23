@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:35:54 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/23 21:53:44 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,35 @@
 
 TEST(memset, basic)
 {
-	char	ft[] = "Hello, World!";
-	char	c[] = "Hello, World!";
-	int		n = 5;
+	EXPECT_EXIT({
+		char	ft[] = "Hello, World!";
+		char	c[] = "Hello, World!";
+		int		n = 5;
 
-	ft_memset(ft, 'x', n);
-	memset(c, 'x', n);
+		ft_memset(ft, 'x', n);
+		memset(c, 'x', n);
 
-	EXPECT_EQ(memcmp(ft, c, 14), 0);
+		exit(memcmp(ft, c, 14));
+}, ::testing::ExitedWithCode(0), "");
 }
 
 TEST(memset, full_length)
 {
-	char	ft[] = "Hello, World!";
-	char	c[] = "Hello, World!";
-	int		n = 14;
+	EXPECT_EXIT({
+		char	ft[] = "Hello, World!";
+		char	c[] = "Hello, World!";
+		int		n = 14;
 
-	ft_memset(ft, 'x', n);
-	memset(c, 'x', n);
+		ft_memset(ft, 'x', n);
+		memset(c, 'x', n);
 
-	EXPECT_EQ(memcmp(ft, c, n), 0);
+		exit(memcmp(ft, c, n));
+	}, ::testing::ExitedWithCode(0), "");
 }
 
 TEST(memset, non_printable)
 {
+	EXPECT_EXIT({
 	char	ft[] = "Hello, World!";
 	char	c[] = "Hello, World!";
 	int		n = 5;
@@ -46,5 +51,32 @@ TEST(memset, non_printable)
 	ft_memset(ft, '\0', n);
 	memset(c, '\0', n);
 
-	EXPECT_EQ(memcmp(ft, c, 14), 0);
+		exit(memcmp(ft, c, 14));
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(memset, zero_length)
+{
+	EXPECT_EXIT({
+		char	ft[] = "Hello, World!";
+		char	c[] = "Hello, World!";
+		int		n = 0;
+
+		ft_memset(ft, 'x', n);
+		memset(c, 'x', n);
+
+		exit(memcmp(ft, c, 14));
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(memsetDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		char	*ft = nullptr;
+		int		n = 5;
+
+		ft_memset(ft, 'x', n);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
 }

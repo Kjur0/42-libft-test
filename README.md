@@ -57,13 +57,22 @@ AI inline suggestions were used for repetative tasks, such as:
 
 ## Detailed description
 
+Some tests are `DeathTest`s, they only check if the function handles segfaults gracefully. They do not check for the output of the function.
+
 Below is the list as all tests:
+
+### Norminette
+
+| Name    | Description                           |
+|---------|---------------------------------------|
+| `norme` | Check if all files are norm compliant |
 
 ### Part 1 - `libc` functions
 
 For those test `libft` is tested against `libc`
 
 [^bsd]: functions are tested against `libbsd`
+[^dt]: `DeathTest` - only checks if the function handles segfaults gracefully. Does not check for the output of the function.
 
 #### [`isalpha`](srcs/isalpha.cpp)
 
@@ -143,6 +152,7 @@ For those test `libft` is tested against `libc`
 | empty_string          | `""`                   |
 | long_string           | `"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."` |
 | string_with_null_char | `"Hello\0World"`       |
+| nullptr[^dt]          | `nullptr`              |
 
 #### [`memset`](srcs/memset.cpp)
 
@@ -151,6 +161,8 @@ For those test `libft` is tested against `libc`
 | basic         | Set 5 bytes of a buffer to `'x'`  |
 | full_length   | Set entire buffer to `'x'`        |
 | non_printable | Set 5 bytes of a buffer to `'\0'` |
+| zero_length   | Set 0 bytes of a buffer to `'x'`  |
+| nullptr[^dt]  | Graceful `segfault` handling      |
 
 #### [`bzero`](srcs/bzero.cpp)
 
@@ -161,39 +173,44 @@ For those test `libft` is tested against `libc`
 | full_length    | Zero entire buffer                                   |
 | partial_length | Zero part of a buffer                                |
 | non_ascii      | Zero 5 bytes of a buffer containing non-ASCII values |
+| nullptr[^dt]   | Graceful `segfault` handling                         |
 
 #### [`memcpy`](srcs/memcpy.cpp)
 
-| Test           | Description                           |
-|----------------|---------------------------------------|
-| basic          | Copy full buffer                      |
-| zero_length    | Copy 0 bytes                          |
-| null_char      | Copy string with `'\0'` in the middle |
-| partial_length | Copy part of a buffer                 |
-| null_pointer   | Graceful `segfault` handling          |
+| Test             | Description                           |
+|------------------|---------------------------------------|
+| basic            | Copy full buffer                      |
+| zero_length      | Copy 0 bytes                          |
+| null_char        | Copy string with `'\0'` in the middle |
+| partial_length   | Copy part of a buffer                 |
+| nullptr_dst[^dt] | Graceful `segfault` handling          |
+| nullptr_src[^dt] | Graceful `segfault` handling          |
 
 #### [`memmove`](srcs/memmove.cpp)
 
-| Test           | Description                                     |
-|----------------|-------------------------------------------------|
-| move_backwards | Move bytes to an earlier position in the buffer |
-| move_forwards  | Move bytes to a later position in the buffer    |
-| zero_length    | Move 0 bytes                                    |
-| null_char      | Move string with `'\0'` in the middle           |
-| in_place       | Move bytes to the same position in the buffer   |
-| null_pointer   | Graceful `segfault` handling                    |
+| Test             | Description                                     |
+|------------------|-------------------------------------------------|
+| move_backwards   | Move bytes to an earlier position in the buffer |
+| move_forwards    | Move bytes to a later position in the buffer    |
+| zero_length      | Move 0 bytes                                    |
+| null_char        | Move string with `'\0'` in the middle           |
+| in_place         | Move bytes to the same position in the buffer   |
+| nullptr_dst[^dt] | Graceful `segfault` handling                    |
+| nullptr_src[^dt] | Graceful `segfault` handling                    |
 
-#### [`strlcpy`](`srcs/strlcpy.cpp`)[^bsd]
+#### [`strlcpy`](srcs/strlcpy.cpp)[^bsd]
 
-| Test         | Description                                 |
-|--------------|---------------------------------------------|
-| basic        | Copy string into a buffer with enough space |
-| zero_size    | Copy string into a buffer of size 0         |
-| smaller_size | Copy string into a smaller buffer           |
-| empty_string | Copy an empty string into a buffer          |
-| exact_size   | Copy string into a buffer of exact size     |
+| Test             | Description                                 |
+|------------------|---------------------------------------------|
+| basic            | Copy string into a buffer with enough space |
+| zero_size        | Copy string into a buffer of size 0         |
+| smaller_size     | Copy string into a smaller buffer           |
+| empty_string     | Copy an empty string into a buffer          |
+| exact_size       | Copy string into a buffer of exact size     |
+| nullptr_dst[^dt] | Graceful `segfault` handling                |
+| nullptr_src[^dt] | Graceful `segfault` handling                |
 
-#### [`strlcat`](`srcs/strlcat.cpp`)[^bsd]
+#### [`strlcat`](srcs/strlcat.cpp)[^bsd]
 
 | Test                     | Description                                                |
 |--------------------------|------------------------------------------------------------|
@@ -209,6 +226,8 @@ For those test `libft` is tested against `libc`
 | size_one                 | Concatenate string into a buffer of size 1                 |
 | exact_size               | Concatenate string into a buffer of exact size             |
 | dst_not_nul_teminated    | Concatenate string into a non `NUL`-terminated buffer      |
+| nullptr_dst[^dt]         | Graceful `segfault` handling                                |
+| nullptr_src[^dt]         | Graceful `segfault` handling                                |
 
 #### [`toupper`](srcs/toupper.cpp)
 
@@ -248,6 +267,7 @@ For those test `libft` is tested against `libc`
 | empty_string         | `'a'` in `""`                        |
 | multiple_occurrences | `'l'` in `"Hello, World!"`           |
 | non_ascii            | `256 + 'a'` in `"Hello, \255World!"` |
+| nullptr[^dt]         | Graceful `segfault` handling         |
 
 #### [`strrchr`](srcs/strrchr.cpp)
 
@@ -259,6 +279,7 @@ For those test `libft` is tested against `libc`
 | empty_string         | `'a'` in `""`                        |
 | multiple_occurrences | `'l'` in `"Hello, World!"`           |
 | non_ascii            | `256 + 'a'` in `"Hello, \255World!"` |
+| nullptr[^dt]         | Graceful `segfault` handling         |
 
 #### [`strncmp`](srcs/strncmp.cpp)
 
@@ -272,6 +293,8 @@ For those test `libft` is tested against `libc`
 | n_greater_than_length | Compare `"Hello, World!"` and `"Hello, world!"` with length 20 |
 | non_ascii             | Compare `"Héllo, wörld!"` and `"Héllo, wörld!"`                |
 | non_ascii_different   | Compare `"Héllo, wörld!"` and `"Héllo, world?"`                |
+| nullptr1[^dt]         | Graceful `segfault` handling                                   |
+| nullptr2[^dt]         | Graceful `segfault` handling                                   |
 
 #### [`memchr`](srcs/memchr.cpp)
 
@@ -283,6 +306,7 @@ For those test `libft` is tested against `libc`
 | null_char            | `'\0'` in `"Hello, World!"`              |
 | non_ascii            | `255` in `"Hello, \255World!"`           |
 | multiple_occurrences | `'l'` in `"Hello, World!"`               |
+| nullptr[^dt]         | Graceful `segfault` handling             |
 
 #### [`memcmp`](srcs/memcmp.cpp)
 
@@ -294,6 +318,8 @@ For those test `libft` is tested against `libc`
 | null_char      | Compare `"Hello\0World"` and `"Hello\0World"`                 |
 | partial_length | Compare `"Hello, World!"` and `"Hello, World!"` with length 5 |
 | non_ascii      | Compare `"Hello, \255World!"` and `"Hello, World!"`           |
+| nullptr1[^dt]  | Graceful `segfault` handling                                  |
+| nullptr2[^dt]  | Graceful `segfault` handling                                  |
 
 #### [`strnstr`](srcs/strnstr.cpp)[^bsd]
 
@@ -305,6 +331,8 @@ For those test `libft` is tested against `libc`
 | length_limit            | Find `"world"` in `"Hello, world!"` with length 5  |
 | null_char               | Find `"world"` in `"Hello\0world!"` with length 13 |
 | to_find_longer_than_str | Find `"Hello, world!"` in `"Hello"` with length 13 |
+| nullptr_big[^dt]        | Graceful `segfault` handling                       |
+| nullptr_little[^dt]     | Graceful `segfault` handling                       |
 
 #### [`atoi`](srcs/atoi.cpp)
 
@@ -324,6 +352,7 @@ For those test `libft` is tested against `libc`
 | multiple_signs   | `"--42", "++42", "+-42", "-+42"` |
 | too_large_number | `"999999999999999999999999"`     |
 | too_small_number | `"-999999999999999999999999"`    |
+| nullptr[^dt]     | Graceful `segfault` handling     |
 
 #### [`calloc`](srcs/calloc.cpp)
 
@@ -332,16 +361,17 @@ For those test `libft` is tested against `libc`
 | basic      | `5`            | `sizeof(int)` |
 | zero_nmemb | `0`            | `sizeof(int)` |
 | zero_size  | `5`            | `0`           |
-| overflow   | `__SIZE_MAX__` | `2`           |
+| overflow   | `__SIZE_MAX__` | `sizeof(int)` |
 
 #### [`strdup`](srcs/strdup.cpp)
 
-| Test                  | String                   |
-|-----------------------|--------------------------|
-| basic                 | `"Hello, World!"`        |
-| empty_string          | `""`                     |
+| Test                  | String                       |
+|-----------------------|------------------------------|
+| basic                 | `"Hello, World!"`            |
+| empty_string          | `""`                         |
 | long_string           | `"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."` |
-| string_with_null_char | `"Hello\0World"`         |
+| string_with_null_char | `"Hello\0World"`             |
+| nullptr[^dt]          | Graceful `segfault` handling |
 
 ### Part 2 - Additional functions
 

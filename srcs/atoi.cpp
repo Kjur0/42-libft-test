@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 10:57:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:04:45 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/23 23:21:11 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,4 +163,15 @@ TEST(atoi, too_small_number)
 	const int	ft = ft_atoi(str);
 
 	EXPECT_EQ(c, ft);
+}
+
+TEST(atoiDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		const char	*str = nullptr;
+
+		ft_atoi(str);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
 }
