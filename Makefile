@@ -6,7 +6,7 @@
 #    By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/18 12:43:32 by kjurkows          #+#    #+#              #
-#    Updated: 2026/06/21 10:34:53 by kjurkows         ###   ########.fr        #
+#    Updated: 2026/06/23 21:22:52 by kjurkows         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS		=	$(wildcard $(SRCS_DIR)/*.cpp)
 OBJS		=	$(patsubst $(SRCS_DIR)/%.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 MAIN_OBJ	=	$(OBJS_DIR)/_main.o
 
-RM			=	rm -f
+RM			=	rm -rf
 
 RED			=	\033[;31m
 GREEN		=	\033[;32m
