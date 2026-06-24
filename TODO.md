@@ -49,3 +49,8 @@
 - [x] `lstclear`
 - [x] `lstiter`
 - [x] `lstmap`
+
+
+# Missing edge cases
+- [x] `memset` / `memchr`: `c > 255` (should be cast to `unsigned char`)
+- [x] `strnstr`: $little \sub big \wedge \text{len}(little) \lt n \wedge little \equiv \text{suffix}(big)$

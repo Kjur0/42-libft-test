@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:55:22 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:11:26 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:05:52 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,26 +87,32 @@ TEST(strncmp, n_greater_than_length)
 
 TEST(strncmp, non_ascii)
 {
-	const char		*str1 = "Héllo, wörld!";
-	const char		*str2 = "Héllo, wörld!";
+	const char		*str1 = "Héllo, w\255rld!";
+	const char		*str2 = "Héllo, w\255rld!";
 	const size_t	n = 14;
 
-	const int		c_cmp = strncmp(str1, str2, n);
-	const int		ft_cmp = ft_strncmp(str1, str2, n);
+	const int		c_cmp1 = strncmp(str1, str2, n);
+	const int		ft_cmp1 = ft_strncmp(str1, str2, n);
+	const int		c_cmp2 = strncmp(str2, str1, n);
+	const int		ft_cmp2 = ft_strncmp(str2, str1, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	EXPECT_EQ(c_cmp1, ft_cmp1);
+	EXPECT_EQ(c_cmp2, ft_cmp2);
 }
 
 TEST(strncmp, non_ascii_different)
 {
-	const char		*str1 = "Héllo, wörld!";
+	const char		*str1 = "Héllo, w\255rld!";
 	const char		*str2 = "Héllo, world?";
 	const size_t	n = 14;
 
-	const int		c_cmp = strncmp(str1, str2, n);
-	const int		ft_cmp = ft_strncmp(str1, str2, n);
+	const int		c_cmp1 = strncmp(str1, str2, n);
+	const int		ft_cmp1 = ft_strncmp(str1, str2, n);
+	const int		c_cmp2 = strncmp(str2, str1, n);
+	const int		ft_cmp2 = ft_strncmp(str2, str1, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	EXPECT_EQ(c_cmp1, ft_cmp1);
+	EXPECT_EQ(c_cmp2, ft_cmp2);
 }
 
 TEST(strncmpDeathTest, nullptr1)

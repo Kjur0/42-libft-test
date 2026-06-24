@@ -163,6 +163,7 @@ For these tests, `libft` is tested against `libc`
 | full_length   | Set entire buffer to `'x'`        |
 | non_printable | Set 5 bytes of a buffer to `'\0'` |
 | zero_length   | Set 0 bytes of a buffer to `'x'`  |
+| cast          | Set all bytes to `256`            |
 | nullptr[^dt]  | Graceful `segfault` handling      |
 
 #### [`bzero`](srcs/bzero.cpp)
@@ -307,6 +308,7 @@ For these tests, `libft` is tested against `libc`
 | null_char            | `'\0'` in `"Hello, World!"`              |
 | non_ascii            | `255` in `"Hello, \255World!"`           |
 | multiple_occurrences | `'l'` in `"Hello, World!"`               |
+| cast                 | `256` in `"Hello, \255World!"`           |
 | nullptr[^dt]         | Graceful `segfault` handling             |
 
 #### [`memcmp`](srcs/memcmp.cpp)
@@ -332,6 +334,7 @@ For these tests, `libft` is tested against `libc`
 | length_limit            | Find `"world"` in `"Hello, world!"` with length 5  |
 | null_char               | Find `"world"` in `"Hello\0world!"` with length 13 |
 | to_find_longer_than_str | Find `"Hello, world!"` in `"Hello"` with length 13 |
+| suffix_overflow         | Find `"ld!"` in `"Hello, world!"` with length 5    |
 | nullptr_big[^dt]        | Graceful `segfault` handling                       |
 | nullptr_little[^dt]     | Graceful `segfault` handling                       |
 

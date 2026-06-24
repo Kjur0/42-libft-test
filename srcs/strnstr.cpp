@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:55:07 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:20:24 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:30:53 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,18 @@ TEST(strnstr, to_find_longer_than_str)
 	const char		*str = "Hello";
 	const char		*to_find = "Hello, world!";
 	const size_t	n = 13;
+
+	const char		*c_res = strnstr(str, to_find, n);
+	const char		*ft_res = ft_strnstr(str, to_find, n);
+
+	EXPECT_EQ(c_res, ft_res);
+}
+
+TEST(strnstr, suffix_overflow)
+{
+	const char		*str = "Hello, world!";
+	const char		*to_find = "ld!";
+	const size_t	n = 5;
 
 	const char		*c_res = strnstr(str, to_find, n);
 	const char		*ft_res = ft_strnstr(str, to_find, n);

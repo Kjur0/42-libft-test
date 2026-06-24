@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:24:53 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:14:49 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:29:49 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,18 @@ TEST(memchr, multiple_occurrences)
 	const char		*str = "Hello, world!";
 	const int		ch = 'l';
 	const size_t	n = 14;
+
+	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
+	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
+
+	EXPECT_EQ(c, ft);
+}
+
+TEST(memchr, cast)
+{
+	const char		*str = "Hello, \255world!";
+	const int		ch = 256;
+	const size_t	n = 15;
 
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));

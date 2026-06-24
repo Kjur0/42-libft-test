@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:24:53 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:17:38 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:16:48 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ TEST(memcmp, different)
 
 TEST(memcmp, zero_length)
 {
-	const char		*str1 = "Hello, world!";
+	const char		*str1 = "hello, world!";
 	const char		*str2 = "Hello, World!";
 	const size_t	n = 0;
 
@@ -75,14 +75,17 @@ TEST(memcmp, partial_length)
 
 TEST(memcmp, non_ascii)
 {
-	const char		*str1 = "Hello, \255world!";
-	const char		*str2 = "Hello, world!";
+	const char		*str1 = "Hello, world!";
+	const char		*str2 = "Hello, \255world!";
 	const size_t	n = 14;
 
-	const int		c_cmp = memcmp(str1, str2, n);
-	const int		ft_cmp = ft_memcmp(str1, str2, n);
+	const int		c_cmp1 = memcmp(str1, str2, n);
+	const int		ft_cmp1 = ft_memcmp(str1, str2, n);
+	const int		c_cmp2 = memcmp(str2, str1, n);
+	const int		ft_cmp2 = ft_memcmp(str2, str1, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	EXPECT_EQ(c_cmp1, ft_cmp1);
+	EXPECT_EQ(c_cmp2, ft_cmp2);
 }
 
 TEST(memcmpDeathTest, nullptr1)
