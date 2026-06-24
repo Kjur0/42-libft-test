@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:59:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:30:25 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:55:34 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ TEST(lstdelone, basic)
 	}, ::testing::KilledBySignal(SIGSEGV), "");
 }
 
-TEST(lstdeloneDeathTest, nullptr_list)
+TEST(lstdeloneDeathTest, nullptr_node)
 {
 	EXPECT_EXIT({
 		ft_lstdelone(nullptr, free);

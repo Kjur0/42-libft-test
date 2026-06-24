@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:44:54 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 22:53:04 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:48:18 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ TEST(strlcat, exact_size)
 	EXPECT_STREQ(c, ft);
 }
 
-TEST(strlcat, dst_not_nul_teminated)
+TEST(strlcat, dst_not_nul_terminated)
 {
 	char			c[37] = "Hello,012345678901234567890123456798";
 	char			ft[37] = "Hello,012345678901234567890123456798";

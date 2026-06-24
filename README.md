@@ -6,7 +6,7 @@
 
 ## Description
 
-`libft-test` is a testing suite for `libft`. Used for tesing all functions using `gtest`(Google Test).
+`libft-test` is a testing suite for `libft`. Used for testing all functions using `gtest`(Google Test).
 
 See [Detailed description](#detailed-description) for list of tests.
 
@@ -37,7 +37,7 @@ clone your `libft` into `libft` folder
 ### AI Usage
 
 > [!IMPORTANT]
-> All AI code was used after carefull analysis.
+> All AI code was used after careful analysis.
 
 #### Google search AI mode & Gemini
 
@@ -51,7 +51,7 @@ Gemini was used while searching for edge cases in parts 2 & 3.
 
 #### GitHub Copilot
 
-AI inline suggestions were used for repetative tasks, such as:
+AI inline suggestions were used for repetitive tasks, such as:
 * Writing `#include`s
 * Writing *boilerplate code* (`malloc`s, `free`s, same functions with different inputs)
 
@@ -59,7 +59,7 @@ AI inline suggestions were used for repetative tasks, such as:
 
 Some tests are `DeathTest`s, they only check if the function handles segfaults gracefully. They do not check for the output of the function.
 
-Below is the list as all tests:
+Below is the list of all tests:
 
 [^dt]: `DeathTest` - only checks if the function handles segfaults gracefully. Does not check for the output of the function.
 
@@ -71,7 +71,7 @@ Below is the list as all tests:
 
 ### Part 1 - `libc` functions
 
-For those test `libft` is tested against `libc`
+For these tests, `libft` is tested against `libc`
 
 [^bsd]: functions are tested against `libbsd`
 
@@ -83,7 +83,7 @@ For those test `libft` is tested against `libc`
 | digit        | `'1'`                      |
 | lowercase    | `'a'`                      |
 | uppercase    | `'A'`                      |
-| punctuaction | `'-'`                      |
+| punctuation  | `'-'`                      |
 | null_char    | `'\0'`                     |
 | control_char | `'\r'`                     |
 | non_ascii    | `'\255'`                   |
@@ -97,7 +97,7 @@ For those test `libft` is tested against `libc`
 | digit        | `'1'`                      |
 | lowercase    | `'a'`                      |
 | uppercase    | `'A'`                      |
-| punctuaction | `'-'`                      |
+| punctuation  | `'-'`                      |
 | null_char    | `'\0'`                     |
 | control_char | `'\r'`                     |
 | non_ascii    | `'\255'`                   |
@@ -111,7 +111,7 @@ For those test `libft` is tested against `libc`
 | digit        | `'1'`                      |
 | lowercase    | `'a'`                      |
 | uppercase    | `'A'`                      |
-| punctuaction | `'-'`                      |
+| punctuation  | `'-'`                      |
 | null_char    | `'\0'`                     |
 | control_char | `'\r'`                     |
 | non_ascii    | `'\255'`                   |
@@ -125,7 +125,7 @@ For those test `libft` is tested against `libc`
 | digit        | `'1'`                      |
 | lowercase    | `'a'`                      |
 | uppercase    | `'A'`                      |
-| punctuaction | `'-'`                      |
+| punctuation  | `'-'`                      |
 | null_char    | `'\0'`                     |
 | control_char | `'\r'`                     |
 | non_ascii    | `'\255'`                   |
@@ -139,7 +139,7 @@ For those test `libft` is tested against `libc`
 | digit        | `'1'`                      |
 | lowercase    | `'a'`                      |
 | uppercase    | `'A'`                      |
-| punctuaction | `'-'`                      |
+| punctuation  | `'-'`                      |
 | null_char    | `'\0'`                     |
 | control_char | `'\r'`                     |
 | non_ascii    | `'\255'`                   |
@@ -226,7 +226,7 @@ For those test `libft` is tested against `libc`
 | size_equal_to_src        | Concatenate string into a buffer of size equal to `src`    |
 | size_one                 | Concatenate string into a buffer of size 1                 |
 | exact_size               | Concatenate string into a buffer of exact size             |
-| dst_not_nul_teminated    | Concatenate string into a non `NUL`-terminated buffer      |
+| dst_not_nul_terminated   | Concatenate string into a non `NUL`-terminated buffer      |
 | nullptr_dst[^dt]         | Graceful `segfault` handling                                |
 | nullptr_src[^dt]         | Graceful `segfault` handling                                |
 
@@ -376,7 +376,7 @@ For those test `libft` is tested against `libc`
 
 ### Part 2 - Additional functions
 
-These are tested agains expected output, not `libc`
+These are tested against expected output, not `libc`
 
 #### [`substr`](srcs/substr.cpp)
 
@@ -396,8 +396,8 @@ These are tested agains expected output, not `libc`
 | empty_first   | Join `""` and `"World!"`        | `"World!"`        |
 | empty_second  | Join `"Hello, "` and `""`       | `"Hello, "`       |
 | both_empty    | Join `""` and `""`              | `""`              |
-| nullptr1[!dt] | Graceful `segfault` handling    | `"Hello"`         |
-| nullptr2[!dt] | Graceful `segfault` handling    | `"Hello"`         |
+| nullptr1[^dt] | Graceful `segfault` handling    | `"Hello"`         |
+| nullptr2[^dt] | Graceful `segfault` handling    | `"Hello"`         |
 
 #### [`strtrim`](srcs/strtrim.cpp)
 
@@ -537,7 +537,7 @@ These are tested agains expected output, not `libc`
 | Test                 | Description                                             |
 |----------------------|---------------------------------------------------------|
 | basic                | Ensure that a node is deleted and its content freed     |
-| nullptr_list[^dt]    | Graceful `segfault` handling                            |
+| nullptr_node[^dt]    | Graceful `segfault` handling                            |
 | nullptr_del[^dt]     | Graceful `segfault` handling                            |
 | nullptr_content[^dt] | Graceful `segfault` handling                            |
 
