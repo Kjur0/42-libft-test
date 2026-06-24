@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 12:09:20 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 22:16:16 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:20:18 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,36 @@ TEST(lstadd_front, null_list)
 	ASSERT_STREQ((char *)list->content, str);
 
 	free(list);
+}
+
+TEST(lstadd_frontDeathTest, nullptr_list)
+{
+	EXPECT_EXIT({
+		t_list	*list = (t_list *)malloc(sizeof(t_list));
+		list->content = nullptr;
+		list->next = nullptr;
+
+		ft_lstadd_front(nullptr, list);
+
+		free(list);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(lstadd_frontDeathTest, nullptr_new)
+{
+	EXPECT_EXIT({
+		t_list	*list = (t_list *)malloc(sizeof(t_list));
+		list->content = nullptr;
+		list->next = nullptr;
+
+		ft_lstadd_front(&list, nullptr);
+
+		const int	res = !list;
+
+		free(list);
+		
+		exit(res);
+	}, ::testing::ExitedWithCode(0), "");
 }

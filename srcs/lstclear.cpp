@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:06:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 22:17:35 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:25:47 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,16 @@ TEST(lstclear, basic)
 	}, ::testing::ExitedWithCode(0), "");
 }
 
-TEST(lstclear, null_list)
+TEST(lstclearDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		ft_lstclear(nullptr, free);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(lstclearDeathTest, nullptr_list)
 {
 	EXPECT_EXIT({
 		t_list	*list = nullptr;
@@ -46,5 +55,37 @@ TEST(lstclear, null_list)
 		ft_lstclear(&list, free);
 
 		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(lstclearDeathTest, nullptr_del)
+{
+	EXPECT_EXIT({
+		t_list		*lst = (t_list *)malloc(sizeof(t_list));
+		int			*content = (int *)malloc(sizeof(int));
+		lst->content = content;
+		lst->next = nullptr;
+		*content = 42;
+
+		ft_lstclear(&lst, nullptr);
+
+		const int	res = !content;
+
+		free(content);
+
+		exit(!!lst || res);
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(lstclearDeathTest, nullptr_content)
+{
+	EXPECT_EXIT({
+		t_list	*lst = (t_list *)malloc(sizeof(t_list));
+		lst->content = nullptr;
+		lst->next = nullptr;
+
+		ft_lstclear(&lst, free);
+
+		exit(!!lst);
 	}, ::testing::ExitedWithCode(0), "");
 }

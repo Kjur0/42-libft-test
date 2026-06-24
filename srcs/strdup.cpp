@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:42:14 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:24:00 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:36:23 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ TEST(strdupDeathTest, nullptr)
 	{
 		const char	*str = nullptr;
 
-		ft_strdup(str);
+		char		*ft = ft_strdup(str);
 
-		exit(0);
+		exit(!!ft);
 	}, ::testing::ExitedWithCode(0), "");
 }

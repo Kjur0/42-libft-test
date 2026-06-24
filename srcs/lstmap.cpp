@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:30:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 22:19:02 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:31:32 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ TEST(lstmap, basic)
 	free(list3);
 }
 
-TEST(lstmap, null_list)
+TEST(lstmapDeathTest, nullptr_list)
 {
 	EXPECT_EXIT({
 		t_list	*new_list = ft_lstmap(nullptr, [](void *content) -> void *
@@ -66,6 +66,23 @@ TEST(lstmap, null_list)
 			*new_i = *i + 10;
 			return new_i;
 		}, free);
+
+		exit(!!new_list);
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+
+TEST(lstmapDeathTest, nullptr_f)
+{
+	EXPECT_EXIT({
+		t_list		*list = (t_list *)malloc(sizeof(t_list));
+		int			i = 0;
+		list->content = &i;
+		list->next = nullptr;
+
+		t_list	*new_list = ft_lstmap(list, nullptr, free);
+
+		free(list);
 
 		exit(!!new_list);
 	}, ::testing::ExitedWithCode(0), "");

@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 14:42:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 11:10:11 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:37:43 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,11 @@ TEST(strjoinDeathTest, nullptr1)
 
 		char		*res = ft_strjoin(s1, s2);
 
-		exit(strcmp(res, "Hello"));
+		const int	res_cmp = strcmp(res, "Hello");
+
+		free(res);
+
+		exit(res_cmp);
 	}, ::testing::ExitedWithCode(0), "");
 }
 
@@ -80,6 +84,10 @@ TEST(strjoinDeathTest, nullptr2)
 
 		char		*res = ft_strjoin(s1, s2);
 
-		exit(strcmp(res, "Hello"));
+		const int	res_cmp = strcmp(res, "Hello");
+
+		free(res);
+
+		exit(res_cmp);
 	}, ::testing::ExitedWithCode(0), "");
 }

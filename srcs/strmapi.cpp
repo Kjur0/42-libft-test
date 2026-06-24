@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:40:28 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 14:46:04 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:38:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ TEST(strmapiDeathTest, nullptr_str)
 
 		char		*res = ft_strmapi(str, [](unsigned int i, char c) -> char
 		{
-		(void)i;
-		return (c);
+			(void)i;
+			return (c);
 		});
 
 		exit(!!res);

@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:26:48 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:17:51 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:31:03 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,32 @@ TEST(lstiter, basic)
 	free(list3);
 }
 
-TEST(lstiter, null_list)
+TEST(lstiterDeathTest, nullptr_list)
 {
-	static int	i_r = 0;
-	ft_lstiter(nullptr, [](void *content)
-	{
-		(void)content;
-		i_r++;
-	});
+	EXPECT_EXIT({
+		static int	i_r = 0;
+		ft_lstiter(nullptr, [](void *content)
+		{
+			(void)content;
+			i_r++;
+		});
 
-	EXPECT_EQ(i_r, 0);
+		exit(i_r);
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(lstiterDeathTest, nullptr_f)
+{
+	EXPECT_EXIT({
+		t_list		*list = (t_list *)malloc(sizeof(t_list));
+		int			i = 0;
+		list->content = &i;
+		list->next = nullptr;
+
+		ft_lstiter(list, nullptr);
+
+		free(list);
+		
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
 }

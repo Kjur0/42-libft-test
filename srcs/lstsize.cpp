@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:39:24 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:20:27 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:07:04 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 TEST(lstsize, basic)
 {
-	t_list	*list1 = (t_list *)malloc(sizeof(t_list));
-	t_list	*list2 = (t_list *)malloc(sizeof(t_list));
-	t_list	*list3 = (t_list *)malloc(sizeof(t_list));
+	t_list		*list1 = (t_list *)malloc(sizeof(t_list));
+	t_list		*list2 = (t_list *)malloc(sizeof(t_list));
+	t_list		*list3 = (t_list *)malloc(sizeof(t_list));
 	list1->next = list2;
 	list2->next = list3;
 	list3->next = nullptr;
 
-	int		size = ft_lstsize(list1);
-	
+	const int	size = ft_lstsize(list1);
+
 	ASSERT_EQ(size, 3);
 
 	free(list1);
@@ -32,21 +32,32 @@ TEST(lstsize, basic)
 
 TEST(lstsize, empty)
 {
-	t_list	*list = nullptr;
+	t_list		*list = nullptr;
 
-	int		size = ft_lstsize(list);
+	const int	size = ft_lstsize(list);
 
 	ASSERT_EQ(size, 0);
 }
 
 TEST(lstsize, single)
 {
-	t_list	*list = (t_list *)malloc(sizeof(t_list));
+	t_list		*list = (t_list *)malloc(sizeof(t_list));
 	list->next = nullptr;
 
-	int		size = ft_lstsize(list);
+	const int	size = ft_lstsize(list);
 
 	ASSERT_EQ(size, 1);
 
 	free(list);
+}
+
+TEST(lstsizeDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		t_list	*list = nullptr;
+
+		int		size = ft_lstsize(list);
+
+		exit(size);
+	}, ::testing::ExitedWithCode(0), "");
 }

@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 16:04:08 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 11:16:42 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:38:54 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,11 @@ TEST(strtrimDeathTest, nullptr_set)
 
 		char		*res = ft_strtrim(str, set);
 
-		exit(strcmp(res, "Hello, World!"));
+		const int	res_cmp = strcmp(res, "Hello, World!");
+
+		free(res);
+
+		exit(res_cmp);
 	}, ::testing::ExitedWithCode(0), "");
 }
 

@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:32:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:28:50 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:03:48 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,24 @@ TEST(putstr_fd, test)
 	int		fd = open("/tmp/tests/putstr_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
 
 	ft_putstr_fd(s, fd);
-	
+
 	char	out[14];
 	close(fd);
 	fd = open("/tmp/tests/putstr_fd.txt", O_RDONLY);
 	read(fd, out, 14);
 	close(fd);
 	EXPECT_STREQ(out, s);
+}
+
+
+TEST(putstr_fdDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		char	*s = nullptr;
+		int		fd = 1;
+
+		ft_putstr_fd(s, fd);
+
+		exit(0);
+	}, ::testing::ExitedWithCode(0), "");
 }

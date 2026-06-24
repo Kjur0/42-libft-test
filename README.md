@@ -464,15 +464,18 @@ These are tested agains expected output, not `libc`
 
 #### [`putstr_fd`](srcs/putstr_fd.cpp)
 
-| Test | Description                                                            |
-|------|------------------------------------------------------------------------|
-| test | Ensure that `"Hello, World!"` is written to `/tmp/tests/putstr_fd.txt` |
+| Test         | Description                                                            |
+|--------------|------------------------------------------------------------------------|
+| test         | Ensure that `"Hello, World!"` is written to `/tmp/tests/putstr_fd.txt` |
+| nullptr[^dt] | Graceful `segfault` handling                                           |
 
 #### [`putendl_fd`](srcs/putendl_fd.cpp)
 
-| Test | Description                                                               |
-|------|---------------------------------------------------------------------------|
-| test | Ensure that `"Hello, World!\n"` is written to `/tmp/tests/putendl_fd.txt` |
+| Test         | Description                                                               |
+|--------------|---------------------------------------------------------------------------|
+| test         | Ensure that `"Hello, World!\n"` is written to `/tmp/tests/putendl_fd.txt` |
+| nullptr[^dt] | Graceful `segfault` handling                                           |
+
 
 #### [`putnbr_fd`](srcs/putnbr_fd.cpp)
 
@@ -495,58 +498,71 @@ These are tested agains expected output, not `libc`
 
 #### [`lstadd_front`](srcs/lstadd_front.cpp)
 
-| Test      | Description                                                 |
-|-----------|-------------------------------------------------------------|
-| basic     | Ensure that a new node is added to the front of the list    |
-| null_list | Ensure that a new node is added to the front of a null list |
+| Test              | Description                                                 |
+|-------------------|-------------------------------------------------------------|
+| basic             | Ensure that a new node is added to the front of the list    |
+| null_list         | Ensure that a new node is added to the front of a null list |
+| nullptr_list[^dt] | Graceful `segfault` handling                                |
+| nullptr_new[^dt]  | Graceful `segfault` handling                                |
 
 #### [`lstsize`](srcs/lstsize.cpp)
 
-| Test   | Description                                                   |
-|--------|---------------------------------------------------------------|
-| basic  | Ensure that the size of a list with multiple nodes is correct |
-| empty  | Ensure that the size of an empty list is 0                    |
-| single | Ensure that the size of a list with one node is 1             |
+| Test         | Description                                                   |
+|--------------|---------------------------------------------------------------|
+| basic        | Ensure that the size of a list with multiple nodes is correct |
+| empty        | Ensure that the size of an empty list is 0                    |
+| single       | Ensure that the size of a list with one node is 1             |
+| nullptr[^dt] | Graceful `segfault` handling                                  |
 
 #### [`lstlast`](srcs/lstlast.cpp)
 
-| Test   | Description                                                        |
-|--------|--------------------------------------------------------------------|
-| basic  | Ensure that the last node of a list with multiple nodes is correct |
-| empty  | Ensure that `nullptr` is returned for an empty list                |
-| single | Ensure that the last node of a list with one node is that node     |
+| Test         | Description                                                        |
+|--------------|--------------------------------------------------------------------|
+| basic        | Ensure that the last node of a list with multiple nodes is correct |
+| empty        | Ensure that `nullptr` is returned for an empty list                |
+| single       | Ensure that the last node of a list with one node is that node     |
+| nullptr[^dt] | Graceful `segfault` handling                                       |
 
 #### [`lstadd_back`](srcs/lstadd_back.cpp)
 
-| Test      | Description                                                    |
-|-----------|----------------------------------------------------------------|
-| basic     | Ensure that a new node is added to the back of the list        |
-| null_list | Ensure that a new node is set as the first node of a null list |
+| Test              | Description                                                    |
+|-------------------|----------------------------------------------------------------|
+| basic             | Ensure that a new node is added to the back of the list        |
+| null_list         | Ensure that a new node is set as the first node of a null list |
+| nullptr_list[^dt] | Graceful `segfault` handling                                   |
+| nullptr_new[^dt]  | Graceful `segfault` handling                                   |
 
 #### [`lstdelone`](srcs/lstdelone.cpp)
 
-| Test      | Description                                             |
-|-----------|---------------------------------------------------------|
-| basic     | Ensure that a node is deleted and its content freed     |
-| null_node | Ensure that deleting a null node does not cause a crash |
+| Test                 | Description                                             |
+|----------------------|---------------------------------------------------------|
+| basic                | Ensure that a node is deleted and its content freed     |
+| nullptr_list[^dt]    | Graceful `segfault` handling                            |
+| nullptr_del[^dt]     | Graceful `segfault` handling                            |
+| nullptr_content[^dt] | Graceful `segfault` handling                            |
 
 #### [`lstclear`](srcs/lstclear.cpp)
 
-| Test      | Description                                                         |
-|-----------|---------------------------------------------------------------------|
-| basic     | Ensure that all nodes in a list are deleted and their content freed |
-| null_list | Ensure that clearing an empty list does not cause a crash           |
+| Test                 | Description                                                         |
+|----------------------|---------------------------------------------------------------------|
+| basic                | Ensure that all nodes in a list are deleted and their content freed |
+| nullptr[^dt]         | Graceful `segfault` handling                                        |
+| nullptr_list[^dt]    | Graceful `segfault` handling                                        |
+| nullptr_del[^dt]     | Graceful `segfault` handling                                        |
+| nullptr_content[^dt] | Graceful `segfault` handling                                        |
 
 #### [`lstiter`](srcs/lstiter.cpp)
 
-| Test      | Description                                                   |
-|-----------|---------------------------------------------------------------|
-| basic     | Ensure that a function is applied to each node's content      |
-| null_list | Ensure that iterating over a null list does not cause a crash |
+| Test              | Description                                                   |
+|-------------------|---------------------------------------------------------------|
+| basic             | Ensure that a function is applied to each node's content      |
+| nullptr_list[^dt] | Graceful `segfault` handling                                  |
+| nullptr_f[^dt]    | Graceful `segfault` handling                                  |
 
 #### [`lstmap`](srcs/lstmap.cpp)
 
-| Test      | Description                                              |
-|-----------|----------------------------------------------------------|
-| basic     | Ensure that a function is applied to each node's content |
-| null_list | Ensure that mapping over a null list returns a null list |
+| Test              | Description                                              |
+|-------------------|----------------------------------------------------------|
+| basic             | Ensure that a function is applied to each node's content |
+| nullptr_list[^dt] | Graceful `segfault` handling                                  |
+| nullptr_f[^dt]    | Graceful `segfault` handling                                  |

@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:43:28 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:19:07 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:08:23 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,19 @@ TEST(lstlast, single)
 	list->next = nullptr;
 
 	t_list	*last = ft_lstlast(list);
-	
+
 	ASSERT_EQ(last, list);
 
 	free(list);
+}
+
+TEST(lstlastDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		t_list	*list = nullptr;
+
+		t_list	*last = ft_lstlast(list);
+
+		exit(!!last);
+	}, ::testing::ExitedWithCode(0), "");
 }
