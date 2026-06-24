@@ -19,7 +19,8 @@
                 "-lft",
                 "-I",
                 "libft"
-            ]
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
         }
     ],
     "version": 4

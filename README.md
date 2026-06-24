@@ -61,6 +61,8 @@ Some tests are `DeathTest`s, they only check if the function handles segfaults g
 
 Below is the list as all tests:
 
+[^dt]: `DeathTest` - only checks if the function handles segfaults gracefully. Does not check for the output of the function.
+
 ### Norminette
 
 | Name    | Description                           |
@@ -72,7 +74,6 @@ Below is the list as all tests:
 For those test `libft` is tested against `libc`
 
 [^bsd]: functions are tested against `libbsd`
-[^dt]: `DeathTest` - only checks if the function handles segfaults gracefully. Does not check for the output of the function.
 
 #### [`isalpha`](srcs/isalpha.cpp)
 
@@ -385,24 +386,29 @@ These are tested agains expected output, not `libc`
 | start_beyond_length | Index is greater than string length      | `""`      |
 | length_exceeds      | Length extends beyond string end         | `"ello"`  |
 | zero_length         | Length is 0                              | `""`      |
+| nullptr[^dt]        | Graceful `segfault` handling             | `nullptr` |
 
 #### [`strjoin`](srcs/strjoin.cpp)
 
-| Test         | Description                     | Expected          |
-|--------------|---------------------------------|-------------------|
-| basic        | Join `"Hello, "` and `"World!"` | `"Hello, World!"` |
-| empty_first  | Join `""` and `"World!"`        | `"World!"`        |
-| empty_second | Join `"Hello, "` and `""`       | `"Hello, "`       |
-| both_empty   | Join `""` and `""`              | `""`              |
+| Test          | Description                     | Expected          |
+|---------------|---------------------------------|-------------------|
+| basic         | Join `"Hello, "` and `"World!"` | `"Hello, World!"` |
+| empty_first   | Join `""` and `"World!"`        | `"World!"`        |
+| empty_second  | Join `"Hello, "` and `""`       | `"Hello, "`       |
+| both_empty    | Join `""` and `""`              | `""`              |
+| nullptr1[!dt] | Graceful `segfault` handling    | `"Hello"`         |
+| nullptr2[!dt] | Graceful `segfault` handling    | `"Hello"`         |
 
 #### [`strtrim`](srcs/strtrim.cpp)
 
-| Test      | Description                             | Expected           |
-|-----------|-----------------------------------------|--------------------|
-| basic     | Trim whitespace from both ends          | `"Hello, World!"`  |
-| no_trim   | No characters to trim                   | `"Hello, World!"`  |
-| all_trim  | Trim all characters                     | `""`               |
-| empty_set | Trim with empty set                     | `"Hello, World!"`  |
+| Test             | Description                             | Expected           |
+|------------------|-----------------------------------------|--------------------|
+| basic            | Trim whitespace from both ends          | `"Hello, World!"`  |
+| no_trim          | No characters to trim                   | `"Hello, World!"`  |
+| all_trim         | Trim all characters                     | `""`               |
+| empty_set        | Trim with empty set                     | `"Hello, World!"`  |
+| nullptr_set[^dt] | Graceful `segfault` handling            | `"Hello, World!"`  |
+| nullptr_str[^dt] | Graceful `segfault` handling            | `nullptr`          |
 
 #### [`split`](srcs/split.cpp)
 
@@ -415,6 +421,7 @@ These are tested agains expected output, not `libc`
 | null_delimiter  | Split `"Hello, World!"` by `'\0'` | `["Hello, World!"]`    |
 | consecutive     | Split `"Hello,,World!"` by `','`  | `["Hello", "World!"]`  |
 | edges           | Split `",Hello,World!,"` by `','` | `["Hello", "World!"]`  |
+| nullptr[^dt]    | Graceful `segfault` handling      | `nullptr`              |
 
 #### [`itoa`](srcs/itoa.cpp)
 
@@ -429,21 +436,25 @@ These are tested agains expected output, not `libc`
 
 #### [`strmapi`](srcs/strmapi.cpp)
 
-| Test    | Description                                                        | Expected          |
-|---------|--------------------------------------------------------------------|-------------------|
-| index   | Create new string where each `char` is modified based on its index | `"0123456798"`    |
-| toupper | Convert string to uppercase                                        | `"HELLO, WORLD!"` |
-| tolower | Convert string to lowercase                                        | `"hello, world!"` |
-| empty   | Apply function to an empty string                                  | `""`              |
+| Test             | Description                                                        | Expected          |
+|------------------|--------------------------------------------------------------------|-------------------|
+| index            | Create new string where each `char` is modified based on its index | `"0123456798"`    |
+| toupper          | Convert string to uppercase                                        | `"HELLO, WORLD!"` |
+| tolower          | Convert string to lowercase                                        | `"hello, world!"` |
+| empty            | Apply function to an empty string                                  | `""`              |
+| nullptr_str[^dt] | Graceful `segfault` handling                                       | `nullptr`         |
+| nullptr_f[^dt]   | Graceful `segfault` handling                                       | `nullptr`         |
 
 
 #### [`striteri`](srcs/striteri.cpp)
 
-| Test   | Description                                                  |
-|--------|--------------------------------------------------------------|
-| basic  | Ensure each character is `'0' + i` and function run 10 times |
-| empty  | Ensure function does not run on an empty string              |
-| change | Ensure function can modify the string in place               |
+| Test             | Description                                                  |
+|------------------|--------------------------------------------------------------|
+| basic            | Ensure each character is `'0' + i` and function run 10 times |
+| empty            | Ensure function does not run on an empty string              |
+| change           | Ensure function can modify the string in place               |
+| nullptr_str[^dt] | Graceful `segfault` handling                                 |
+| nullptr_f[^dt]   | Graceful `segfault` handling                                 |
 
 #### [`putchar_fd`](srcs/putchar_fd.cpp)
 

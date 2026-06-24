@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 14:42:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 11:10:11 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,72 @@
 
 TEST(strjoin, basic)
 {
-	char	s1[] = "Hello, ";
-	char	s2[] = "World!";
+	const char	*s1 = "Hello, ";
+	const char	*s2 = "World!";
 
-	char	*result = ft_strjoin(s1, s2);
+	char		*res = ft_strjoin(s1, s2);
 
-	ASSERT_STREQ(result, "Hello, World!");
+	ASSERT_STREQ(res, "Hello, World!");
 
-	free(result);
+	free(res);
 }
 
 TEST(strjoin, empty_first)
 {
-	char	s1[] = "";
-	char	s2[] = "World!";
+	const char	*s1 = "";
+	const char	*s2 = "World!";
 
-	char	*result = ft_strjoin(s1, s2);
+	char		*res = ft_strjoin(s1, s2);
 
-	ASSERT_STREQ(result, "World!");
+	ASSERT_STREQ(res, "World!");
 
-	free(result);
+	free(res);
 }
 
 TEST(strjoin, empty_second)
 {
-	char	s1[] = "Hello, ";
-	char	s2[] = "";
+	const char	*s1 = "Hello, ";
+	const char	*s2 = "";
 
-	char	*result = ft_strjoin(s1, s2);
+	char		*res = ft_strjoin(s1, s2);
 
-	ASSERT_STREQ(result, "Hello, ");
+	ASSERT_STREQ(res, "Hello, ");
 
-	free(result);
+	free(res);
 }
 
 TEST(strjoin, both_empty)
 {
-	char	s1[] = "";
-	char	s2[] = "";
+	const char	*s1 = "";
+	const char	*s2 = "";
 
-	char	*result = ft_strjoin(s1, s2);
+	char		*res = ft_strjoin(s1, s2);
 
-	ASSERT_STREQ(result, "");
+	ASSERT_STREQ(res, "");
 
-	free(result);
+	free(res);
+}
+
+TEST(strjoinDeathTest, nullptr1)
+{
+	EXPECT_EXIT({
+		const char	*s1 = nullptr;
+		const char	*s2 = "Hello";
+
+		char		*res = ft_strjoin(s1, s2);
+
+		exit(strcmp(res, "Hello"));
+	}, ::testing::ExitedWithCode(0), "");
+}
+
+TEST(strjoinDeathTest, nullptr2)
+{
+	EXPECT_EXIT({
+		const char	*s1 = "Hello";
+		const char	*s2 = nullptr;
+
+		char		*res = ft_strjoin(s1, s2);
+
+		exit(strcmp(res, "Hello"));
+	}, ::testing::ExitedWithCode(0), "");
 }

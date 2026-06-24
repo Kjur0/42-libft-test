@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 14:32:30 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 11:15:15 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,65 @@
 
 TEST(substr, basic)
 {
-	char	*str = ft_substr("Hello, World!", 7, 5);
+	const char			*str = "Hello, World!";
+	const unsigned int	start = 7;
+	const size_t		len = 5;
 
-	ASSERT_STREQ(str, "World");
+	char				*res = ft_substr(str, start, len);
 
-	free(str);
+	ASSERT_STREQ(res, "World");
+
+	free(res);
 }
 
 TEST(substr, start_beyond_length)
 {
-	char	*str = ft_substr("Hello", 10, 5);
+	const char			*str = "Hello";
+	const unsigned int	start = 10;
+	const size_t		len = 5;
 
-	ASSERT_STREQ(str, "");
+	char				*res = ft_substr(str, start, len);
 
-	free(str);
+	ASSERT_STREQ(res, "");
+
+	free(res);
 }
 
 TEST(substr, length_exceeds)
 {
-	char	*str = ft_substr("Hello", 1, 10);
+	const char			*str = "Hello";
+	const unsigned int	start = 1;
+	const size_t		len = 10;
 
-	ASSERT_STREQ(str, "ello");
+	char				*res = ft_substr(str, start, len);
 
-	free(str);
+	ASSERT_STREQ(res, "ello");
+
+	free(res);
 }
 
 TEST(substr, zero_length)
 {
-	char	*str = ft_substr("Hello", 1, 0);
+	const char			*str = "Hello";
+	const unsigned int	start = 1;
+	const size_t		len = 0;
 
-	ASSERT_STREQ(str, "");
+	char				*res = ft_substr(str, start, len);
 
-	free(str);
+	ASSERT_STREQ(res, "");
+
+	free(res);
+}
+
+TEST(substrDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		const char			*str = nullptr;
+		const unsigned int	start = 1;
+		const size_t		len = 5;
+
+		char				*res = ft_substr(str, start, len);
+
+		exit(!!res);
+	}, ::testing::ExitedWithCode(0), "");
 }

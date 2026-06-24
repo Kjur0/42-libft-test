@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 16:11:47 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/20 20:00:56 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/24 11:57:53 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,82 +14,118 @@
 
 TEST(split, basic)
 {
-	char	**result = ft_split("Hello World!", ' ');
+	const char	*str = "Hello World!";
+	const char	c = ' ';
 
-	EXPECT_STREQ(result[0], "Hello");
-	EXPECT_STREQ(result[1], "World!");
-	EXPECT_EQ(result[2], nullptr);
+	char		**res = ft_split(str, c);
 
-	free(result[0]);
-	free(result[1]);
+	EXPECT_STREQ(res[0], "Hello");
+	EXPECT_STREQ(res[1], "World!");
+	EXPECT_EQ(res[2], nullptr);
+
+	free(res[0]);
+	free(res[1]);
 }
 
 TEST(split, empty_string)
 {
-	char	**result = ft_split("", ' ');
+	const char	*str = "";
+	const char	c = ' ';
 
-	EXPECT_EQ(result[0], nullptr);
+	char		**res = ft_split(str, c);
+
+	EXPECT_EQ(res[0], nullptr);
 }
 
 TEST(split, only_delimiters)
 {
-	char	**result = ft_split("   ", ' ');
+	const char	*str = "   ";
+	const char	c = ' ';
 
-	EXPECT_EQ(result[0], nullptr);
+	char		**res = ft_split(str, c);
+
+	EXPECT_EQ(res[0], nullptr);
 }
 
 TEST(split, multiple_delimiters)
 {
-	char	**result = ft_split("Hello   World!", ' ');
+	const char	*str = "Hello   World!";
+	const char	c = ' ';
 
-	EXPECT_STREQ(result[0], "Hello");
-	EXPECT_STREQ(result[1], "World!");
-	EXPECT_EQ(result[2], nullptr);
+	char		**res = ft_split(str, c);
 
-	free(result[0]);
-	free(result[1]);
+	EXPECT_STREQ(res[0], "Hello");
+	EXPECT_STREQ(res[1], "World!");
+	EXPECT_EQ(res[2], nullptr);
+
+	free(res[0]);
+	free(res[1]);
 }
 
 TEST(split, no_delimiters)
 {
-	char	**result = ft_split("HelloWorld!", ' ');
+	const char	*str = "HelloWorld!";
+	const char	c = ' ';
 
-	EXPECT_STREQ(result[0], "HelloWorld!");
-	EXPECT_EQ(result[1], nullptr);
+	char		**res = ft_split(str, c);
 
-	free(result[0]);
+	EXPECT_STREQ(res[0], "HelloWorld!");
+	EXPECT_EQ(res[1], nullptr);
+
+	free(res[0]);
 }
 
 TEST(split, null_delimiter)
 {
-	char	**result = ft_split("Hello World!", '\0');
+	const char	*str = "Hello World!";
+	const char	c = '\0';
 
-	EXPECT_STREQ(result[0], "Hello World!");
-	EXPECT_EQ(result[1], nullptr);
+	char		**res = ft_split(str, c);
 
-	free(result[0]);
+	EXPECT_STREQ(res[0], "Hello World!");
+	EXPECT_EQ(res[1], nullptr);
+
+	free(res[0]);
 }
 
 TEST(split, consecutive)
 {
-	char	**result = ft_split("Hello,,World!", ',');
+	const char	*str = "Hello,,World!";
+	const char	c = ',';
 
-	EXPECT_STREQ(result[0], "Hello");
-	EXPECT_STREQ(result[1], "World!");
-	EXPECT_EQ(result[2], nullptr);
+	char		**res = ft_split(str, c);
 
-	free(result[0]);
-	free(result[1]);
+	EXPECT_STREQ(res[0], "Hello");
+	EXPECT_STREQ(res[1], "World!");
+	EXPECT_EQ(res[2], nullptr);
+
+	free(res[0]);
+	free(res[1]);
 }
 
 TEST(split, edges)
 {
-	char **result = ft_split(",Hello,World!,", ',');
+	const char	*str = ",Hello,World!,";
+	const char	c = ',';
 
-	EXPECT_STREQ(result[0], "Hello");
-	EXPECT_STREQ(result[1], "World!");
-	EXPECT_EQ(result[2], nullptr);
+	char 		**res = ft_split(str, c);
 
-	free(result[0]);
-	free(result[1]);
+	EXPECT_STREQ(res[0], "Hello");
+	EXPECT_STREQ(res[1], "World!");
+	EXPECT_EQ(res[2], nullptr);
+
+	free(res[0]);
+	free(res[1]);
+}
+
+TEST(splitDeathTest, nullptr)
+{
+	EXPECT_EXIT({
+		const char	*str = nullptr;
+		const char	c = ' ';
+
+		char		**res = ft_split(str, c);
+
+		exit(!!res);
+	}, ::testing::ExitedWithCode(0), "");
 }
