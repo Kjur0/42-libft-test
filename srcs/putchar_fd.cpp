@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 21:32:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:25:28 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ TEST(putchar_fd, test)
 	fd = open("/tmp/tests/putchar_fd.txt", O_RDONLY);
 	read(fd, out, 1);
 	close(fd);
-	EXPECT_EQ(out[0], c);
+	ASSERT_EQ(out[0], c);
 }

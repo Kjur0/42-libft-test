@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 14:42:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:37:43 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:51:25 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ TEST(strjoin, basic)
 
 	char		*res = ft_strjoin(s1, s2);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "Hello, World!");
 
 	free(res);
@@ -31,6 +32,7 @@ TEST(strjoin, empty_first)
 
 	char		*res = ft_strjoin(s1, s2);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "World!");
 
 	free(res);
@@ -43,6 +45,7 @@ TEST(strjoin, empty_second)
 
 	char		*res = ft_strjoin(s1, s2);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "Hello, ");
 
 	free(res);
@@ -55,6 +58,7 @@ TEST(strjoin, both_empty)
 
 	char		*res = ft_strjoin(s1, s2);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "");
 
 	free(res);
@@ -62,7 +66,7 @@ TEST(strjoin, both_empty)
 
 TEST(strjoinDeathTest, nullptr1)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*s1 = nullptr;
 		const char	*s2 = "Hello";
 
@@ -78,7 +82,7 @@ TEST(strjoinDeathTest, nullptr1)
 
 TEST(strjoinDeathTest, nullptr2)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*s1 = "Hello";
 		const char	*s2 = nullptr;
 

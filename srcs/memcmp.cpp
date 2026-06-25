@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:24:53 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 16:16:48 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ TEST(memcmp, equal)
 	const int		c_cmp = memcmp(str1, str2, n);
 	const int		ft_cmp = ft_memcmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(memcmp, different)
@@ -34,7 +34,7 @@ TEST(memcmp, different)
 	const int		c_cmp = memcmp(str1, str2, n);
 	const int		ft_cmp = ft_memcmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(memcmp, zero_length)
@@ -46,7 +46,7 @@ TEST(memcmp, zero_length)
 	const int		c_cmp = memcmp(str1, str2, n);
 	const int		ft_cmp = ft_memcmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(memcmp, null_char)
@@ -58,7 +58,7 @@ TEST(memcmp, null_char)
 	const int		c_cmp = memcmp(str1, str2, n);
 	const int		ft_cmp = ft_memcmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(memcmp, partial_length)
@@ -70,7 +70,7 @@ TEST(memcmp, partial_length)
 	const int		c_cmp = memcmp(str1, str2, n);
 	const int		ft_cmp = ft_memcmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(memcmp, non_ascii)
@@ -84,13 +84,13 @@ TEST(memcmp, non_ascii)
 	const int		c_cmp2 = memcmp(str2, str1, n);
 	const int		ft_cmp2 = ft_memcmp(str2, str1, n);
 
-	EXPECT_EQ(c_cmp1, ft_cmp1);
-	EXPECT_EQ(c_cmp2, ft_cmp2);
+	ASSERT_EQ(c_cmp1, ft_cmp1);
+	ASSERT_EQ(c_cmp2, ft_cmp2);
 }
 
 TEST(memcmpDeathTest, nullptr1)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char		*str1 = nullptr;
 		const char		*str2 = "Hi";
 		const size_t	n = 2;
@@ -103,7 +103,7 @@ TEST(memcmpDeathTest, nullptr1)
 
 TEST(memcmpDeathTest, nullptr2)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char		*str1 = "Hi";
 		const char		*str2 = nullptr;
 		const size_t	n = 2;

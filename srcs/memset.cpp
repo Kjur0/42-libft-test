@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:35:54 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 16:28:25 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 TEST(memset, basic)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char	ft[] = "Hello, World!";
 		char	c[] = "Hello, World!";
 		int		n = 5;
@@ -29,7 +29,7 @@ TEST(memset, basic)
 
 TEST(memset, full_length)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char	ft[] = "Hello, World!";
 		char	c[] = "Hello, World!";
 		int		n = 14;
@@ -43,7 +43,7 @@ TEST(memset, full_length)
 
 TEST(memset, non_printable)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char	ft[] = "Hello, World!";
 		char	c[] = "Hello, World!";
 		int		n = 5;
@@ -57,7 +57,7 @@ TEST(memset, non_printable)
 
 TEST(memset, zero_length)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char	ft[] = "Hello, World!";
 		char	c[] = "Hello, World!";
 		int		n = 0;
@@ -71,7 +71,7 @@ TEST(memset, zero_length)
 
 TEST(memset, cast)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char	ft[20];
 		char	c[20];
 		int		n = 20;
@@ -85,7 +85,7 @@ TEST(memset, cast)
 
 TEST(memsetDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char	*ft = nullptr;
 		int		n = 5;
 

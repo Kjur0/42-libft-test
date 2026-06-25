@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:36:29 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 14:48:49 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:51:05 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ TEST(striteri, basic)
 		EXPECT_EQ(*c, '0' + i);
 		i_r++;
 	});
-	EXPECT_EQ(i_r, 10);
+	ASSERT_EQ(i_r, 10);
 }
 
 TEST(striteri, empty)
@@ -37,7 +37,7 @@ TEST(striteri, empty)
 		i_r++;
 	});
 
-	EXPECT_EQ(i_r, 0);
+	ASSERT_EQ(i_r, 0);
 }
 
 TEST(striteri, change)
@@ -49,12 +49,12 @@ TEST(striteri, change)
 		*c = 'a' + i;
 	});
 
-	EXPECT_STREQ(str, "abcdefghij");
+	ASSERT_STREQ(str, "abcdefghij");
 }
 
 TEST(striteriDeathTest, nullptr_str)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char	*str = nullptr;
 
 		ft_striteri(str, [](unsigned int i, char *c)
@@ -68,7 +68,7 @@ TEST(striteriDeathTest, nullptr_str)
 
 TEST(striteriDeathTest, nullptr_f)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char	str[] = "Hello";
 
 		ft_striteri(str, nullptr);

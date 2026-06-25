@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:56:42 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/21 15:15:51 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:48:22 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ TEST(isascii, space)
 	const int	c = !!isascii(ch);
 	const int	ft = !!ft_isascii(ch);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(isascii, digit)
@@ -30,7 +30,7 @@ TEST(isascii, digit)
 	const int	c = !!isascii(ch);
 	const int	ft = !!ft_isascii(ch);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(isascii, lowercase)
@@ -40,7 +40,7 @@ TEST(isascii, lowercase)
 	const int	c = !!isascii(ch);
 	const int	ft = !!ft_isascii(ch);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(isascii, uppercase)
@@ -50,7 +50,7 @@ TEST(isascii, uppercase)
 	const int	c = !!isascii(ch);
 	const int	ft = !!ft_isascii(ch);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(isascii, punctuation)
@@ -60,7 +60,7 @@ TEST(isascii, punctuation)
 	const int	c = !!isascii(ch);
 	const int	ft = !!ft_isascii(ch);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(isascii, null_char)
@@ -70,7 +70,7 @@ TEST(isascii, null_char)
 	const int	c = !!isascii(ch);
 	const int	ft = !!ft_isascii(ch);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(isascii, control_char)
@@ -80,7 +80,7 @@ TEST(isascii, control_char)
 	const int	c = !!isascii(ch);
 	const int	ft = !!ft_isascii(ch);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(isascii, non_ascii)
@@ -90,7 +90,7 @@ TEST(isascii, non_ascii)
 	const int	c = !!isascii(ch);
 	const int	ft = !!ft_isascii(ch);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(isascii, undefined_behavior)

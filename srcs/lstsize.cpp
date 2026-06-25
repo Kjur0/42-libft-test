@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:39:24 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:07:04 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ TEST(lstsize, single)
 
 TEST(lstsizeDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list	*list = nullptr;
 
 		int		size = ft_lstsize(list);

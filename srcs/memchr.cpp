@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:24:53 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 16:29:49 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ TEST(memchr, basic)
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(memchr, not_found)
@@ -34,7 +34,7 @@ TEST(memchr, not_found)
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(memchr, zero_length)
@@ -46,7 +46,7 @@ TEST(memchr, zero_length)
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(memchr, null_char)
@@ -58,7 +58,7 @@ TEST(memchr, null_char)
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(memchr, non_ascii)
@@ -70,7 +70,7 @@ TEST(memchr, non_ascii)
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(memchr, multiple_occurrences)
@@ -82,7 +82,7 @@ TEST(memchr, multiple_occurrences)
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(memchr, cast)
@@ -94,12 +94,12 @@ TEST(memchr, cast)
 	const char	*c = reinterpret_cast<const char *>(memchr(str, ch, n));
 	const char	*ft = reinterpret_cast<const char *>(ft_memchr(str, ch, n));
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(memchrDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char		*str = nullptr;
 		const int		ch = 1;
 		const size_t	n = 2;

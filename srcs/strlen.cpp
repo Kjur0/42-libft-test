@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:54:17 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:22:34 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ TEST(strlen, basic)
 	const size_t	c_len = strlen(str);
 	const size_t	ft_len = ft_strlen(str);
 
-	EXPECT_EQ(c_len, ft_len);
+	ASSERT_EQ(c_len, ft_len);
 }
 
 TEST(strlen, empty_string)
@@ -30,7 +30,7 @@ TEST(strlen, empty_string)
 	const size_t	c_len = strlen(str);
 	const size_t	ft_len = ft_strlen(str);
 
-	EXPECT_EQ(c_len, ft_len);
+	ASSERT_EQ(c_len, ft_len);
 }
 
 TEST(strlen, long_string)
@@ -40,7 +40,7 @@ TEST(strlen, long_string)
 	const size_t	c_len = strlen(str);
 	const size_t	ft_len = ft_strlen(str);
 
-	EXPECT_EQ(c_len, ft_len);
+	ASSERT_EQ(c_len, ft_len);
 }
 
 TEST(strlen, string_with_null_char)
@@ -50,12 +50,12 @@ TEST(strlen, string_with_null_char)
 	const size_t	c_len = strlen(str);
 	const size_t	ft_len = ft_strlen(str);
 
-	EXPECT_EQ(c_len, ft_len);
+	ASSERT_EQ(c_len, ft_len);
 }
 
 TEST(strlenDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*str = nullptr;
 
 		ft_strlen(str);

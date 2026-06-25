@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:57:19 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:04:04 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:54:57 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ TEST(tolower, non_ascii)
 	const int	c_non_ascii = tolower(non_ascii);
 	const int	ft_non_ascii = ft_tolower(non_ascii);
 
-	EXPECT_EQ(c_non_ascii, ft_non_ascii);
+	ASSERT_EQ(c_non_ascii, ft_non_ascii);
 }
 
 TEST(tolower, negative)
@@ -84,7 +84,7 @@ TEST(tolower, negative)
 	const int	c_negative = tolower(negative);
 	const int	ft_negative = ft_tolower(negative);
 
-	EXPECT_EQ(c_negative, ft_negative);
+	ASSERT_EQ(c_negative, ft_negative);
 }
 
 TEST(tolower, out_of_range)
@@ -94,7 +94,7 @@ TEST(tolower, out_of_range)
 	const int	c_out_of_range = tolower(out_of_range);
 	const int	ft_out_of_range = ft_tolower(out_of_range);
 
-	EXPECT_EQ(c_out_of_range, ft_out_of_range);
+	ASSERT_EQ(c_out_of_range, ft_out_of_range);
 }
 
 TEST(tolower, null_char)
@@ -104,7 +104,7 @@ TEST(tolower, null_char)
 	const int	c_null_char = tolower(null_char);
 	const int	ft_null_char = ft_tolower(null_char);
 
-	EXPECT_EQ(c_null_char, ft_null_char);
+	ASSERT_EQ(c_null_char, ft_null_char);
 }
 
 TEST(tolower, all_chars)
@@ -125,5 +125,5 @@ TEST(tolower, eof)
 	const int	c_eof = tolower(eof);
 	const int	ft_eof = ft_tolower(eof);
 
-	EXPECT_EQ(c_eof, ft_eof);
+	ASSERT_EQ(c_eof, ft_eof);
 }

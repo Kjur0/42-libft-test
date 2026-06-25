@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:29:36 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 22:45:53 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 TEST(memmove, move_backwards)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char		c_str[] = "hello world";
 		char		ft_str[] = "hello world";
 		const char	*c_s = c_str + 2;
@@ -33,7 +33,7 @@ TEST(memmove, move_backwards)
 
 TEST(memmove, move_forwards)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char		c_str[] = "hello world";
 		char		ft_str[] = "hello world";
 		const char	*c_s = c_str;
@@ -51,7 +51,7 @@ TEST(memmove, move_forwards)
 
 TEST(memmove, zero_length)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char		c_str[] = "hello world";
 		char		ft_str[] = "hello world";
 		const char	*c_s = c_str;
@@ -69,7 +69,7 @@ TEST(memmove, zero_length)
 
 TEST(memmove, null_char)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char		c_str[] = "hello\0world";
 		char		ft_str[] = "hello\0world";
 		const char	*c_s = c_str;
@@ -87,7 +87,7 @@ TEST(memmove, null_char)
 
 TEST(memmove, in_place)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char		c_str[] = "hello world";
 		char		ft_str[] = "hello world";
 		const char	*c_s = c_str;
@@ -105,7 +105,7 @@ TEST(memmove, in_place)
 
 TEST(memmoveDeathTest, nullptr_dst)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*str = "Hello, world!";
 		char		*ft = nullptr;
 		const int	n = 5;
@@ -118,7 +118,7 @@ TEST(memmoveDeathTest, nullptr_dst)
 
 TEST(memmoveDeathTest, nullptr_src)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*str = nullptr;
 		char		ft[13];
 		const int	n = 5;

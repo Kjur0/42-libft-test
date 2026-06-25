@@ -289,7 +289,7 @@ For these tests, `libft` is tested against `libc`
 |-----------------------|----------------------------------------------------------------|
 | equal                 | Compare `"Hello, World!"` and `"Hello, World!"`                |
 | different             | Compare `"Hello, World!"` and `"Hello. World!"`                |
-| zero_length           | Compare `"Hello, World!"` and `"Hello. World!"` with length 0  |
+| zero_length           | Compare `"Hello, World!"` and `"hello. World!"` with length 0  |
 | null_char             | Compare `"Hello\0World"` and `"Hello\0World"`                  |
 | n_less_than_length    | Compare `"Hello, World!"` and `"Hello, world!"` with length 5  |
 | n_greater_than_length | Compare `"Hello, World!"` and `"Hello, world!"` with length 20 |
@@ -317,7 +317,7 @@ For these tests, `libft` is tested against `libc`
 |----------------|---------------------------------------------------------------|
 | basic          | Compare `"Hello, World!"` and `"Hello, World!"`               |
 | different      | Compare `"Hello, World!"` and `"Hello. World!"`               |
-| zero_length    | Compare `"Hello, World!"` and `"Hello, World!"` with length 0 |
+| zero_length    | Compare `"hello, World!"` and `"Hello, World!"` with length 0 |
 | null_char      | Compare `"Hello\0World"` and `"Hello\0World"`                 |
 | partial_length | Compare `"Hello, World!"` and `"Hello, World!"` with length 5 |
 | non_ascii      | Compare `"Hello, \255World!"` and `"Hello, World!"`           |

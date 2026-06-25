@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 10:57:21 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:21:11 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:36 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ TEST(atoi, 0)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, 1)
@@ -30,7 +30,7 @@ TEST(atoi, 1)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, 42)
@@ -40,7 +40,7 @@ TEST(atoi, 42)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, overflow)
@@ -50,7 +50,7 @@ TEST(atoi, overflow)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, underflow)
@@ -60,7 +60,7 @@ TEST(atoi, underflow)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, whitespace)
@@ -70,7 +70,7 @@ TEST(atoi, whitespace)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, plus_sign)
@@ -80,7 +80,7 @@ TEST(atoi, plus_sign)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, minus_sign)
@@ -90,7 +90,7 @@ TEST(atoi, minus_sign)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, non_numeric)
@@ -100,7 +100,7 @@ TEST(atoi, non_numeric)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, empty_string)
@@ -110,7 +110,7 @@ TEST(atoi, empty_string)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, only_whitespace)
@@ -120,7 +120,7 @@ TEST(atoi, only_whitespace)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, multiple_signs)
@@ -152,7 +152,7 @@ TEST(atoi, too_large_number)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoi, too_small_number)
@@ -162,12 +162,12 @@ TEST(atoi, too_small_number)
 	const int	c = atoi(str);
 	const int	ft = ft_atoi(str);
 
-	EXPECT_EQ(c, ft);
+	ASSERT_EQ(c, ft);
 }
 
 TEST(atoiDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*str = nullptr;
 
 		ft_atoi(str);

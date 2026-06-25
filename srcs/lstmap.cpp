@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:30:51 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:31:32 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ TEST(lstmap, basic)
 	for (int i = 0; i < 3; i++)
 	{
 		int *value = (int *)current_new->content;
-		EXPECT_EQ(*value, i + 10);
+		ASSERT_EQ(*value, i + 10);
 		current_new = current_new->next;
 	}
-	EXPECT_EQ(current_new, nullptr);
+	ASSERT_EQ(current_new, nullptr);
 
 	free(new_list->next->next->content);
 	free(new_list->next->next);
@@ -58,7 +58,7 @@ TEST(lstmap, basic)
 
 TEST(lstmapDeathTest, nullptr_list)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list	*new_list = ft_lstmap(nullptr, [](void *content) -> void *
 		{
 			int	*i = (int *)content;
@@ -74,7 +74,7 @@ TEST(lstmapDeathTest, nullptr_list)
 
 TEST(lstmapDeathTest, nullptr_f)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list		*list = (t_list *)malloc(sizeof(t_list));
 		int			i = 0;
 		list->content = &i;

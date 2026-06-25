@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:39:50 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:06:58 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ TEST(strchr, basic)
 	const char	*c_result = strchr(str, c);
 	const char	*ft_result = ft_strchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strchr, not_found)
@@ -32,7 +32,7 @@ TEST(strchr, not_found)
 	const char	*c_result = strchr(str, c);
 	const char	*ft_result = ft_strchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strchr, null_terminator)
@@ -43,7 +43,7 @@ TEST(strchr, null_terminator)
 	const char	*c_result = strchr(str, c);
 	const char	*ft_result = ft_strchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strchr, empty_string)
@@ -54,7 +54,7 @@ TEST(strchr, empty_string)
 	const char	*c_result = strchr(str, c);
 	const char	*ft_result = ft_strchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strchr, multiple_occurrences)
@@ -65,7 +65,7 @@ TEST(strchr, multiple_occurrences)
 	const char	*c_result = strchr(str, c);
 	const char	*ft_result = ft_strchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strchr, non_ascii)
@@ -76,12 +76,12 @@ TEST(strchr, non_ascii)
 	const char	*c_result = strchr(str, c);
 	const char	*ft_result = ft_strchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strchrDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 	const char	*str = nullptr;
 	const int	c = 1;
 

@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:42:14 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:36:23 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:50:52 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ TEST(strdup, basic)
 	char		*c = strdup(str);
 	char		*ft = ft_strdup(str);
 
-	EXPECT_STREQ(c, ft);
+	ASSERT_NE(ft, nullptr);
+	ASSERT_STREQ(c, ft);
 
 	free(c);
 	free(ft);
@@ -33,7 +34,8 @@ TEST(strdup, empty_string)
 	char		*c = strdup(str);
 	char		*ft = ft_strdup(str);
 
-	EXPECT_STREQ(c, ft);
+	ASSERT_NE(ft, nullptr);
+	ASSERT_STREQ(c, ft);
 
 	free(c);
 	free(ft);
@@ -46,7 +48,8 @@ TEST(strdup, long_string)
 	char		*c = strdup(str);
 	char		*ft = ft_strdup(str);
 
-	EXPECT_STREQ(c, ft);
+	ASSERT_NE(ft, nullptr);
+	ASSERT_STREQ(c, ft);
 
 	free(c);
 	free(ft);
@@ -59,7 +62,8 @@ TEST(strdup, string_with_null_char)
 	char		*c = strdup(str);
 	char		*ft = ft_strdup(str);
 
-	EXPECT_STREQ(c, ft);
+	ASSERT_NE(ft, nullptr);
+	ASSERT_STREQ(c, ft);
 
 	free(c);
 	free(ft);
@@ -67,7 +71,7 @@ TEST(strdup, string_with_null_char)
 
 TEST(strdupDeathTest, nullptr)
 {
-	EXPECT_EXIT(
+	ASSERT_EXIT(
 	{
 		const char	*str = nullptr;
 

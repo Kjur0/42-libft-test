@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 16:11:47 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 11:57:53 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:50:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ TEST(split, basic)
 
 	char		**res = ft_split(str, c);
 
-	EXPECT_STREQ(res[0], "Hello");
-	EXPECT_STREQ(res[1], "World!");
-	EXPECT_EQ(res[2], nullptr);
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res[0], "Hello");
+	ASSERT_STREQ(res[1], "World!");
+	ASSERT_EQ(res[2], nullptr);
 
 	free(res[0]);
 	free(res[1]);
@@ -34,7 +35,8 @@ TEST(split, empty_string)
 
 	char		**res = ft_split(str, c);
 
-	EXPECT_EQ(res[0], nullptr);
+	ASSERT_NE(res, nullptr);
+	ASSERT_EQ(res[0], nullptr);
 }
 
 TEST(split, only_delimiters)
@@ -44,7 +46,8 @@ TEST(split, only_delimiters)
 
 	char		**res = ft_split(str, c);
 
-	EXPECT_EQ(res[0], nullptr);
+	ASSERT_NE(res, nullptr);
+	ASSERT_EQ(res[0], nullptr);
 }
 
 TEST(split, multiple_delimiters)
@@ -54,9 +57,10 @@ TEST(split, multiple_delimiters)
 
 	char		**res = ft_split(str, c);
 
-	EXPECT_STREQ(res[0], "Hello");
-	EXPECT_STREQ(res[1], "World!");
-	EXPECT_EQ(res[2], nullptr);
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res[0], "Hello");
+	ASSERT_STREQ(res[1], "World!");
+	ASSERT_EQ(res[2], nullptr);
 
 	free(res[0]);
 	free(res[1]);
@@ -69,8 +73,9 @@ TEST(split, no_delimiters)
 
 	char		**res = ft_split(str, c);
 
-	EXPECT_STREQ(res[0], "HelloWorld!");
-	EXPECT_EQ(res[1], nullptr);
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res[0], "HelloWorld!");
+	ASSERT_EQ(res[1], nullptr);
 
 	free(res[0]);
 }
@@ -82,8 +87,9 @@ TEST(split, null_delimiter)
 
 	char		**res = ft_split(str, c);
 
-	EXPECT_STREQ(res[0], "Hello World!");
-	EXPECT_EQ(res[1], nullptr);
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res[0], "Hello World!");
+	ASSERT_EQ(res[1], nullptr);
 
 	free(res[0]);
 }
@@ -95,9 +101,10 @@ TEST(split, consecutive)
 
 	char		**res = ft_split(str, c);
 
-	EXPECT_STREQ(res[0], "Hello");
-	EXPECT_STREQ(res[1], "World!");
-	EXPECT_EQ(res[2], nullptr);
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res[0], "Hello");
+	ASSERT_STREQ(res[1], "World!");
+	ASSERT_EQ(res[2], nullptr);
 
 	free(res[0]);
 	free(res[1]);
@@ -110,9 +117,10 @@ TEST(split, edges)
 
 	char 		**res = ft_split(str, c);
 
-	EXPECT_STREQ(res[0], "Hello");
-	EXPECT_STREQ(res[1], "World!");
-	EXPECT_EQ(res[2], nullptr);
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res[0], "Hello");
+	ASSERT_STREQ(res[1], "World!");
+	ASSERT_EQ(res[2], nullptr);
 
 	free(res[0]);
 	free(res[1]);
@@ -120,7 +128,7 @@ TEST(split, edges)
 
 TEST(splitDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*str = nullptr;
 		const char	c = ' ';
 

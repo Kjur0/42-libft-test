@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 15:06:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:25:47 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 TEST(lstclear, basic)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list	*list1 = (t_list *)malloc(sizeof(t_list));
 		t_list	*list2 = (t_list *)malloc(sizeof(t_list));
 		t_list	*list3 = (t_list *)malloc(sizeof(t_list));
@@ -40,7 +40,7 @@ TEST(lstclear, basic)
 
 TEST(lstclearDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		ft_lstclear(nullptr, free);
 
 		exit(0);
@@ -49,7 +49,7 @@ TEST(lstclearDeathTest, nullptr)
 
 TEST(lstclearDeathTest, nullptr_list)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list	*list = nullptr;
 
 		ft_lstclear(&list, free);
@@ -60,7 +60,7 @@ TEST(lstclearDeathTest, nullptr_list)
 
 TEST(lstclearDeathTest, nullptr_del)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list		*lst = (t_list *)malloc(sizeof(t_list));
 		int			*content = (int *)malloc(sizeof(int));
 		lst->content = content;
@@ -79,7 +79,7 @@ TEST(lstclearDeathTest, nullptr_del)
 
 TEST(lstclearDeathTest, nullptr_content)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list	*lst = (t_list *)malloc(sizeof(t_list));
 		lst->content = nullptr;
 		lst->next = nullptr;

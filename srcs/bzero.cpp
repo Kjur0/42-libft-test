@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 13:24:53 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 22:21:07 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 TEST(bzero, basic)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char			c_str[] = "Hello, world!";
 		char			ft_str[] = "Hello, world!";
 		const size_t	n = 5;
@@ -30,7 +30,7 @@ TEST(bzero, basic)
 
 TEST(bzero, zero_length)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char			c_str[] = "Hello, world!";
 		char			ft_str[] = "Hello, world!";
 		const size_t	n = 0;
@@ -45,7 +45,7 @@ TEST(bzero, zero_length)
 
 TEST(bzero, full_length)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char			c_str[] = "Hello, world!";
 		char			ft_str[] = "Hello, world!";
 		const size_t	n = 14;
@@ -59,7 +59,7 @@ TEST(bzero, full_length)
 
 TEST(bzero, partial_length)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char			c_str[] = "Hello, world!";
 		char			ft_str[] = "Hello, world!";
 		const size_t	n = 7;
@@ -73,7 +73,7 @@ TEST(bzero, partial_length)
 
 TEST(bzero, non_ascii)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char			c_str[] = "Héllo, wörld!";
 		char			ft_str[] = "Héllo, wörld!";
 		const size_t	n = 5;
@@ -87,7 +87,7 @@ TEST(bzero, non_ascii)
 
 TEST(bzeroDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		char			*ptr = nullptr;
 		const size_t	n = 5;
 

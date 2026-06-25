@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 16:04:08 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:38:54 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:54:18 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ TEST(strtrim, basic)
 
 	char		*res = ft_strtrim(str, set);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "Hello, World!");
 
 	free(res);
@@ -31,6 +32,7 @@ TEST(strtrim, no_trim)
 
 	char		*res = ft_strtrim(str, set);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "Hello, World!");
 
 	free(res);
@@ -43,6 +45,7 @@ TEST(strtrim, all_trim)
 
 	char		*res = ft_strtrim(str, set);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "");
 
 	free(res);
@@ -55,6 +58,7 @@ TEST(strtrim, empty_set)
 
 	char		*res = ft_strtrim(str, set);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "Hello, World!");
 
 	free(res);
@@ -62,7 +66,7 @@ TEST(strtrim, empty_set)
 
 TEST(strtrimDeathTest, nullptr_set)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*set = nullptr;
 		const char	*str = "Hello, World!";
 
@@ -78,7 +82,7 @@ TEST(strtrimDeathTest, nullptr_set)
 
 TEST(strtrimDeathTest, nullptr_str)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*set = " \t";
 		const char	*str = nullptr;
 

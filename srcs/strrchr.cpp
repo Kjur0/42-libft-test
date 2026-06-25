@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:39:50 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/23 23:08:13 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ TEST(strrchr, basic)
 	const char	*c_result = strrchr(str, c);
 	const char	*ft_result = ft_strrchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strrchr, not_found)
@@ -32,7 +32,7 @@ TEST(strrchr, not_found)
 	const char	*c_result = strrchr(str, c);
 	const char	*ft_result = ft_strrchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strrchr, null_terminator)
@@ -43,7 +43,7 @@ TEST(strrchr, null_terminator)
 	const char	*c_result = strrchr(str, c);
 	const char	*ft_result = ft_strrchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strrchr, empty_string)
@@ -54,7 +54,7 @@ TEST(strrchr, empty_string)
 	const char	*c_result = strrchr(str, c);
 	const char	*ft_result = ft_strrchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strrchr, multiple_occurrences)
@@ -65,7 +65,7 @@ TEST(strrchr, multiple_occurrences)
 	const char	*c_result = strrchr(str, c);
 	const char	*ft_result = ft_strrchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strrchr, non_ascii)
@@ -76,12 +76,12 @@ TEST(strrchr, non_ascii)
 	const char	*c_result = strrchr(str, c);
 	const char	*ft_result = ft_strrchr(str, c);
 
-	EXPECT_EQ(c_result, ft_result);
+	ASSERT_EQ(c_result, ft_result);
 }
 
 TEST(strrchrDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 	const char	*str = nullptr;
 	const int	c = 1;
 

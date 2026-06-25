@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:52:22 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:19:48 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ TEST(lstadd_back, null_list)
 
 TEST(lstadd_backDeathTest, nullptr_list)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list	*list = (t_list *)malloc(sizeof(t_list));
 		list->content = nullptr;
 		list->next = nullptr;
@@ -79,7 +79,7 @@ TEST(lstadd_backDeathTest, nullptr_list)
 
 TEST(lstadd_backDeathTest, nullptr_new)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list		*list = (t_list *)malloc(sizeof(t_list));
 		list->content = nullptr;
 		list->next = nullptr;

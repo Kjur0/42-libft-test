@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:55:22 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 16:05:52 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:52:54 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ TEST(strncmp, equal)
 	const int		c_cmp = strncmp(str1, str2, n);
 	const int		ft_cmp = ft_strncmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(strncmp, different)
@@ -34,19 +34,19 @@ TEST(strncmp, different)
 	const int		c_cmp = strncmp(str1, str2, n);
 	const int		ft_cmp = ft_strncmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(strncmp, zero_length)
 {
-	const char		*str1 = "Hello, world!";
+	const char		*str1 = "hello, world!";
 	const char		*str2 = "Hello, World!";
 	const size_t	n = 0;
 
 	const int		c_cmp = strncmp(str1, str2, n);
 	const int		ft_cmp = ft_strncmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(strncmp, null_char)
@@ -58,7 +58,7 @@ TEST(strncmp, null_char)
 	const int		c_cmp = strncmp(str1, str2, n);
 	const int		ft_cmp = ft_strncmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(strncmp, n_less_than_length)
@@ -70,7 +70,7 @@ TEST(strncmp, n_less_than_length)
 	const int		c_cmp = strncmp(str1, str2, n);
 	const int		ft_cmp = ft_strncmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(strncmp, n_greater_than_length)
@@ -82,7 +82,7 @@ TEST(strncmp, n_greater_than_length)
 	const int		c_cmp = strncmp(str1, str2, n);
 	const int		ft_cmp = ft_strncmp(str1, str2, n);
 
-	EXPECT_EQ(c_cmp, ft_cmp);
+	ASSERT_EQ(c_cmp, ft_cmp);
 }
 
 TEST(strncmp, non_ascii)
@@ -117,7 +117,7 @@ TEST(strncmp, non_ascii_different)
 
 TEST(strncmpDeathTest, nullptr1)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char		*str1 = nullptr;
 		const char		*str2 = "Hi";
 		const size_t	n = 2;
@@ -130,7 +130,7 @@ TEST(strncmpDeathTest, nullptr1)
 
 TEST(strncmpDeathTest, nullptr2)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char		*str1 = "Hi";
 		const char		*str2 = nullptr;
 		const size_t	n = 2;

@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/20 14:59:06 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:55:34 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 TEST(lstdelone, basic)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list		*lst = (t_list *)malloc(sizeof(t_list));
 		int			*content = (int *)malloc(sizeof(int));
 		lst->content = content;
@@ -32,7 +32,7 @@ TEST(lstdelone, basic)
 
 TEST(lstdeloneDeathTest, nullptr_node)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		ft_lstdelone(nullptr, free);
 
 		exit(0);
@@ -41,7 +41,7 @@ TEST(lstdeloneDeathTest, nullptr_node)
 
 TEST(lstdeloneDeathTest, nullptr_del)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list		*lst = (t_list *)malloc(sizeof(t_list));
 		int			*content = (int *)malloc(sizeof(int));
 		lst->content = content;
@@ -60,7 +60,7 @@ TEST(lstdeloneDeathTest, nullptr_del)
 
 TEST(lstdeloneDeathTest, nullptr_content)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		t_list	*lst = (t_list *)malloc(sizeof(t_list));
 		lst->content = nullptr;
 		lst->next = nullptr;

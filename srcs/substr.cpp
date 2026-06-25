@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 14:32:30 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 11:15:15 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:54:35 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ TEST(substr, basic)
 
 	char				*res = ft_substr(str, start, len);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "World");
 
 	free(res);
@@ -33,6 +34,7 @@ TEST(substr, start_beyond_length)
 
 	char				*res = ft_substr(str, start, len);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "");
 
 	free(res);
@@ -46,6 +48,7 @@ TEST(substr, length_exceeds)
 
 	char				*res = ft_substr(str, start, len);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "ello");
 
 	free(res);
@@ -59,6 +62,7 @@ TEST(substr, zero_length)
 
 	char				*res = ft_substr(str, start, len);
 
+	ASSERT_NE(res, nullptr);
 	ASSERT_STREQ(res, "");
 
 	free(res);
@@ -66,7 +70,7 @@ TEST(substr, zero_length)
 
 TEST(substrDeathTest, nullptr)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char			*str = nullptr;
 		const unsigned int	start = 1;
 		const size_t		len = 5;

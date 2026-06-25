@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/19 13:40:28 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/24 15:38:24 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:53:14 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ TEST(strmapi, index)
 		return ('0' + i);
 	});
 
-	EXPECT_STREQ(res, "0123456789");
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res, "0123456789");
 
 	free(res);
 }
@@ -38,7 +39,8 @@ TEST(strmapi, toupper)
 		return (toupper(c));
 	});
 
-	EXPECT_STREQ(res, "HELLO WORLD!");
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res, "HELLO WORLD!");
 
 	free(res);
 }
@@ -53,7 +55,8 @@ TEST(strmapi, tolower)
 		return (tolower(c));
 	});
 
-	EXPECT_STREQ(res, "hello world!");
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res, "hello world!");
 
 	free(res);
 }
@@ -68,14 +71,15 @@ TEST(strmapi, empty)
 		return (c);
 	});
 
-	EXPECT_STREQ(res, "");
+	ASSERT_NE(res, nullptr);
+	ASSERT_STREQ(res, "");
 
 	free(res);
 }
 
 TEST(strmapiDeathTest, nullptr_str)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*str = nullptr;
 
 		char		*res = ft_strmapi(str, [](unsigned int i, char c) -> char
@@ -90,7 +94,7 @@ TEST(strmapiDeathTest, nullptr_str)
 
 TEST(strmapiDeathTest, nullptr_f)
 {
-	EXPECT_EXIT({
+	ASSERT_EXIT({
 		const char	*str = "HELLO";
 
 		char		*res = ft_strmapi(str, nullptr);
