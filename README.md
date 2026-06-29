@@ -295,6 +295,7 @@ For these tests, `libft` is tested against `libc`
 | n_greater_than_length | Compare `"Hello, World!"` and `"Hello, world!"` with length 20 |
 | non_ascii             | Compare `"Héllo, wörld!"` and `"Héllo, wörld!"`                |
 | non_ascii_different   | Compare `"Héllo, wörld!"` and `"Héllo, world?"`                |
+| shorter               | Compare `"Hello"` and `"Hello, World!"` with length 20         |
 | nullptr1[^dt]         | Graceful `segfault` handling                                   |
 | nullptr2[^dt]         | Graceful `segfault` handling                                   |
 
@@ -330,7 +331,9 @@ For these tests, `libft` is tested against `libc`
 |-------------------------|----------------------------------------------------|
 | basic                   | Find `"world"` in `"Hello, world!"` with length 13 |
 | not_found               | Find `"42"` in `"Hello, world!"` with length 13    |
+| empty_str               | Find `"world"` in `""` with length 13              |
 | empty_to_find           | Find `""` in `"Hello, world!"` with length 13      |
+| both_empty              | Find `""` in `""` with length 13                   |
 | length_limit            | Find `"world"` in `"Hello, world!"` with length 5  |
 | null_char               | Find `"world"` in `"Hello\0world!"` with length 13 |
 | to_find_longer_than_str | Find `"Hello, world!"` in `"Hello"` with length 13 |

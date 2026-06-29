@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 18:55:07 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/25 17:47:24 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/29 23:48:58 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,33 @@ TEST(strnstr, not_found)
 	ASSERT_EQ(c_res, ft_res);
 }
 
+TEST(strnstr, empty_str)
+{
+	const char		*str = "";
+	const char		*to_find = "world";
+	const size_t	n = 13;
+
+	const char		*c_res = strnstr(str, to_find, n);
+	const char		*ft_res = ft_strnstr(str, to_find, n);
+
+	ASSERT_EQ(c_res, ft_res);
+}
+
 TEST(strnstr, empty_to_find)
 {
 	const char		*str = "Hello, world!";
+	const char		*to_find = "";
+	const size_t	n = 13;
+
+	const char		*c_res = strnstr(str, to_find, n);
+	const char		*ft_res = ft_strnstr(str, to_find, n);
+
+	ASSERT_EQ(c_res, ft_res);
+}
+
+TEST(strnstr, both_empty)
+{
+	const char		*str = "";
 	const char		*to_find = "";
 	const size_t	n = 13;
 

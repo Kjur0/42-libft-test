@@ -6,7 +6,7 @@
 /*   By: kjurkows <kjurkows@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 16:55:22 by kjurkows          #+#    #+#             */
-/*   Updated: 2026/06/25 17:52:54 by kjurkows         ###   ########.fr       */
+/*   Updated: 2026/06/29 23:46:10 by kjurkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,21 @@ TEST(strncmp, non_ascii_different)
 	const char		*str1 = "Héllo, w\255rld!";
 	const char		*str2 = "Héllo, world?";
 	const size_t	n = 14;
+
+	const int		c_cmp1 = strncmp(str1, str2, n);
+	const int		ft_cmp1 = ft_strncmp(str1, str2, n);
+	const int		c_cmp2 = strncmp(str2, str1, n);
+	const int		ft_cmp2 = ft_strncmp(str2, str1, n);
+
+	EXPECT_EQ(c_cmp1, ft_cmp1);
+	EXPECT_EQ(c_cmp2, ft_cmp2);
+}
+
+TEST(strncmp, shorter)
+{
+	const char		*str1 = "Hello";
+	const char		*str2 = "Hello, world!";
+	const size_t	n = 20;
 
 	const int		c_cmp1 = strncmp(str1, str2, n);
 	const int		ft_cmp1 = ft_strncmp(str1, str2, n);
